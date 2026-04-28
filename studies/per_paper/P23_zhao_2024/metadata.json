@@ -1,0 +1,73 @@
+{
+  "paper_id": "P23_zhao_2024",
+  "title": "Autoencoder Enhanced Realised GARCH on Volatility Forecasting",
+  "year": "2024",
+  "venue": "arXiv q-fin",
+  "citations": 0,
+  "doi": "",
+  "arxiv_id": "2411.17136",
+  "abstract": "Realised volatility has become increasingly prominent in volatility forecasting due to its ability to capture intraday price fluctuations. With a growing variety of realised volatility estimators, each with unique advantages and limitations, selecting an optimal estimator may introduce challenges. In this thesis, aiming to synthesise the impact of various realised volatility measures on volatility forecasting, we propose an extension of the Realised GARCH model that incorporates an autoencoder-generated synthetic realised measure, combining the information from multiple realised measures in a nonlinear manner. Our proposed model extends existing linear methods, such as Principal Component Analysis and Independent Component Analysis, to reduce the dimensionality of realised measures. The empirical evaluation, conducted across four major stock markets from January 2000 to June 2022 and including the period of COVID-19, demonstrates both the feasibility of applying an autoencoder to synthesise volatility measures and the superior effectiveness of the proposed model in one-step-ahead rolling volatility forecasting. The model exhibits enhanced flexibility in parameter estimations across each rolling window, outperforming traditional linear approaches. These findings indicate that nonlinear dimension reduction offers further adaptability and flexibility in improving the synthetic realised measure, with promising implications for future volatility forecasting applications. \u2217 Business School, The University of Sydney Discipline of Business Analytics, The University of Sydney \u2021 Department of Economics and Statistics, University of Salerno \u00a7 School of Economics, Beijing Institute of Technology \u2020 1 Contents",
+  "abstract_word_count": 228,
+  "code_urls": [],
+  "all_code_urls": [],
+  "data_source_mentions": [],
+  "rds_score": 0,
+  "rds_reason": "no code, no public data detected",
+  "rds_confidence": 0.5,
+  "needs_review": true,
+  "model_families": {
+    "garch_family": [
+      "egarch",
+      "garch",
+      "realized garch"
+    ],
+    "ml_family": [
+      "deep learning",
+      "lasso",
+      "machine learning",
+      "neural network",
+      "support vector"
+    ],
+    "classical": [
+      "stochastic volatility"
+    ],
+    "ensemble": [
+      "combination",
+      "ensemble"
+    ]
+  },
+  "n_model_families": 4,
+  "asset_classes": [
+    "equity",
+    "crypto"
+  ],
+  "headline_phrases": "",
+  "reproducibility_statement": "",
+  "n_tables": 4,
+  "n_figures": 6,
+  "section_headings": [
+    "Abstract",
+    "1. Introduction",
+    "2. Literature Review",
+    "Introduction to GARCH Models . . . . . . . . . . . . . . . . . . . ",
+    "3. Methodology",
+    "Model Estimation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 20",
+    "4. Empirical Study",
+    "Data Description . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 23",
+    "5. Conclusion and Future Research",
+    "Conclusion . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 37",
+    "References",
+    "Introduction",
+    "Literature Review",
+    "Introduction to GARCH Models",
+    "Methodology",
+    "Models",
+    "the model as a function of weight parameters",
+    "Model Estimation",
+    "Data Description",
+    "Conclusion and Future Research",
+    "Conclusion"
+  ],
+  "n_sections_detected": 21,
+  "pdf_size_kb": 1446
+}

@@ -1,0 +1,91 @@
+{
+  "paper_id": "P27_tondapu_2024",
+  "title": "Analyzing Currency Fluctuations: A Comparative Study of GARCH EWMA and IV Models for GBP/USD and EUR/GBP Pairs",
+  "year": "2024",
+  "venue": "arXiv q-fin",
+  "citations": 0,
+  "doi": "",
+  "arxiv_id": "2402.07435",
+  "abstract": "In this study, we examine the fluctuation in the value of the Great Britain Pound (GBP). We focus particularly on its relationship with the United States Dollar (USD) and the Euro (EUR) currency pairs. Utilizing data from June 15, 2018, to June 15, 2023, we apply various mathematical models to assess their effectiveness in predicting the 20-day variation in the pairs' daily returns. Our analysis involves the implementation of Exponentially Weighted Moving Average (EWMA), Generalized Autoregressive Conditional Heteroskedasticity (GARCH) models, and Implied Volatility (IV) models. To evaluate their performance, we compare the accuracy of their predictions using Root Mean Square Error (RMSE) and Mean Absolute Error (MAE) metrics. We delve into the intricacies of GARCH models, examining their statistical characteristics when applied to the provided dataset. Our findings suggest the existence of asymmetric returns in the EUR/GBP pair, while such evidence is inconclusive for the GBP/USD pair. Additionally, we observe that GARCH-type models better fit the data when assuming residuals follow a standard t-distribution rather than a standard normal distribution. Furthermore, we investigate the efficacy of different forecasting techniques within GARCH-type models. Comparing rolling window forecasts to expanding window forecasts, we find no definitive superiority in either approach across the tested scenarios. Our experiments reveal that for the GBP/USD pair, the most accurate volatility forecasts stem from the utilization of GARCH models employing a rolling window methodology. Conversely, for the EUR/GBP pair, optimal forecasts are derived from GARCH models and Ordinary Least Squares (OLS) models incorporating the annualized implied volatility of the exchange rate as an independent variable.",
+  "abstract_word_count": 258,
+  "code_urls": [],
+  "all_code_urls": [],
+  "data_source_mentions": [
+    "yahoo finance"
+  ],
+  "rds_score": 1,
+  "rds_reason": "public_data(1) but no code URL",
+  "rds_confidence": 0.7,
+  "needs_review": false,
+  "model_families": {
+    "garch_family": [
+      "egarch",
+      "figarch",
+      "garch",
+      "gjr-garch",
+      "igarch",
+      "tgarch"
+    ],
+    "ml_family": [
+      "attention",
+      "deep learning",
+      "lstm",
+      "machine learning",
+      "neural network",
+      "support vector",
+      "svr"
+    ],
+    "classical": [
+      "ewma",
+      "implied volatility",
+      "stochastic volatility"
+    ],
+    "ensemble": [
+      "combination",
+      "ensemble"
+    ]
+  },
+  "n_model_families": 4,
+  "asset_classes": [
+    "equity",
+    "crypto",
+    "fx",
+    "commodity"
+  ],
+  "headline_phrases": "we find no definitive superiority in either approach across the tested scenarios",
+  "reproducibility_statement": "",
+  "n_tables": 0,
+  "n_figures": 0,
+  "section_headings": [
+    "Models for GBP/USD and EUR/GBP Pairs",
+    "Abstract",
+    "1. Introduction",
+    "2. Literature Review",
+    "2. General Volatility Modelling",
+    "2. Exchange Rate Specific Volatility Modelling",
+    "3. Empirical Study",
+    "3. Data Analysis",
+    "models",
+    "3. Model Analysis",
+    "3. Exponentially Weighted Moving Average",
+    "3. GARCH Model",
+    "3. Options Implied Standard Deviation",
+    "3. Evaluation Metrics",
+    "3. In Sample",
+    "3. Out Sample",
+    "4. Result Analysis",
+    "4. Exponentially Weighted Moving Average",
+    "4. Forecasts",
+    "4. GARCH",
+    "4. In Sample Fit",
+    "Models With Rolling Expanding Forecasting Method",
+    "4. Implied Volatility Model",
+    "Model",
+    "Model 1",
+    "Model 2",
+    "5. Conclusions",
+    "References"
+  ],
+  "n_sections_detected": 28,
+  "pdf_size_kb": 1299
+}

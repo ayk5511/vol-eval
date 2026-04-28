@@ -1,0 +1,59 @@
+{
+  "paper_id": "P07_hong_2023",
+  "title": "Volatility Estimation and Forecasts Based on Price Durations",
+  "year": "2023",
+  "venue": "Journal of Financial Econometrics",
+  "citations": 18,
+  "doi": "10.1093/jjfinec/nbab006",
+  "arxiv_id": "",
+  "abstract": "We investigate price duration variance estimators that have long been neglected in the literature. In particular, we consider simple-to-construct non-parametric duration estimators, and parametric price duration estimators using autoregressive conditional duration specifications. This paper shows i) how price duration estimators can be used for the estimation and forecasting of the integrated variance of an underlying semi-martingale price process and ii) how they are affected by discrete and irregular spacing of observations, market microstructure noise and finite price jumps. Specifically, we contribute to the literature by constructing the asymptotic theory for the non-parametric estimator with and without the presence of bid/ask spread and time discreteness. Further, we provide guidance about how our estimators can best be implemented in practice by appropriately selecting a threshold parameter that defines a price duration event, or by averaging over a range of non-parametric duration estimators. We also provide simulation and forecasting evidence that price duration estimators can extract relevant information from high-frequency data better and produce more accurate forecasts than competing realized volatility and option-implied variance estimators, when considered in isolation or as part of a forecasting combination setting.",
+  "abstract_word_count": 184,
+  "code_urls": [],
+  "all_code_urls": [],
+  "data_source_mentions": [],
+  "rds_score": 0,
+  "rds_reason": "no code, no public data detected",
+  "rds_confidence": 0.5,
+  "needs_review": true,
+  "model_families": {
+    "garch_family": [
+      "garch"
+    ],
+    "har_family": [
+      "har model"
+    ],
+    "ml_family": [
+      "attention"
+    ],
+    "classical": [
+      "implied volatility",
+      "stochastic volatility"
+    ],
+    "ensemble": [
+      "combination"
+    ]
+  },
+  "n_model_families": 5,
+  "asset_classes": [
+    "equity",
+    "crypto",
+    "commodity"
+  ],
+  "headline_phrases": "",
+  "reproducibility_statement": "",
+  "n_tables": 32,
+  "n_figures": 11,
+  "section_headings": [
+    "Abstract",
+    "Introduction",
+    "Data properties",
+    "Results for the other stocks are available from the authors upon request",
+    "10. RKN P",
+    "Conclusions",
+    "References",
+    "11. T SRV",
+    "15. AT M"
+  ],
+  "n_sections_detected": 9,
+  "pdf_size_kb": 1253
+}

@@ -1,0 +1,31 @@
+paper_id,year,venue,citations,automated_rds,final_rds,data_source_disclosed,code_url,manual_override_reason,confidence
+P01_christensen_2023,2023,Journal of Financial Econometrics,85,0,0,NYSE TAQ database + OptionMetrics IvyDB (both paywalled via WRDS),,no override (paywalled disclosed),high
+P02_bucci_2020,2020,Journal of Financial Econometrics,105,0,0,Datastream (Refinitiv paywalled),,no override (paywalled disclosed),high
+P03_luong_2018,2018,JRFM (MDPI),53,0,1,"S&P 500 5-min intraday data, source described but not named explicitly; 2008-2014 sample",, manual: realized-vol literature standard is Oxford-Man Library or commercial; paper does not disclose explicit URL but data described as standard so likely RDS-1,medium
+P04_bennedsen_2022,2022,Journal of Financial Econometrics,54,0,0,E-mini S&P 500 futures TAQ data (paywalled via WRDS),,no override (paywalled disclosed),high
+P05_buccheri_2021,2021,Journal of Financial Econometrics,20,0,0,Thomson Reuters tick data (paywalled),,no override (paywalled disclosed),high
+P06_caporin_2024,2024,Journal of Financial Econometrics,2,0,0,Kibot.com (commercial; ~$50 per dataset),,no override (paywalled but cheap; strict reading says RDS-0),high
+P07_hong_2023,2023,Journal of Financial Econometrics,18,0,0,NYSE TAQ database (paywalled via WRDS),,no override (paywalled disclosed),high
+P08_zhuo_2024,2024,Risks (MDPI),8,0,1,"S&P 500 + 2 commodities realized variance from high-frequency data; source not explicitly named","",manual: realized-vol papers typically use Oxford-Man Library (free); ambiguous,low
+P09_rubio_2022,2022,Mathematics (MDPI),44,1,1,Colombian stock prices (sample described),,no override (data described as public exchange data),medium
+P10_shen_2021,2021,JRFM (MDPI),39,1,1,coinmarketcap.com (free public),,no override,high
+P11_ersin_2023,2023,Mathematics (MDPI),23,1,1,public macro variables + market index (source described),,no override,medium
+P12_kim_2021,2021,Mathematics (MDPI),34,1,1,coinmarketcap.com (free public),,no override,high
+P13_wang_2023,2023,Mathematics (MDPI),6,0,1,JoinQuant Chinese quant platform; CSI300 (publicly accessible Chinese index),,manual: JoinQuant has free tier; CSI300 is widely available,medium
+P14_zahid_2022,2022,Risks (MDPI),21,0,1,Bitcoin OHLCV (source not explicitly named in text I extracted),,manual: Bitcoin OHLCV is commodity-level public from any free API,medium
+P15_mostafa_2021,2021,JRFM (MDPI),28,1,1,top cryptocurrencies daily data (likely public crypto exchange),,no override,medium
+P16_bohte_2019,2019,JRFM (MDPI),25,0,1,"BTC, ETH, LTC, XRP daily; 'Bloomberg' references are citations not data source",,manual: crypto data is widely public; paper does not disclose explicit source but data is RDS-1 by access,medium
+P17_dipersio_2021,2021,Risks (MDPI),17,0,1,S&P 500 2000-2020 daily,,manual: S&P 500 daily is freely available from Yahoo/FRED; standard public index,medium
+P18_lei_2021,2021,Mathematics (MDPI),16,0,0,"high-frequency stock + Baidu web search index; sources not clearly disclosed","",no override (high-freq stock is typically paywalled CSI; web index source unclear),low
+P19_zhang_2025,2025,Mathematics (MDPI),8,0,0,Wind database (Chinese commercial paywalled),,no override (paywalled disclosed),high
+P20_lux_2020,2020,arXiv q-fin,0,1,1,DAX-30 stock daily prices (public),,no override,high
+P21_aradi_2020,2020,arXiv q-fin,0,1,1,realized vol via high-frequency data (Oxford-Man Library cited),,no override,high
+P22_bucci_2024,2024,arXiv q-fin,0,0,0,LOBSTER limit-order-book database (academic paywalled subscription),,no override (paywalled disclosed),high
+P23_zhao_2024,2024,arXiv q-fin,0,0,1,S&P 500 5-min intraday data (source not explicitly named),,manual: S&P 500 RV data is standard from Oxford-Man Library or similar free source,medium
+P24_kumar_2024,2024,arXiv q-fin,0,1,1,Yahoo Finance + similar public sources,,no override,high
+P25_xu_2024,2024,arXiv q-fin,0,2,2,Yahoo Finance + Zenodo code deposit,https://zenodo.org/record/7975104,no override,high
+P26_roszyk_2024,2024,arXiv q-fin,0,1,1,VIX + S&P 500 daily (Yahoo-style public),,no override,high
+P27_tondapu_2024,2024,arXiv q-fin,0,1,1,GBP/USD + EUR/GBP FX (public exchange data),,no override,high
+P28_wei_2025,2025,arXiv q-fin,0,1,1,public stock indices,,no override,medium
+P29_wang_2025,2025,arXiv q-fin,0,0,0,Refinitiv data platform (paywalled),,no override (paywalled disclosed),high
+P30_blake_2025,2025,arXiv q-fin,0,0,0,Bloomberg Terminal SPX 5-min (paywalled disclosed),,no override (paywalled disclosed),high

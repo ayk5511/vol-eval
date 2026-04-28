@@ -1,0 +1,70 @@
+{
+  "paper_id": "P12_kim_2021",
+  "title": "Forecasting the Volatility of the Cryptocurrency Market by GARCH and Stochastic Volatility",
+  "year": "2021",
+  "venue": "Mathematics (MDPI)",
+  "citations": 34,
+  "doi": "10.3390/math9141614",
+  "arxiv_id": "",
+  "abstract": "Abstract: This study examines the volatility of nine leading cryptocurrencies by market capitalization\u2014 Bitcoin, XRP, Ethereum, Bitcoin Cash, Stellar, Litecoin, TRON, Cardano, and IOTA-by using a Bayesian Stochastic Volatility (SV) model and several GARCH models. We find that when we deal with extremely volatile financial data, such as cryptocurrencies, the SV model performs better than the GARCH family models. Moreover, the forecasting errors of the SV model, compared with the GARCH models, tend to be more accurate as forecast time horizons are longer. This deepens our insight into volatility forecast models in the complex market of cryptocurrencies.",
+  "abstract_word_count": 97,
+  "code_urls": [],
+  "all_code_urls": [],
+  "data_source_mentions": [
+    "coinmarketcap",
+    "coinmarketcap.com"
+  ],
+  "rds_score": 1,
+  "rds_reason": "public_data(2) but no code URL",
+  "rds_confidence": 0.7,
+  "needs_review": false,
+  "model_families": {
+    "garch_family": [
+      "garch",
+      "igarch",
+      "tgarch"
+    ],
+    "ml_family": [
+      "attention",
+      "neural network"
+    ],
+    "classical": [
+      "arma",
+      "exponential smoothing",
+      "stochastic volatility"
+    ]
+  },
+  "n_model_families": 3,
+  "asset_classes": [
+    "equity",
+    "crypto",
+    "fx",
+    "commodity"
+  ],
+  "headline_phrases": "We find that when we deal with extremely volatile financial data, such as cryptocurrencies, the SV model performs better than the GARCH family models",
+  "reproducibility_statement": "",
+  "n_tables": 10,
+  "n_figures": 6,
+  "section_headings": [
+    "1. Introduction",
+    "2. Materials and Methods",
+    "2. GARCH Models",
+    "discussion on the nested GARCH models is given in [7]",
+    "2. Stochastic Volatility Model",
+    "2. Volatility Forecast Evaluation",
+    "3. Results",
+    "results",
+    "results onto",
+    "results for",
+    "4. Principal Component Analysis",
+    "model",
+    "models",
+    "model comparison",
+    "data (periods 1 and 2)",
+    "4. Discussion",
+    "5. Conclusions",
+    "References"
+  ],
+  "n_sections_detected": 18,
+  "pdf_size_kb": 1131
+}

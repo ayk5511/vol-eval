@@ -1,0 +1,52 @@
+{
+  "paper_id": "P21_aradi_2020",
+  "title": "Volatility Forecasting with 1-dimensional CNNs via transfer learning",
+  "year": "2020",
+  "venue": "arXiv q-fin",
+  "citations": 0,
+  "doi": "",
+  "arxiv_id": "2009.05508",
+  "abstract": "Volatility is a natural risk measure in finance as it quantifies the variation of stock prices. A frequently considered problem in mathematical finance is to forecast different estimates of volatility. What makes it promising to use deep learning methods for the prediction of volatility is the fact, that stock price returns satisfy some common properties, referred to as \u2018stylized facts\u2019. Also, the amount of data used can be high, favoring the application of neural networks. We used 10 years of daily prices for hundreds of frequently traded stocks, and compared different CNN architectures: some networks use only the considered stock, but we tried out a construction which, for training, uses much more series, but not the considered stocks. Essentially, this is an application of transfer learning, and its performance turns out to be much better in terms of prediction error. We also compare our dilated causal CNNs to the classical ARIMA method using an automatic model selection procedure.",
+  "abstract_word_count": 158,
+  "code_urls": [],
+  "all_code_urls": [],
+  "data_source_mentions": [
+    "quandl"
+  ],
+  "rds_score": 1,
+  "rds_reason": "public_data(1) but no code URL",
+  "rds_confidence": 0.7,
+  "needs_review": false,
+  "model_families": {
+    "ml_family": [
+      "cnn",
+      "deep learning",
+      "machine learning",
+      "neural network"
+    ],
+    "classical": [
+      "arima"
+    ]
+  },
+  "n_model_families": 2,
+  "asset_classes": [
+    "equity",
+    "crypto",
+    "commodity"
+  ],
+  "headline_phrases": "",
+  "reproducibility_statement": "",
+  "n_tables": 1,
+  "n_figures": 2,
+  "section_headings": [
+    "Abstract",
+    "Introduction",
+    "Data",
+    "Results",
+    "Conclusions and future perspectives",
+    "data would seem more encouraging",
+    "References"
+  ],
+  "n_sections_detected": 7,
+  "pdf_size_kb": 275
+}

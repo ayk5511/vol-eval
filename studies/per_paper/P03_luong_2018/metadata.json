@@ -1,0 +1,82 @@
+{
+  "paper_id": "P03_luong_2018",
+  "title": "Forecasting of Realised Volatility with the Random Forests Algorithm",
+  "year": "2018",
+  "venue": "Journal of Risk and Financial Management (MDPI)",
+  "citations": 53,
+  "doi": "10.3390/jrfm11040061",
+  "arxiv_id": "",
+  "abstract": "Abstract: The paper addresses the forecasting of realised volatility for financial time series using the heterogeneous autoregressive model (HAR) and machine learning techniques. We consider an extended version of the existing HAR model with included purified implied volatility. For this extended model, we apply the random forests algorithm for the forecasting of the direction and the magnitude of the realised volatility. In experiments with historical high frequency data, we demonstrate improvements of forecast accuracy for the proposed model.",
+  "abstract_word_count": 78,
+  "code_urls": [],
+  "all_code_urls": [],
+  "data_source_mentions": [],
+  "rds_score": 0,
+  "rds_reason": "no code, no public data detected",
+  "rds_confidence": 0.5,
+  "needs_review": true,
+  "model_families": {
+    "garch_family": [
+      "egarch",
+      "garch",
+      "gjr-garch",
+      "tgarch"
+    ],
+    "har_family": [
+      "har model",
+      "har-rv"
+    ],
+    "ml_family": [
+      "boosting",
+      "gradient boost",
+      "machine learning",
+      "random forest",
+      "support vector",
+      "xgboost"
+    ],
+    "classical": [
+      "implied volatility",
+      "stochastic volatility"
+    ],
+    "ensemble": [
+      "ensemble"
+    ]
+  },
+  "n_model_families": 5,
+  "asset_classes": [
+    "equity",
+    "crypto",
+    "fx",
+    "commodity"
+  ],
+  "headline_phrases": "we demonstrate improvements of forecast accuracy for the proposed model",
+  "reproducibility_statement": "",
+  "n_tables": 3,
+  "n_figures": 3,
+  "section_headings": [
+    "1. Introduction",
+    "data with different time horizons (Corsi 2003; Khan 2011)",
+    "2. Materials and Methods",
+    "2. Random Forests Algorithm",
+    "2. Decision Trees",
+    "data",
+    "2. Random Forests",
+    "model",
+    "2. Volatility Measures",
+    "2. Realised Volatility",
+    "2. Models for Volatility",
+    "2. Heterogeneous Autoregressive Model for Realised Volatility",
+    "3. The results",
+    "3. Measuring Errors",
+    "3. Classification Problem",
+    "3. Regression Problem",
+    "3. Empirical Results",
+    "3. Data Description",
+    "model provided the best fit",
+    "4. Discussion",
+    "5. Conclusions",
+    "References"
+  ],
+  "n_sections_detected": 22,
+  "pdf_size_kb": 490
+}

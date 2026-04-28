@@ -1,0 +1,56 @@
+{
+  "paper_id": "P04_bennedsen_2022",
+  "title": "Decoupling the Short- and Long-Term Behavior of Stochastic Volatility",
+  "year": "2022",
+  "venue": "Journal of Financial Econometrics",
+  "citations": 54,
+  "doi": "10.1093/jjfinec/nbaa049",
+  "arxiv_id": "",
+  "abstract": "We introduce a new class of continuous-time models of the stochastic volatility of asset prices. The models can simultaneously incorporate roughness and slowly decaying autocorrelations, including proper long memory, which are two stylized facts often found in volatility data. Our prime model is based on the so-called Brownian semistationary process and we derive a number of theoretical properties of this process, relevant to volatility modeling. Applying the models to realized volatility measures covering a vast panel of assets, we find evidence consistent with the hypothesis that time series of realized measures of volatility are both rough and very persistent. Lastly, we illustrate the utility of the models in an extensive forecasting study; we find that the models proposed in this paper outperform a wide array of benchmarks considerably, indicating that it pays off to exploit both roughness and persistence in volatility forecasting.",
+  "abstract_word_count": 142,
+  "code_urls": [],
+  "all_code_urls": [],
+  "data_source_mentions": [],
+  "rds_score": 0,
+  "rds_reason": "no code, no public data detected",
+  "rds_confidence": 0.5,
+  "needs_review": true,
+  "model_families": {
+    "har_family": [
+      "har model"
+    ],
+    "ml_family": [
+      "attention",
+      "gru",
+      "machine learning"
+    ],
+    "classical": [
+      "arma",
+      "implied volatility",
+      "stochastic volatility"
+    ]
+  },
+  "n_model_families": 3,
+  "asset_classes": [
+    "equity",
+    "crypto",
+    "commodity"
+  ],
+  "headline_phrases": "we find evidence consistent with the hypothesis that time series of realized measures of volatility are both rough and very persistent | we find that the models proposed in this paper outperform a wide array of benchmarks considerably, indicating that it pays off to exploit both roughness and",
+  "reproducibility_statement": "",
+  "n_tables": 5,
+  "n_figures": 7,
+  "section_headings": [
+    "Abstract",
+    "Introduction",
+    "Models of stochastic volatility that decouple short- and longterm behavior",
+    "Models for log volatility",
+    "The model to be simulated is",
+    "results are omitted. Again, our analysis confirms the findings seen earlier with the E-mini S&P 500",
+    "Results of out-of-sample forecasting experiment",
+    "Conclusions",
+    "References"
+  ],
+  "n_sections_detected": 9,
+  "pdf_size_kb": 1075
+}

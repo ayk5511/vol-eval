@@ -1,0 +1,85 @@
+{
+  "paper_id": "P08_zhuo_2024",
+  "title": "A Hybrid Model for Forecasting Realized Volatility Based on Heterogeneous Autoregressive Model and Support Vector Regression",
+  "year": "2024",
+  "venue": "Risks (MDPI)",
+  "citations": 8,
+  "doi": "10.3390/risks12010012",
+  "arxiv_id": "",
+  "abstract": "Abstract: In this study, we proposed two types of hybrid models based on the heterogeneous autoregressive (HAR) model and support vector regression (SVR) model to forecast realized volatility (RV). The first model is a residual-type model, where the RV is first predicted using the HAR model, and the residuals are used to train the SVR model. The residual component is then predicted using the SVR model, and the results from both the HAR and SVR models are combined to obtain the final prediction. The second model is a weight-based model, which is a combination of the HAR and SVR models and uses the same independent variables and dependent variables as the HAR model; we adjust the contribution of the two models to the predicted values by giving different weights to each model. In particular, four volatility models are used in RV forecasting as basic models. For empirical analysis, the RV of returns of the Tokyo stock price index and five individual stocks of TOPIX 30 is used as the dataset. The empirical results reveal that according to the model confidence set test, the weight-type model outperforms the HAR model and the residual-type HAR\u2013SVR model.",
+  "abstract_word_count": 194,
+  "code_urls": [],
+  "all_code_urls": [],
+  "data_source_mentions": [],
+  "rds_score": 0,
+  "rds_reason": "no code, no public data detected",
+  "rds_confidence": 0.5,
+  "needs_review": true,
+  "model_families": {
+    "garch_family": [
+      "garch"
+    ],
+    "har_family": [
+      "har model",
+      "har-rv",
+      "harq",
+      "harx"
+    ],
+    "ml_family": [
+      "deep learning",
+      "lasso",
+      "lstm",
+      "machine learning",
+      "neural network",
+      "support vector",
+      "svr"
+    ],
+    "classical": [
+      "arima",
+      "arma"
+    ],
+    "ensemble": [
+      "combination"
+    ]
+  },
+  "n_model_families": 5,
+  "asset_classes": [
+    "equity",
+    "crypto",
+    "fx",
+    "commodity"
+  ],
+  "headline_phrases": "",
+  "reproducibility_statement": "",
+  "n_tables": 5,
+  "n_figures": 2,
+  "section_headings": [
+    "Model and Support Vector Regression",
+    "1. Introduction",
+    "2. Volatility Estimators",
+    "2. Realized Volatility",
+    "2. Realized Semivariance",
+    "2. Signed Jump",
+    "3. Basic Models",
+    "3. Heterogeneous Autoregressive Model",
+    "3. HAR-RSV and HAR-SJ Model",
+    "model is defined as follows",
+    "3. The HARQ Model",
+    "3. Genetic Algorithms and Support Vector Regression",
+    "3. Hybrid Model",
+    "4. Empirical Analysis",
+    "4. Data Description",
+    "4. Out-of-Sample Forecasting",
+    "Model Confidence Set",
+    "4. Results",
+    "4. Discussion",
+    "4. Summary",
+    "4. Empirical Results",
+    "4. Limitations and Future Research",
+    "5. Conclusions",
+    "model accuracy in the stock price prediction study by Pai and Lin (2005), the first hybrid",
+    "References"
+  ],
+  "n_sections_detected": 25,
+  "pdf_size_kb": 668
+}

@@ -1,0 +1,73 @@
+{
+  "paper_id": "P28_wei_2025",
+  "title": "Unified GARCH-Recurrent Neural Network in Financial Volatility Forecasting",
+  "year": "2025",
+  "venue": "arXiv q-fin",
+  "citations": 0,
+  "doi": "",
+  "arxiv_id": "2504.09380",
+  "abstract": "In this study, we develop a unified volatility modeling framework that embeds GARCH dynamics directly within recurrent neural networks. We propose two interpretable hybrid architectures, GARCH-GRU and GARCH-LSTM, that integrate the GARCH(1,1) volatility update into the multiplicative gating structure of GRU and LSTM cells. This unified design preserves economically meaningful GARCH parameters while enabling the networks to learn nonlinear temporal dependencies in financial time series. Comprehensive out-of-sample evaluations across major U.S. equity indices show that both models consistently outperform classical GARCH specifications, pipelinestyle hybrids, and neural baselines such as the Transformer across multiple metrics (MSE, MAE, SMAPE, and out-of-sample R2 ). Within this family, the GARCH-GRU achieves the strongest accuracy\u2013efficiency tradeoff, training nearly three times faster than GARCH-LSTM while maintaining comparable or superior forecasting accuracy under normal market conditions and delivering stable and economically plausible parameter estimates. The advantages persist during extreme market turbulence. In the COVID-19 stress period, both architectures retain superior forecasting accuracy and deliver well-calibrated 99% Value-at-Risk forecasts, achieving lower violation ratios and competitive Pinball losses relative to all benchmarks. Overall, the findings underscore the effectiveness of embedding GARCH dynamics within recurrent neural architectures, yielding models that are accurate, efficient, interpretable, and robust for real-world risk-aware volatility forecasting.",
+  "abstract_word_count": 201,
+  "code_urls": [],
+  "all_code_urls": [],
+  "data_source_mentions": [
+    "yahoo finance"
+  ],
+  "rds_score": 1,
+  "rds_reason": "public_data(1) but no code URL",
+  "rds_confidence": 0.7,
+  "needs_review": false,
+  "model_families": {
+    "garch_family": [
+      "egarch",
+      "figarch",
+      "garch",
+      "gjr-garch",
+      "igarch",
+      "tgarch"
+    ],
+    "ml_family": [
+      "attention",
+      "deep learning",
+      "gru",
+      "lstm",
+      "machine learning",
+      "neural network",
+      "random forest",
+      "rnn",
+      "transformer"
+    ],
+    "classical": [
+      "arma"
+    ],
+    "ensemble": [
+      "combination",
+      "ensemble"
+    ]
+  },
+  "n_model_families": 4,
+  "asset_classes": [
+    "equity",
+    "crypto",
+    "fx"
+  ],
+  "headline_phrases": "",
+  "reproducibility_statement": "",
+  "n_tables": 11,
+  "n_figures": 4,
+  "section_headings": [
+    "Abstract",
+    "models",
+    "Introduction",
+    "Methodology",
+    "Model Evaluation",
+    "Model",
+    "Results are based on 1-day-ahead forecasts using the S&P 500 in the 2019",
+    "Conclusion and Future Work",
+    "Data availability statement",
+    "References",
+    "Appendix - Further Experimental Results"
+  ],
+  "n_sections_detected": 11,
+  "pdf_size_kb": 1565
+}

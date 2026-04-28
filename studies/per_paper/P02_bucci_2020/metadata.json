@@ -1,0 +1,63 @@
+{
+  "paper_id": "P02_bucci_2020",
+  "title": "Realized Volatility Forecasting with Neural Networks",
+  "year": "2020",
+  "venue": "Journal of Financial Econometrics",
+  "citations": 105,
+  "doi": "10.1093/jjfinec/nbaa008",
+  "arxiv_id": "",
+  "abstract": "In the last few decades, a broad strand of literature in finance has implemented artificial neural networks as forecasting method. The major advantage of this approach is the possibility to approximate any linear and nonlinear behaviors without knowing the structure of the data generating process. This makes it suitable for forecasting time series which exhibit long memory and nonlinear dependencies, like conditional volatility. In this paper, I compare the predictive performance of feed-forward and recurrent neural networks (RNN), particularly focusing on the recently developed Long short-term memory (LSTM) network and NARX network, with traditional econometric approaches. The results show that recurrent neural networks are able to outperform all the traditional econometric methods. Additionally, capturing long-range dependence through Long short-term memory and NARX models seems to improve the forecasting accuracy also in a highly volatile framework. 1",
+  "abstract_word_count": 136,
+  "code_urls": [],
+  "all_code_urls": [],
+  "data_source_mentions": [],
+  "rds_score": 0,
+  "rds_reason": "no code, no public data detected",
+  "rds_confidence": 0.5,
+  "needs_review": true,
+  "model_families": {
+    "garch_family": [
+      "garch"
+    ],
+    "ml_family": [
+      "attention",
+      "cnn",
+      "deep learning",
+      "lasso",
+      "lstm",
+      "neural network",
+      "rnn",
+      "support vector"
+    ],
+    "classical": [
+      "arma",
+      "implied volatility",
+      "stochastic volatility"
+    ],
+    "ensemble": [
+      "combination"
+    ]
+  },
+  "n_model_families": 4,
+  "asset_classes": [
+    "equity",
+    "crypto",
+    "fx"
+  ],
+  "headline_phrases": "The results show that recurrent neural networks are able to outperform all the traditional econometric methods",
+  "reproducibility_statement": "",
+  "n_tables": 6,
+  "n_figures": 9,
+  "section_headings": [
+    "Abstract",
+    "Introduction",
+    "Data and Volatility Measurement",
+    "data is shown in Table 1",
+    "Data source",
+    "Model",
+    "Conclusions",
+    "References"
+  ],
+  "n_sections_detected": 8,
+  "pdf_size_kb": 752
+}

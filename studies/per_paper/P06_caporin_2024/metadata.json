@@ -1,0 +1,59 @@
+{
+  "paper_id": "P06_caporin_2024",
+  "title": "Exploiting Intraday Decompositions in Realized Volatility Forecasting: A Forecast Reconciliation Approach",
+  "year": "2024",
+  "venue": "Journal of Financial Econometrics",
+  "citations": 2,
+  "doi": "10.1093/jjfinec/nbae014",
+  "arxiv_id": "",
+  "abstract": "We address the construction of Realized Variance (RV) forecasts by exploiting the hierarchical struc\u00ad ture implicit in available decompositions of RV. We propose a post-forecasting approach that utilizes bottom-up and regression-based reconciliation methods. By using data referred to the Dow Jones Industrial Average Index and to its constituents we show that exploiting the informative content of hi\u00ad erarchies improves the forecast accuracy. Forecasting performance is evaluated out-of-sample based on the empirical MSE and QLIKE criteria as well as using the Model Confidence Set approach.",
+  "abstract_word_count": 84,
+  "code_urls": [],
+  "all_code_urls": [],
+  "data_source_mentions": [],
+  "rds_score": 0,
+  "rds_reason": "no code, no public data detected",
+  "rds_confidence": 0.5,
+  "needs_review": true,
+  "model_families": {
+    "garch_family": [
+      "garch"
+    ],
+    "har_family": [
+      "har model"
+    ],
+    "ml_family": [
+      "attention"
+    ],
+    "ensemble": [
+      "combination"
+    ]
+  },
+  "n_model_families": 4,
+  "asset_classes": [
+    "equity",
+    "crypto",
+    "fx",
+    "commodity"
+  ],
+  "headline_phrases": "we show that exploiting the informative content of hi\u00ad erarchies improves the forecast accuracy",
+  "reproducibility_statement": "",
+  "n_tables": 7,
+  "n_figures": 11,
+  "section_headings": [
+    "Abstract",
+    "3. The Empirical Setup",
+    "3. Data Description and Analysis",
+    "3. Out-of-Sample Forecast Evaluation",
+    "1. X RVt",
+    "Model",
+    "5. Additional Results",
+    "5. Sub-Sample Analysis",
+    "5. Grouped Series",
+    "5. Decomposition Optimality",
+    "6. Concluding Remarks",
+    "References"
+  ],
+  "n_sections_detected": 12,
+  "pdf_size_kb": 1587
+}

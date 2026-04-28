@@ -1,0 +1,78 @@
+{
+  "paper_id": "P20_lux_2020",
+  "title": "Data driven value-at-risk forecasting using a SVR-GARCH-KDE hybrid",
+  "year": "2020",
+  "venue": "arXiv q-fin",
+  "citations": 0,
+  "doi": "",
+  "arxiv_id": "2009.06910",
+  "abstract": "Abstract Appropriate risk management is crucial to ensure the competitiveness of financial institu- tions and the stability of the economy. One widely used financial risk measure is Value-at-Risk (VaR). VaR estimates based on linear and parametric models can lead to biased results or even underestimation of risk due to time varying volatility, skewness and leptokurtosis of financial return series. The paper proposes a nonlinear and nonparametric framework to forecast VaR that is motivated by overcoming the disadvantages of parametric models with a purely data driven approach. Mean and volatility are modeled via support vector regression (SVR) where the volatility model is motivated by the standard generalized autoregressive conditional heteroscedasticity (GARCH) formulation. Based on this, VaR is derived by applying kernel density estimation (KDE). This approach allows for flexi? This is a post-peer-review, pre-copyedit version of an article published in Computational Statistics. The final authenticated version is available online at: http://dx.doi.org/10.1007/s00180-019-00934-7 Marius Lux School of Business and Economics Humboldt-University Berlin Unter den Linden 6 D-10099 Berlin, Germany E-mail: lux.marius@gmail.com Wolfgang Karl Ha\u0308rdle SKBI School of Business Singapore Management University 50 Stamford Road, Singapore 178899; C.A.S.E.-Center of Applied Statistics and Economics Humboldt-University Berlin Unter den Linden 6 D-10099 Berlin, Germany E-mail: haerdle@hu-berlin.de Stefan Lessmann (corresponding author) School of Business and Economics Humboldt-University Berlin Unter den Linden 6 D-10099 Berlin, Germany ORCID ID: 0000-0001-7685-262X E-mail: stefan.lessmann@hu-berlin.de 2 Marius Lux et al. ble tail shapes of the profit and loss distribution, adapts for a wide class of tail events and is able to capture complex structures regarding mean and volatility. The SVR-GARCH-KDE hybrid is compared to standard, exponential and threshold GARCH models coupled with different error distributions. To examine the performance in different markets, one-day-ahead and ten-days-ahead forecasts are produced for different financial indices. Model evaluation using a likelihood ratio based test framework for interval forecasts and a test for superior predictive ability indicates that the SVR-GARCH-KDE hybrid performs competitive to benchmark models and reduces potential losses especially for ten-days-ahead forecasts significantly. Especially models that are coupled with a normal distribution are systematically outperformed.",
+  "abstract_word_count": 340,
+  "code_urls": [],
+  "all_code_urls": [],
+  "data_source_mentions": [
+    "yahoo finance"
+  ],
+  "rds_score": 1,
+  "rds_reason": "public_data(1) but no code URL",
+  "rds_confidence": 0.7,
+  "needs_review": false,
+  "model_families": {
+    "garch_family": [
+      "egarch",
+      "garch",
+      "gjr-garch",
+      "tgarch"
+    ],
+    "ml_family": [
+      "machine learning",
+      "neural network",
+      "support vector",
+      "svr"
+    ],
+    "classical": [
+      "arma"
+    ],
+    "ensemble": [
+      "combination"
+    ]
+  },
+  "n_model_families": 4,
+  "asset_classes": [
+    "equity",
+    "crypto",
+    "commodity"
+  ],
+  "headline_phrases": "",
+  "reproducibility_statement": "",
+  "n_tables": 10,
+  "n_figures": 7,
+  "section_headings": [
+    "Data Driven Value-at-Risk Forecasting",
+    "Abstract Appropriate risk management is crucial to ensure the competitiveness of financial institu-",
+    "1. Introduction",
+    "Data Driven Value-at-Risk Forecasting using a SVR-GARCH-KDE Hybrid?",
+    "2. Methodology",
+    "2. Defining Value-at-Risk",
+    "2. Estimating VaR Using Location-Scale Models",
+    "2. Modeling Volatility Using GARCH Models",
+    "2. Nonparametric Density Estimation",
+    "methods such as KDE (e.g., Ha\u0308rdle et al 2004)",
+    "2. Support Vector Regression",
+    "2. SVR-GARCH-KDE Hybrid",
+    "model",
+    "3. Empirical Study",
+    "3. General Setting",
+    "The model losses will be evaluated by employing the superior predictive ability test (SPA) framework",
+    "3. Benchmark Methods",
+    "3. Results",
+    "3. Model Setting and Tuning",
+    "3. Model Comparison",
+    "the model",
+    "4. Conclusion",
+    "References",
+    "Discussion Paper (2017-008), DOI 10.2139/ssrn.2927901"
+  ],
+  "n_sections_detected": 24,
+  "pdf_size_kb": 1777
+}

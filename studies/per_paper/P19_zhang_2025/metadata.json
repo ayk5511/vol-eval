@@ -1,0 +1,89 @@
+{
+  "paper_id": "P19_zhang_2025",
+  "title": "Forecasting Stock Market Volatility Using CNN-BiLSTM-Attention Model with Mixed-Frequency Data",
+  "year": "2025",
+  "venue": "Mathematics (MDPI)",
+  "citations": 8,
+  "doi": "10.3390/math13111889",
+  "arxiv_id": "",
+  "abstract": "Abstract: Existing stock volatility forecasting models predominantly rely on samefrequency market data while neglecting mixed-frequency integration and face particular challenges in incorporating low-frequency macroeconomic variables that exhibit temporal mismatches with financial market dynamics. To address this limitation, this study develops a novel hybrid approach for stock market volatility forecasting, which synergistically combines a deep learning model (CNN-BiLSTM-Attention) with the GARCH-MIDAS model. The GARCH-MIDAS model can fully exploit mixed-frequency information, including daily returns, monthly macroeconomic variables, and EPU. The deep learning model can effectively capture both spatial and temporal patterns of multivariate time-series data, thus effectively improving prediction accuracy and generalization ability in stock market volatility forecasting. The results indicate that the CNN-BiLSTM-Attention model yields the most accurate forecasts compared to the benchmark models. Furthermore, incorporating additional predictors, such as macroeconomic indicators and the Economic Policy Uncertainty Index, also provides valuable information for stock market volatility prediction, notably enhancing the model\u2019s forecasting effect.",
+  "abstract_word_count": 152,
+  "code_urls": [],
+  "all_code_urls": [],
+  "data_source_mentions": [],
+  "rds_score": 0,
+  "rds_reason": "no code, no public data detected",
+  "rds_confidence": 0.5,
+  "needs_review": true,
+  "model_families": {
+    "garch_family": [
+      "egarch",
+      "garch"
+    ],
+    "har_family": [
+      "har model",
+      "har-rv"
+    ],
+    "ml_family": [
+      "attention",
+      "cnn",
+      "deep learning",
+      "lasso",
+      "lstm",
+      "machine learning",
+      "neural network",
+      "random forest",
+      "rnn",
+      "svr",
+      "xgboost"
+    ],
+    "classical": [
+      "arima",
+      "ewma",
+      "stochastic volatility"
+    ],
+    "ensemble": [
+      "combination",
+      "ensemble"
+    ]
+  },
+  "n_model_families": 5,
+  "asset_classes": [
+    "equity",
+    "crypto",
+    "fx",
+    "commodity"
+  ],
+  "headline_phrases": "The results indicate that the CNN-BiLSTM-Attention model yields the most accurate forecasts compared to the benchmark models",
+  "reproducibility_statement": "",
+  "n_tables": 15,
+  "n_figures": 6,
+  "section_headings": [
+    "Model with Mixed-Frequency Data",
+    "1. Introduction",
+    "2. Methodology",
+    "2. Multifactor GARCH-MIDAS Model",
+    "2. Convolutional Neural Network",
+    "2. Bidirectional Long Short-Term Memory",
+    "2. Attention Mechanism",
+    "2. CNN-BiLSTM-Attention Model",
+    "2. Evaluation Criteria for Prediction Performance",
+    "3. Empirical Results and Analysis",
+    "3. Data Description and Processing",
+    "3. Estimation of Multifactor GARCH-MIDAS Model",
+    "3. Forecasting Results",
+    "3. Out-of-Sample Forecasting Performance Evaluation",
+    "3. Out-of-Sample Forecasting Loss Function Values",
+    "Model",
+    "3. Robustness Test",
+    "4. Extension Analysis and Economic Value Performance",
+    "4. Extension Analysis",
+    "4. Forecasting Performance During Periods of High and Low Volatility",
+    "4. Examining the Validity of Different Predictors",
+    "4. Economic Value Performance",
+    "5. Conclusions",
+    "References"
+  ],
+  "n_sections_detected": 24,
+  "pdf_size_kb": 1610
+}

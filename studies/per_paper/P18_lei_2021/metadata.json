@@ -1,0 +1,88 @@
+{
+  "paper_id": "P18_lei_2021",
+  "title": "Volatility Forecasting for High-Frequency Financial Data Based on Web Search Index and Deep Learning",
+  "year": "2021",
+  "venue": "Mathematics (MDPI)",
+  "citations": 16,
+  "doi": "10.3390/math9040320",
+  "arxiv_id": "",
+  "abstract": "Abstract: The existing index system for volatility forecasting only focuses on asset return series or historical volatility, and the prediction model cannot effectively describe the highly complex and nonlinear characteristics of the stock market. In this study, we construct an investor attention factor through a Baidu search index of antecedent keywords, and then combine other trading information such as the trading volume, trend indicator, quote change rate, etc., as input indicators, and finally employ the deep learning model via temporal convolutional networks (TCN) to forecast the volatility under high-frequency financial data. We found that the prediction accuracy of the TCN model with investor attention is better than those of the TCN model without investor attention, the traditional econometric model as the generalized autoregressive conditional heteroscedasticity (GARCH), the heterogeneous autoregressive model of realized volatility (HAR-RV), autoregressive fractionally integrated moving average (ARFIMA) models, and the long short-term memory (LSTM) model with investor attention. Compared with the traditional econometric models, the multi-step prediction results for the TCN model remain robust. Our findings provide a more accurate and robust method for volatility forecasting for big data and enrich the index system of volatility forecasting. on Web Search Index and Deep Learning Model. Mathematics 2021, 9, 320. https://doi.org/10.3390/",
+  "abstract_word_count": 203,
+  "code_urls": [],
+  "all_code_urls": [],
+  "data_source_mentions": [],
+  "rds_score": 0,
+  "rds_reason": "no code, no public data detected",
+  "rds_confidence": 0.5,
+  "needs_review": true,
+  "model_families": {
+    "garch_family": [
+      "figarch",
+      "garch",
+      "igarch"
+    ],
+    "har_family": [
+      "har-rv"
+    ],
+    "ml_family": [
+      "attention",
+      "cnn",
+      "deep learning",
+      "lstm",
+      "neural network",
+      "random forest",
+      "rnn"
+    ],
+    "classical": [
+      "implied volatility",
+      "stochastic volatility"
+    ]
+  },
+  "n_model_families": 4,
+  "asset_classes": [
+    "equity",
+    "crypto"
+  ],
+  "headline_phrases": "",
+  "reproducibility_statement": "",
+  "n_tables": 14,
+  "n_figures": 7,
+  "section_headings": [
+    "1. Introduction",
+    "2. Methods and Empirical Procedure",
+    "2. TCN Model",
+    "model",
+    "1. Dilated",
+    "the model",
+    "models",
+    "data",
+    "model with",
+    "3. Residual",
+    "model isofnot",
+    "2. Evaluation Criteria",
+    "model in order to measure the accuracy of the forecasting results in multiple w",
+    "2. Empirical Procedures",
+    "3. Empirical Results",
+    "3. Realized Volatility",
+    "3. Construction of Investor Attention Factor",
+    "data from",
+    "4. January",
+    "3. Screening of the Baidu Search Index",
+    "3. Synthesis of Investor Attention Factor",
+    "3. Selection of Parameters",
+    "3. Inputs and Outputs for the Deep Learning Model",
+    "3. Selection of Parameters for TCN Model",
+    "data with",
+    "model being too deep,",
+    "3. Comparison",
+    "Model Prediction",
+    "4. Discussion",
+    "4. Construct the Attention Factor by Using the Cross-Correlation Coefficient",
+    "4. Construct the Attention Factor by Using the Correlation Coefficient with RV",
+    "4. Limitations and Shortcomings",
+    "5. Conclusions and Extension",
+    "References"
+  ],
+  "n_sections_detected": 34,
+  "pdf_size_kb": 1848
+}

@@ -1,0 +1,54 @@
+{
+  "paper_id": "P05_buccheri_2021",
+  "title": "HARK the SHARK: Realized Volatility Modeling with Measurement Errors and Nonlinear Dependencies",
+  "year": "2021",
+  "venue": "Journal of Financial Econometrics",
+  "citations": 20,
+  "doi": "10.1093/jjfinec/nbz025",
+  "arxiv_id": "",
+  "abstract": "Despite their effectiveness, linear models for realized variance neglect measurement errors on integrated variance and exhibit several forms of misspecification due to the inherent nonlinear dynamics of volatility. We propose new extensions of the popular approximate long-memory HAR model apt to disentangle these effects and quantify their separate impact on volatility forecasts. By combining the asymptotic theory of the realized variance estimator with the Kalman filter and by introducing timevarying HAR parameters, we build new models that account for: (i) measurement errors (HARK), (ii) nonlinear dependencies (SHAR) and (iii) both measurement errors and nonlinearities (SHARK). The proposed models are simply estimated through standard maximum likelihood methods and are shown, both on simulated and real data, to provide better out-of-sample forecasts compared to standard HAR specifications and other competing approaches.",
+  "abstract_word_count": 129,
+  "code_urls": [],
+  "all_code_urls": [],
+  "data_source_mentions": [],
+  "rds_score": 0,
+  "rds_reason": "no code, no public data detected",
+  "rds_confidence": 0.5,
+  "needs_review": true,
+  "model_families": {
+    "garch_family": [
+      "garch"
+    ],
+    "har_family": [
+      "har model",
+      "harq"
+    ],
+    "classical": [
+      "stochastic volatility"
+    ]
+  },
+  "n_model_families": 3,
+  "asset_classes": [
+    "equity",
+    "crypto",
+    "commodity"
+  ],
+  "headline_phrases": "",
+  "reproducibility_statement": "",
+  "n_tables": 13,
+  "n_figures": 14,
+  "section_headings": [
+    "Abstract",
+    "Introduction",
+    "model dynamically ht through a GARCH process",
+    "appendix",
+    "model of",
+    "models on the whole S&P500 dataset, excluding the first 500 observations",
+    "model",
+    "Robustness checks",
+    "Conclusions",
+    "References"
+  ],
+  "n_sections_detected": 10,
+  "pdf_size_kb": 1428
+}

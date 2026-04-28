@@ -1,0 +1,84 @@
+{
+  "paper_id": "P10_shen_2021",
+  "title": "Bitcoin Return Volatility Forecasting: A Comparative Study between GARCH and RNN",
+  "year": "2021",
+  "venue": "Journal of Risk and Financial Management (MDPI)",
+  "citations": 39,
+  "doi": "10.3390/jrfm14070337",
+  "arxiv_id": "",
+  "abstract": "Abstract: One of the notable features of bitcoin is its extreme volatility. The modeling and forecasting of bitcoin volatility are crucial for bitcoin investors\u2019 decision-making analysis and risk management. However, most previous studies of bitcoin volatility were founded on econometric models. Research on bitcoin volatility forecasting using machine learning algorithms is still sparse. In this study, both conventional econometric models and a machine learning model are used to forecast the bitcoin\u2019s return volatility and Value at Risk. The objective of this study is to compare their out-of-sample performance in forecasting accuracy and risk management efficiency. The results demonstrate that the RNN outperforms GARCH and EWMA in average forecasting performance. However, it is less efficient in capturing the bitcoin market\u2019s extreme events. Moreover, the RNN shows poor performance in Value at Risk forecasting, indicating that it could not work well as the econometric models in explaining extreme volatility. This study proposes an alternative method of bitcoin volatility analysis and provides more motivation for economic researchers to apply machine learning methods to the less volatile financial market conditions. Meanwhile, it also shows that the machine learning approaches are not always more advanced than econometric models, contrary to common belief. and RNN. Journal of Risk and Financial Management 14: 337. https://",
+  "abstract_word_count": 208,
+  "code_urls": [],
+  "all_code_urls": [],
+  "data_source_mentions": [
+    "coinmarketcap",
+    "coinmarketcap.com"
+  ],
+  "rds_score": 1,
+  "rds_reason": "public_data(2) but no code URL",
+  "rds_confidence": 0.7,
+  "needs_review": false,
+  "model_families": {
+    "garch_family": [
+      "fgarch",
+      "garch"
+    ],
+    "ml_family": [
+      "attention",
+      "gru",
+      "lstm",
+      "machine learning",
+      "neural network",
+      "rnn"
+    ],
+    "classical": [
+      "arima",
+      "arma",
+      "ewma"
+    ]
+  },
+  "n_model_families": 3,
+  "asset_classes": [
+    "equity",
+    "crypto",
+    "fx"
+  ],
+  "headline_phrases": "The results demonstrate that the RNN outperforms GARCH and EWMA in average forecasting performance",
+  "reproducibility_statement": "data are available on the website: CoinMarketCap",
+  "n_tables": 7,
+  "n_figures": 12,
+  "section_headings": [
+    "1. Introduction",
+    "2. Materials and Methods",
+    "model (ARCH)",
+    "model",
+    "data",
+    "30. April",
+    "2. Econometric Methodology",
+    "model needs to capture the feature of heteroscedasticity",
+    "2. Conditional Mean",
+    "2. Conditional Variance",
+    "model to forecast bitcoin return volatility",
+    "2. GARCH Model",
+    "model (GARCH)",
+    "the model",
+    "2. Architecture",
+    "3. Results",
+    "3. Forecasting",
+    "data were collected on the top from left to right",
+    "3. Both",
+    "model is VaR",
+    "1. Day Ahead",
+    "5. Days Ahead",
+    "10. Days Ahead",
+    "4. Discussion",
+    "Appendix",
+    "Appendix A",
+    "1. Out of",
+    "2. Out ofof",
+    "12. Out of",
+    "References"
+  ],
+  "n_sections_detected": 30,
+  "pdf_size_kb": 3637
+}

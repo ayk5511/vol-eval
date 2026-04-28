@@ -1,0 +1,93 @@
+{
+  "paper_id": "P14_zahid_2022",
+  "title": "Forecasting Bitcoin Volatility Using Hybrid GARCH Models with Machine Learning",
+  "year": "2022",
+  "venue": "Risks (MDPI)",
+  "citations": 21,
+  "doi": "10.3390/risks10120237",
+  "arxiv_id": "",
+  "abstract": "Abstract: The time series movements of Bitcoin prices are commonly characterized as highly nonlinear and volatile in nature across economic periods, when compared to the characteristics of traditional asset classes, such as equities and commodities. From a risk management perspective, such behaviors pose challenges, given the difficulty in quantifying and modeling Bitcoin\u2019s price volatility. In this study, we propose hybrid analytical techniques that combine the strengths of the non-stationary properties of Generalized Autoregressive Conditional Heteroskedasticity (GARCH) models with the nonlinear modeling capabilities of deep learning algorithms, such as Long Short-Term Memory (LSTM), Gated Recurrent Unit (GRU), and Bidirectional LSTM (BiLSTM) algorithms with single, double, and triple layer network architectures to forecast Bitcoin\u2019s realized price volatility. Our findings, both in-sample and out-of-sample, show that such hybrid models can generate accurate forecasts of Bitcoin\u2019s price volatility.",
+  "abstract_word_count": 134,
+  "code_urls": [],
+  "all_code_urls": [],
+  "data_source_mentions": [],
+  "rds_score": 0,
+  "rds_reason": "no code, no public data detected",
+  "rds_confidence": 0.5,
+  "needs_review": true,
+  "model_families": {
+    "garch_family": [
+      "egarch",
+      "fgarch",
+      "garch",
+      "gjr-garch",
+      "igarch",
+      "tgarch"
+    ],
+    "ml_family": [
+      "attention",
+      "cnn",
+      "deep learning",
+      "gru",
+      "lstm",
+      "machine learning",
+      "neural network",
+      "rnn",
+      "support vector",
+      "svr"
+    ],
+    "classical": [
+      "ewma"
+    ],
+    "ensemble": [
+      "combination"
+    ]
+  },
+  "n_model_families": 4,
+  "asset_classes": [
+    "equity",
+    "crypto",
+    "fx",
+    "commodity"
+  ],
+  "headline_phrases": "",
+  "reproducibility_statement": "",
+  "n_tables": 7,
+  "n_figures": 6,
+  "section_headings": [
+    "1. Introduction",
+    "models may use this study\u2019s findings as a motivation",
+    "2. Model Specifications",
+    "2. Volatility Models",
+    "model",
+    "model of Glosten",
+    "2. Recurrent Neural Networks",
+    "data data",
+    "data",
+    "2. Gated Recurrent Unit",
+    "2. Bidirectional LSTM",
+    "3. Data and Methodology",
+    "3. Data Description",
+    "1. January",
+    "3. Evaluation Measures",
+    "3. Experiments",
+    "4. Results and Discussion",
+    "models",
+    "model model",
+    "7. Bitcoin",
+    "4. Estimation",
+    "Results",
+    "4. Out-of-Sample Forecast Results",
+    "models combined with two layers of DL models",
+    "7. Days Ahead Forecast",
+    "14. Days Ahead Forecast",
+    "21. Days Ahead Forecast",
+    "4. Rolling Window Forecast Results",
+    "models for the measurement of Bitcoin\u2019s volatility forecast. This study also highlights that",
+    "model to enhance prediction performance",
+    "5. Concluding Remarks",
+    "References"
+  ],
+  "n_sections_detected": 32,
+  "pdf_size_kb": 3303
+}

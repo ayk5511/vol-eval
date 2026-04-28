@@ -1,0 +1,72 @@
+{
+  "paper_id": "P01_christensen_2023",
+  "title": "A Machine Learning Approach to Volatility Forecasting",
+  "year": "2023",
+  "venue": "Journal of Financial Econometrics",
+  "citations": 85,
+  "doi": "10.1093/jjfinec/nbac020",
+  "arxiv_id": "",
+  "abstract": "We inspect how accurate machine learning (ML) is at forecasting realized variance of the Dow Jones Industrial Average index constituents. We compare several ML algorithms, including regularization, regression trees, and neural networks, to multiple Heterogeneous AutoRegressive (HAR) models. ML is implemented with minimal hyperparameter tuning. In spite of this, ML is competitive and beats the HAR lineage, even when the only predictors are the daily, weekly, and monthly lags of realized variance. The forecast gains are more pronounced at longer horizons. We attribute this to higher persistence in the ML models, which helps to approximate the long-memory of realized variance. ML also excels at locating incremental information about future volatility from additional predictors. Lastly, we propose a ML measure of variable importance based on accumulated local e\ufb00ects. This shows that while there is agreement about the most important predictors, there is disagreement on their ranking, helping to reconcile our results. JEL Classi\ufb01cation: C10, C50.",
+  "abstract_word_count": 154,
+  "code_urls": [],
+  "all_code_urls": [],
+  "data_source_mentions": [],
+  "rds_score": 0,
+  "rds_reason": "no code, no public data detected",
+  "rds_confidence": 0.5,
+  "needs_review": true,
+  "model_families": {
+    "garch_family": [
+      "garch"
+    ],
+    "har_family": [
+      "har model",
+      "harq"
+    ],
+    "ml_family": [
+      "attention",
+      "boosting",
+      "deep learning",
+      "elastic net",
+      "gradient boost",
+      "lasso",
+      "machine learning",
+      "neural network",
+      "random forest",
+      "ridge regression",
+      "xgboost"
+    ],
+    "classical": [
+      "implied volatility",
+      "stochastic volatility"
+    ],
+    "ensemble": [
+      "combination",
+      "ensemble",
+      "model averaging"
+    ]
+  },
+  "n_model_families": 5,
+  "asset_classes": [
+    "equity",
+    "crypto",
+    "fx",
+    "commodity"
+  ],
+  "headline_phrases": "",
+  "reproducibility_statement": "",
+  "n_tables": 15,
+  "n_figures": 12,
+  "section_headings": [
+    "Abstract",
+    "Introduction",
+    "Methodology",
+    "Data description",
+    "Empirical results",
+    "Conclusion",
+    "References",
+    "Appendix"
+  ],
+  "n_sections_detected": 8,
+  "pdf_size_kb": 665
+}

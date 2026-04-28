@@ -1,0 +1,96 @@
+{
+  "paper_id": "P26_roszyk_2024",
+  "title": "The Hybrid Forecast of S&P 500 Volatility ensembled from VIX GARCH and LSTM models",
+  "year": "2024",
+  "venue": "arXiv q-fin",
+  "citations": 0,
+  "doi": "",
+  "arxiv_id": "2407.16780",
+  "abstract": "Predicting the S&P 500 index\u2019s volatility is crucial for investors and financial analysts as it helps assess market risk and make informed investment decisions. Volatility represents the level of uncertainty or risk related to the size of changes in a security\u2019s value, making it an essential indicator for financial planning. This study explores four methods to improve the accuracy of volatility forecasts for the S&P 500: the established GARCH model, known for capturing historical volatility patterns; an LSTM network that utilizes past volatility and log returns; a hybrid LSTM-GARCH model that combines the strengths of both approaches; and an advanced version of the hybrid model that also factors in the VIX index to gauge market sentiment. This analysis is based on a daily dataset that includes data for S&P 500 and VIX index, covering the period from January 3, 2000, to December 21, 2023. Through rigorous testing and comparison, we found that machine learning approaches, particularly the hybrid LSTM models, significantly outperform the traditional GARCH model. Including the VIX index in the hybrid model further enhances its forecasting ability by incorporating real-time market sentiment. The results of this study offer valuable insights for achieving more accurate volatility predictions, enabling better risk management and strategic investment decisions in the volatile environment of the S&P 500.",
+  "abstract_word_count": 214,
+  "code_urls": [],
+  "all_code_urls": [],
+  "data_source_mentions": [
+    "yahoo finance"
+  ],
+  "rds_score": 1,
+  "rds_reason": "public_data(1) but no code URL",
+  "rds_confidence": 0.7,
+  "needs_review": false,
+  "model_families": {
+    "garch_family": [
+      "egarch",
+      "figarch",
+      "garch",
+      "gjr-garch",
+      "igarch"
+    ],
+    "har_family": [
+      "har model"
+    ],
+    "ml_family": [
+      "deep learning",
+      "gru",
+      "lasso",
+      "lstm",
+      "machine learning",
+      "neural network",
+      "random forest",
+      "rnn",
+      "support vector",
+      "transformer"
+    ],
+    "classical": [
+      "ewma",
+      "implied volatility"
+    ],
+    "ensemble": [
+      "combination",
+      "ensemble"
+    ]
+  },
+  "n_model_families": 5,
+  "asset_classes": [
+    "equity",
+    "crypto",
+    "fx",
+    "commodity"
+  ],
+  "headline_phrases": "",
+  "reproducibility_statement": "",
+  "n_tables": 14,
+  "n_figures": 18,
+  "section_headings": [
+    "Abstract",
+    "Introduction",
+    "2. Data inputs",
+    "2. Estimation of log returns and volatility",
+    "2. Data standardization",
+    "2. Error Metrics",
+    "model",
+    "3. GARCH",
+    "3. Model Selection and Parameterization",
+    "3. GARCH Volatility Forecasting Methodology",
+    "3. GARCH Results",
+    "3. LSTM",
+    "3. LSTM Volatility Forecasting Methodology",
+    "3. LSTM Results",
+    "3. LSTM-GARCH",
+    "3. LSTM-GARCH Volatility Forecasting Methodology",
+    "3. LSTM- GARCH Results",
+    "3. LSTM- GARCH with VIX input",
+    "3. LSTM-GARCH with VIX input Volatility Forecasting Methodology",
+    "3. LSTM-GARCH with VIX input Results",
+    "3. Models comparison",
+    "Model Comparison",
+    "4. Sensitivity- Using MAE as a loss function instead of MSE",
+    "4. Sensitivity- Replacing Log Returns with Daily Percentage Changes",
+    "4. Sensitivity- Sequence Length",
+    "4. Sensitivity- Number of LSTM layers",
+    "4. Sensitivity- Activation Functions",
+    "Results from Side Hypotheses for Sensitivity Testing",
+    "References"
+  ],
+  "n_sections_detected": 29,
+  "pdf_size_kb": 1576
+}

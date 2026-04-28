@@ -1,0 +1,66 @@
+{
+  "paper_id": "P29_wang_2025",
+  "title": "Deep Learning Enhanced Multivariate GARCH",
+  "year": "2025",
+  "venue": "arXiv q-fin",
+  "citations": 0,
+  "doi": "",
+  "arxiv_id": "2506.02796",
+  "abstract": "This paper introduces a novel multivariate volatility modeling framework, named Long Short-Term Memory enhanced BEKK (LSTM-BEKK), that integrates deep learning into multivariate GARCH processes. By combining the flexibility of recurrent neural networks with the econometric structure of BEKK models, our approach is designed to better capture nonlinear, dynamic, and high-dimensional dependence structures in financial return data. The proposed model addresses key limitations of traditional multivariate GARCH-based methods, particularly in capturing persistent volatility clustering and asymmetric co-movement across assets. Leveraging the data-driven nature of LSTMs, the framework adapts effectively to time-varying market conditions, offering improved robustness and forecasting performance. Empirical results across multiple equity markets confirm that the LSTM-BEKK model achieves superior performance in terms of out-of-sample portfolio risk forecast, while maintaining the interpretability from the BEKK models. These findings highlight the potential of hybrid econometric-deep learning models in advancing financial risk management and multivariate volatility forecasting.",
+  "abstract_word_count": 146,
+  "code_urls": [],
+  "all_code_urls": [],
+  "data_source_mentions": [],
+  "rds_score": 0,
+  "rds_reason": "no code, no public data detected",
+  "rds_confidence": 0.5,
+  "needs_review": true,
+  "model_families": {
+    "garch_family": [
+      "garch"
+    ],
+    "ml_family": [
+      "deep learning",
+      "lstm",
+      "machine learning",
+      "neural network",
+      "rnn"
+    ],
+    "classical": [
+      "stochastic volatility"
+    ],
+    "ensemble": [
+      "combination"
+    ]
+  },
+  "n_model_families": 4,
+  "asset_classes": [
+    "equity",
+    "crypto"
+  ],
+  "headline_phrases": "",
+  "reproducibility_statement": "",
+  "n_tables": 16,
+  "n_figures": 2,
+  "section_headings": [
+    "Abstract",
+    "Introduction",
+    "Data and Descriptive Statistics",
+    "models",
+    "Model",
+    "Model Performance Across Random Portfolios",
+    "model across distinct market environments",
+    "Empirical Results for the U.S. Market",
+    "Empirical Results for the U.K. Market",
+    "Empirical Results for the Japan Market",
+    "Model Confidence Set Analysis",
+    "Conclusion",
+    "Appendix",
+    "Appendix A: Pseudocode for estimating the LSTM-BEKK",
+    "Appendix B: Proof of Theorem 1",
+    "Appendix C: Tail Risk Forecast of GMV Portfolios",
+    "References"
+  ],
+  "n_sections_detected": 17,
+  "pdf_size_kb": 1659
+}

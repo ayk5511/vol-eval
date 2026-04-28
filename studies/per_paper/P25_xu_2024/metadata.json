@@ -1,0 +1,83 @@
+{
+  "paper_id": "P25_xu_2024",
+  "title": "GARCH-Informed Neural Networks for Volatility Prediction in Financial Markets",
+  "year": "2024",
+  "venue": "arXiv q-fin",
+  "citations": 0,
+  "doi": "",
+  "arxiv_id": "2410.00288",
+  "abstract": "GARCH-Informed Neural Networks for Volatility\nPrediction in Financial Markets\nJohn Liechty\n\nZeda Xu\n\nSebastian Benthall\n\narXiv:2410.00288v1 [q-fin.CP] 30 Sep 2024\n\nSchool of Law\nSmeal College of Business\nCollege of Engineering\nNew York University\nPennsylvania State University\nCarnegie Mellon University\nPittsburgh, PA, USA, 15213 University Park, PA, USA, 16802 New York City, NY, USA, 10012\nspb413@nyu.edu\njcl12@psu.edu\nzedaxu@cmu.edu\n\nNicholas Skar-Gislinge\nLund University\nLund, Sweden\nnskg@pm.me\n\nChristopher McComb\nCollege of Engineering\nCarnegie Mellon University\nPittsburgh, PA, USA, 15213\nccm@cmu.edu\nAbstract\u2014Volatility, which indicates the dispersion of returns,\nis a crucial measure of risk and is hence used extensively\nfor pricing and discriminating between different financial investments. As a result, accurate volatility prediction receives\nextensive attention. The Generalized Autoregressive Conditional\nHeteroscedasticity (GARCH) model and its succeeding variants\nare well established models for stock volatility forecasting. More\nrecently, deep learning models have gained popularity in volatility\nprediction as they demonstrated promising accuracy in certain\ntime series prediction tasks. Inspired by Physics-Informed Neural\nNetworks (PINN), we constructed a new, hybrid Deep Learning\nmodel that combines the strengths of GARCH with the flexibility\nof a Long Short-Term Memory (LSTM) Deep Neural Network\n(DNN), thus capturing and forecasting market volatility more\naccurately than either class of models are capable of on their\nown. We refer to this novel model as a GARCH-Informed Neural\nNetwork (GINN). When compared to other time series models,\nGINN showed superior out-of-sample prediction performance in\nterms of the Coefficient of Determination (R2 ), Mean Squared\nError (MSE), and Mean Absolute Error (MAE).\nIndex Terms\u2014neural networks, hybrid model, volatility prediction, physics informed machine learning\n\nI. I NTRODUCTION\nPrediction of market trends has long been an i",
+  "abstract_word_count": 271,
+  "code_urls": [
+    "https://zenodo.org/record/7975104"
+  ],
+  "all_code_urls": [
+    "https://zenodo.org/record/7975104"
+  ],
+  "data_source_mentions": [
+    "yahoo finance",
+    "finance.yahoo.com"
+  ],
+  "rds_score": 2,
+  "rds_reason": "code(1)+public_data(2)",
+  "rds_confidence": 0.9,
+  "needs_review": false,
+  "model_families": {
+    "garch_family": [
+      "egarch",
+      "garch",
+      "gjr-garch",
+      "tgarch"
+    ],
+    "ml_family": [
+      "attention",
+      "deep learning",
+      "lstm",
+      "machine learning",
+      "neural network"
+    ],
+    "ensemble": [
+      "combination"
+    ]
+  },
+  "n_model_families": 3,
+  "asset_classes": [
+    "equity",
+    "crypto",
+    "fx",
+    "commodity"
+  ],
+  "headline_phrases": "",
+  "reproducibility_statement": "",
+  "n_tables": 0,
+  "n_figures": 7,
+  "section_headings": [
+    "model for forecasting stock volatility [8, 9, 10]. A large",
+    "model serves as a regularization mechanism incorporated in",
+    "models in the time-series forecasting domain. The LSTM",
+    "model and the LSTM component of the GINN model are",
+    "models is shown in Figure 1",
+    "model also needs the ground truth variance \u03c3t2 for training",
+    "results from the GARCH model",
+    "model was trained multiple times to reduce the uncertainty",
+    "models in 90-day windows. The results of the out-of-sample",
+    "results is prioritized. Also, we look for the weight values",
+    "data structure and information density is similar among the",
+    "model convergence",
+    "data and performance metric combination, the three best",
+    "model is highlighted in yellow",
+    "models with a significant lead in performance compared to",
+    "model",
+    "results from the LSTM appear fairly random, barely capturing",
+    "results from the GINN model and the GINN-0 fluctuate even",
+    "results from the GINN-0 model are highly similar to those",
+    "model being the best performer at around 0.33 on the GSPC",
+    "data tested. The persistence of a (1, 1) GARCH model is the",
+    "models placed fourth and fifth, respectively. The GARCH",
+    "model yield comparable performance in a time series that",
+    "model showed promising performance in stock market time",
+    "Data (Big Data), Oct. 2015, pp. 2823\u20132824"
+  ],
+  "n_sections_detected": 25,
+  "pdf_size_kb": 1269
+}

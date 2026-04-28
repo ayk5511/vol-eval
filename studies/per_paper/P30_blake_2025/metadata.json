@@ -1,0 +1,66 @@
+{
+  "paper_id": "P30_blake_2025",
+  "title": "Improving S&P 500 Volatility Forecasting through Regime-Switching Methods",
+  "year": "2025",
+  "venue": "arXiv q-fin",
+  "citations": 0,
+  "doi": "",
+  "arxiv_id": "2510.03236",
+  "abstract": "Accurate prediction of financial market volatility is critical for risk management, derivatives pricing, and investment strategy. In this study, we propose a multitude of regime-switching methods to improve the prediction of S&P 500 volatility by capturing structural changes in the market across time. We use eleven years of SPX data, from May 1st, 2014 to May 27th, 2025, to compute daily realized volatility (RV) from 5-minute intraday log returns, adjusted for irregular trading days. To enhance forecast accuracy, we engineered features to capture both historical dynamics and forward-looking market sentiment across regimes. The regime-switching methods include a soft Markov switching algorithm to estimate soft-regime probabilities; a distributional spectral clustering method that uses XGBoost to assign clusters at prediction time; and a coefficient-based soft regime algorithm that extracts HAR coefficients from time segments segmented through the Mood test and clusters through Bayesian GMM for soft regime weights and uses XGBoost to predict regime probabilities. Models were evaluated across three time periods\u2014before, during, and after the COVID-19 pandemic. The coefficient-based clustering algorithm outperformed all other models, including the baseline autoregressive model, during all time periods. Additionally, each model was evaluated on its recursive forecasting performance for 5 and 10 day horizons during each time period. The findings of this study demonstrate the value of regime-aware modeling frameworks and soft clustering approaches in improving volatility forecasting, especially during periods of heightened uncertainty and structural change. \u2217 Contact author: acb2309@columbia.edu Contact author: nag2175@columbia.edu \u2021 Contact author: arj2161@columbia.edu \u2020 1 1",
+  "abstract_word_count": 246,
+  "code_urls": [],
+  "all_code_urls": [],
+  "data_source_mentions": [],
+  "rds_score": 0,
+  "rds_reason": "no code, no public data detected",
+  "rds_confidence": 0.5,
+  "needs_review": true,
+  "model_families": {
+    "garch_family": [
+      "garch"
+    ],
+    "har_family": [
+      "har model"
+    ],
+    "ml_family": [
+      "boosting",
+      "gradient boost",
+      "graph neural",
+      "lasso",
+      "lstm",
+      "neural network",
+      "ridge regression",
+      "xgboost"
+    ],
+    "classical": [
+      "implied volatility"
+    ],
+    "ensemble": [
+      "ensemble"
+    ]
+  },
+  "n_model_families": 5,
+  "asset_classes": [
+    "equity",
+    "crypto",
+    "commodity"
+  ],
+  "headline_phrases": "",
+  "reproducibility_statement": "",
+  "n_tables": 9,
+  "n_figures": 4,
+  "section_headings": [
+    "Abstract",
+    "Introduction",
+    "Data Scope and Collection",
+    "Methodology",
+    "Model",
+    "Results and Discussion",
+    "Conclusion",
+    "References",
+    "Appendix",
+    "model more complex relationships but risk"
+  ],
+  "n_sections_detected": 10,
+  "pdf_size_kb": 840
+}

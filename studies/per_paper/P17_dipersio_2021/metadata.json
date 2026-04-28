@@ -1,0 +1,64 @@
+{
+  "paper_id": "P17_dipersio_2021",
+  "title": "Forward-Looking Volatility Estimation for Risk-Managed Investment Strategies during COVID-19",
+  "year": "2021",
+  "venue": "Risks (MDPI)",
+  "citations": 17,
+  "doi": "10.3390/risks9020033",
+  "arxiv_id": "",
+  "abstract": "Abstract: Under the impact of both increasing credit pressure and low economic returns characterizing developed countries, investment levels have decreased over recent years. Moreover, the recent turbulence caused by the COVID-19 crisis has accelerated the latter process. Within this scenario, we consider the so-called Volatility Target (VolTarget) strategy. In particular, we focus our attention on estimating volatility levels of a risky asset to perform a VolTarget simulation over two different time horizons. We first consider a 20 year period, from January 2000 to January 2020, then we analyse the last 12 months to emphasize the effects related to the COVID-19 virus\u2019s diffusion. We propose a hybrid algorithm based on the composition of a GARCH model with a Neural Network (NN) approach. Let us underline that, as an alternative to standard allocation methods based on realized and backward oriented volatilities, we exploited an innovative forward-looking estimation process exploiting a Machine Learning (ML) solution. Our solution provides a more accurate volatility estimation, allowing us to derive an effective investor risk-return profile during market crisis periods. Moreover, we show that, via a forward-looking VolTarget strategy while using an ML-based prediction as the input, the average outcome for an investment in a drawdown plan is more sustainable while representing an efficient risk-control solution for long time period investments.",
+  "abstract_word_count": 214,
+  "code_urls": [],
+  "all_code_urls": [],
+  "data_source_mentions": [],
+  "rds_score": 0,
+  "rds_reason": "no code, no public data detected",
+  "rds_confidence": 0.5,
+  "needs_review": true,
+  "model_families": {
+    "garch_family": [
+      "garch"
+    ],
+    "ml_family": [
+      "attention",
+      "lstm",
+      "machine learning",
+      "neural network",
+      "rnn"
+    ],
+    "classical": [
+      "implied volatility"
+    ],
+    "ensemble": [
+      "combination"
+    ]
+  },
+  "n_model_families": 4,
+  "asset_classes": [
+    "equity",
+    "crypto",
+    "fx",
+    "commodity"
+  ],
+  "headline_phrases": "we show that, via a forward-looking VolTarget strategy while using an ML-based prediction as the input, the average outcome for an investment in a drawdown p",
+  "reproducibility_statement": "",
+  "n_tables": 0,
+  "n_figures": 18,
+  "section_headings": [
+    "1. Introduction",
+    "2. Materials and Methods",
+    "2. Literature Review",
+    "2. Long Short-Term Memory Neural Network",
+    "2. Estimation of the Historical Realized Volatility",
+    "2. VolTarget Strategy",
+    "3. Results",
+    "3. Volatility Forecasting",
+    "3. Monte Carlo Simulations",
+    "4. Discussion",
+    "5. Conclusions",
+    "Data Availability Statement: Not applicable",
+    "References"
+  ],
+  "n_sections_detected": 13,
+  "pdf_size_kb": 5183
+}

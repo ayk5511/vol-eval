@@ -1,0 +1,82 @@
+{
+  "paper_id": "P09_rubio_2022",
+  "title": "Forecasting Selected Colombian Shares Using a Hybrid ARIMA-SVR Model",
+  "year": "2022",
+  "venue": "Mathematics (MDPI)",
+  "citations": 44,
+  "doi": "10.3390/math10132181",
+  "arxiv_id": "",
+  "abstract": "Abstract: Forecasting future values of Colombian companies traded on the New York Stock Exchange is a daily challenge for investors, due to these stocks\u2019 high volatility. There are several forecasting models for forecasting time series data, such as the autoregressive integrated moving average (ARIMA) model, which has been considered the most-used regression model in time series prediction for the last four decades, although the ARIMA model cannot estimate non-linear regression behavior caused by high volatility in the time series. In addition, the support vector regression (SVR) model is a pioneering machine learning approach for solving nonlinear regression estimation procedures. For this reason, this paper proposes using a hybrid model benefiting from ARIMA and support vector regression (SVR) models to forecast daily and cumulative returns of selected Colombian companies. For testing purposes, close prices of Bancolombia, Ecopetrol, Tecnoglass, and Grupo Aval were used; these are relevant Colombian organizations quoted on the New York Stock Exchange (NYSE).",
+  "abstract_word_count": 155,
+  "code_urls": [],
+  "all_code_urls": [],
+  "data_source_mentions": [
+    "yahoo finance"
+  ],
+  "rds_score": 1,
+  "rds_reason": "public_data(1) but no code URL",
+  "rds_confidence": 0.7,
+  "needs_review": false,
+  "model_families": {
+    "garch_family": [
+      "garch"
+    ],
+    "ml_family": [
+      "deep learning",
+      "gru",
+      "lstm",
+      "machine learning",
+      "neural network",
+      "support vector",
+      "svr"
+    ],
+    "classical": [
+      "arima",
+      "arma",
+      "exponential smoothing"
+    ],
+    "ensemble": [
+      "combination",
+      "ensemble"
+    ]
+  },
+  "n_model_families": 4,
+  "asset_classes": [
+    "equity",
+    "crypto",
+    "fx",
+    "commodity"
+  ],
+  "headline_phrases": "",
+  "reproducibility_statement": "",
+  "n_tables": 9,
+  "n_figures": 10,
+  "section_headings": [
+    "1. Introduction",
+    "2. Literature Review",
+    "3. Materials and Methods",
+    "3. Data and Sampling",
+    "3. ARIMA Model",
+    "3. Support Vector Regression Model",
+    "model can be expressed as",
+    "3. Hybrid Model",
+    "model Ht is, then, expressed as",
+    "4. Results and Discussion",
+    "4. Prediction Evaluation Measures",
+    "4. Application of Models",
+    "4. Application of ARIMA Model",
+    "model name in the legend",
+    "the model name in the legend",
+    "4. Support Vector Regression Application",
+    "4. Application of the Hybrid Model",
+    "Model",
+    "4. Discusion",
+    "5. Conclusions",
+    "model for decision making",
+    "the model used was a hybrid one [54,55]",
+    "Data Availability Statement: Not applicable",
+    "References"
+  ],
+  "n_sections_detected": 24,
+  "pdf_size_kb": 1390
+}

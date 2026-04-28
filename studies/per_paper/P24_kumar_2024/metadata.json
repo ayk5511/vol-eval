@@ -1,0 +1,83 @@
+{
+  "paper_id": "P24_kumar_2024",
+  "title": "Dynamic graph neural networks for enhanced volatility prediction in financial markets",
+  "year": "2024",
+  "venue": "arXiv q-fin",
+  "citations": 0,
+  "doi": "",
+  "arxiv_id": "2410.16858",
+  "abstract": "Volatility forecasting is essential for risk management and decision-making in financial markets. Traditional models like Generalized Autoregressive Conditional Heteroskedasticity (GARCH) effectively capture volatility clustering but often fail to model complex, non-linear interdependencies between multiple indices. This paper proposes a novel approach using Graph Neural Networks (GNNs) to represent global financial markets as dynamic graphs. The Temporal Graph Attention Network (Temporal GAT) combines Graph Convolutional Networks (GCNs) and Graph Attention Networks (GATs) to capture the temporal and structural dynamics of volatility spillovers. By utilizing correlation-based and volatility spillover indices, the Temporal GAT constructs directed graphs that enhance the accuracy of volatility predictions. Empirical results from a 15-year study of eight major global indices show that the Temporal GAT outperforms traditional GARCH models and other machine learning methods, particularly in short- to mid-term forecasts. The sensitivity and scenario-based analysis over a range of parameters and hyperparameters further demonstrate the significance of the proposed technique. Hence, this work highlights the potential of GNNs in modeling complex market behaviors, providing valuable insights for financial analysts and investors.",
+  "abstract_word_count": 173,
+  "code_urls": [],
+  "all_code_urls": [],
+  "data_source_mentions": [
+    "yahoo finance"
+  ],
+  "rds_score": 1,
+  "rds_reason": "public_data(1) but no code URL",
+  "rds_confidence": 0.7,
+  "needs_review": false,
+  "model_families": {
+    "garch_family": [
+      "egarch",
+      "garch",
+      "tgarch"
+    ],
+    "ml_family": [
+      "attention",
+      "cnn",
+      "deep learning",
+      "graph neural",
+      "gru",
+      "lstm",
+      "machine learning",
+      "neural network",
+      "random forest",
+      "support vector"
+    ],
+    "classical": [
+      "arima",
+      "stochastic volatility"
+    ],
+    "ensemble": [
+      "combination"
+    ]
+  },
+  "n_model_families": 4,
+  "asset_classes": [
+    "equity",
+    "crypto"
+  ],
+  "headline_phrases": "",
+  "reproducibility_statement": "",
+  "n_tables": 7,
+  "n_figures": 7,
+  "section_headings": [
+    "Abstract",
+    "1. Introduction",
+    "2. Related Works",
+    "3. Preliminaries",
+    "3. Volatility and Correlation Analytics",
+    "3. Realized Volatility",
+    "3. Correlation",
+    "3. Volatility Spillover Index",
+    "3. Graph-based Deep Learning Models",
+    "4. Methodology",
+    "4. Problem Formulation",
+    "4. Graph Construction",
+    "4. Model Architecture",
+    "4. Other Models for Comparison",
+    "data",
+    "4. Model Training and Optimization",
+    "5. Empirical results and discussion",
+    "5. Data Visualization and Analysis",
+    "5. Comparative analysis for models",
+    "5. Model Analysis",
+    "5. Sensitivity Analysis",
+    "5. Model Hyperparameters",
+    "6. Conclusion",
+    "References"
+  ],
+  "n_sections_detected": 24,
+  "pdf_size_kb": 2271
+}

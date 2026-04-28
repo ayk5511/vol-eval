@@ -1,0 +1,68 @@
+{
+  "paper_id": "P16_bohte_2019",
+  "title": "Comparing the Forecasting of Cryptocurrencies by Bayesian Time-Varying Volatility Models",
+  "year": "2019",
+  "venue": "Journal of Risk and Financial Management (MDPI)",
+  "citations": 25,
+  "doi": "10.3390/jrfm12030150",
+  "arxiv_id": "",
+  "abstract": "Abstract: This paper studies the forecasting ability of cryptocurrency time series. This study is about the four most capitalised cryptocurrencies: Bitcoin, Ethereum, Litecoin and Ripple. Different Bayesian models are compared, including models with constant and time-varying volatility, such as stochastic volatility and GARCH. Moreover, some cryptopredictors are included in the analysis, such as S&P 500 and Nikkei 225. In this paper, the results show that stochastic volatility is significantly outperforming the benchmark of VAR in both point and density forecasting. Using a different type of distribution, for the errors of the stochastic volatility, the student-t distribution is shown to outperform the standard normal approach.",
+  "abstract_word_count": 104,
+  "code_urls": [],
+  "all_code_urls": [
+    "https://github.com/ethereum/wiki/wiki/White-Paper/"
+  ],
+  "data_source_mentions": [],
+  "rds_score": 0,
+  "rds_reason": "no code, no public data detected",
+  "rds_confidence": 0.5,
+  "needs_review": true,
+  "model_families": {
+    "garch_family": [
+      "garch"
+    ],
+    "ml_family": [
+      "attention"
+    ],
+    "classical": [
+      "stochastic volatility"
+    ],
+    "ensemble": [
+      "combination"
+    ]
+  },
+  "n_model_families": 4,
+  "asset_classes": [
+    "equity",
+    "crypto",
+    "fx",
+    "commodity"
+  ],
+  "headline_phrases": "the results show that stochastic volatility is significantly outperforming the benchmark of VAR in both point and density forecasting",
+  "reproducibility_statement": "",
+  "n_tables": 7,
+  "n_figures": 3,
+  "section_headings": [
+    "1. Introduction",
+    "2. Literature Review",
+    "3. Data",
+    "4. Methodology",
+    "4. Bayesian VAR",
+    "4. Bayesian VAR-SV",
+    "4. Bayesian VAR-GARCH",
+    "4. Bayesian VAR-SVt",
+    "4. Forecasting",
+    "4. Measures",
+    "5. Results",
+    "model for Ethereum and the BVARX-SV model for Bitcoin",
+    "the Model Confidence Set procedure at confidence level 10%",
+    "models leads to better results and to great improvements for every cryptocurrency. If one includes",
+    "Robustness Check",
+    "Models",
+    "6. Conclusions",
+    "Appendix A. Results",
+    "References"
+  ],
+  "n_sections_detected": 19,
+  "pdf_size_kb": 580
+}

@@ -1,0 +1,97 @@
+{
+  "paper_id": "P11_ersin_2023",
+  "title": "Financial Volatility Modeling with the GARCH-MIDAS-LSTM Approach",
+  "year": "2023",
+  "venue": "Mathematics (MDPI)",
+  "citations": 23,
+  "doi": "10.3390/math11081785",
+  "arxiv_id": "",
+  "abstract": "Abstract: Forecasting stock markets is an important challenge due to leptokurtic distributions with heavy tails due to uncertainties in markets, economies, and political fluctuations. To forecast the direction of stock markets, the inclusion of leading indicators to volatility models is highly important; however, such series are generally at different frequencies. The paper proposes the GARCH-MIDASLSTM model, a hybrid method that benefits from LSTM deep neural networks for forecast accuracy, and the GARCH-MIDAS model for the integration of effects of low-frequency variables in highfrequency stock market volatility modeling. The models are being tested for a forecast sample including the COVID-19 shut-down after the first official case period and the economic reopening period in in Borsa Istanbul stock market in T\u00fcrkiye. For this sample, significant uncertainty existed regarding future economic expectations, and the period provided an interesting laboratory to test the forecast effectiveness of the proposed LSTM augmented model in addition to GARCH-MIDAS models, which included geopolitical risk, future economic expectations, trends, and cycle industrial production indices as low-frequency variables. The evidence suggests that stock market volatility is most effectively modeled with geopolitical risk, followed by industrial production, and a relatively lower performance is achieved by future economic expectations. These findings imply that increases in geopolitical risk enhance stock market volatility further, and that industrial production and future economic expectations work in the opposite direction. Most importantly, the forecast results suggest suitability of both the GARCH-MIDAS and GARCH-MIDAS-LSTM models, and with good forecasting capabilities. However, a comparison shows significant root mean squared error reduction with the novel GARCH-MIDAS-LSTM model over GARCH-MIDAS models. Percentage decline in root mean squared errors for forecasts are between 39% to 95% in LSTM augmented models depending on the type of economic indicator used. The proposed approach offers a key tool for investors and policymakers.",
+  "abstract_word_count": 297,
+  "code_urls": [],
+  "all_code_urls": [],
+  "data_source_mentions": [
+    "google trends"
+  ],
+  "rds_score": 1,
+  "rds_reason": "public_data(1) but no code URL",
+  "rds_confidence": 0.7,
+  "needs_review": false,
+  "model_families": {
+    "garch_family": [
+      "figarch",
+      "garch",
+      "gjr-garch",
+      "igarch"
+    ],
+    "ml_family": [
+      "cnn",
+      "deep learning",
+      "gru",
+      "lstm",
+      "machine learning",
+      "neural network",
+      "random forest",
+      "rnn",
+      "support vector",
+      "svr"
+    ],
+    "classical": [
+      "arma"
+    ],
+    "ensemble": [
+      "combination",
+      "ensemble"
+    ]
+  },
+  "n_model_families": 4,
+  "asset_classes": [
+    "equity",
+    "crypto",
+    "fx",
+    "commodity"
+  ],
+  "headline_phrases": "",
+  "reproducibility_statement": "Data is available from the Bloomberg database",
+  "n_tables": 8,
+  "n_figures": 5,
+  "section_headings": [
+    "1. Introduction",
+    "2. Literature Review",
+    "2. Neural Networks, Machine Learning and GARCH",
+    "2. MIDAS and GARCH-MIDAS",
+    "3. Method",
+    "4. Results",
+    "4. Dataset",
+    "methodology in the construction of the GPR index [7]",
+    "4. Linear and Nonlinear Unit Root Test Results",
+    "4. Estimation Results",
+    "4. GARCH-MIDAS Estimation Results",
+    "Model",
+    "4. GARCH-MIDAS-LSTM Estimation Results",
+    "models in",
+    "models",
+    "models areTable",
+    "the model",
+    "results",
+    "4. Out-of-Sample Forecast Performance Analysis",
+    "Model No",
+    "5. Discussion",
+    "Model Name",
+    "results are",
+    "models also",
+    "models are",
+    "methodology",
+    "model provide",
+    "model results",
+    "1. Total",
+    "2. Total",
+    "3. Total",
+    "4. Total",
+    "5. Total",
+    "6. Conclusions",
+    "References"
+  ],
+  "n_sections_detected": 35,
+  "pdf_size_kb": 2438
+}

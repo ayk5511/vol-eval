@@ -1,0 +1,31 @@
+paper_id,year,venue,citations,strict_rds,data_source_disclosed_in_paper,data_source_accessibility,code_repo_disclosed,confidence,notes
+P01_christensen_2023,2023,Journal of Financial Econometrics,85,0,NYSE Trade and Quote (TAQ) database + OptionMetrics IvyDB,paywalled (WRDS subscription required),none,high,"Tier-1 finance econometrics; TAQ data is the canonical source but inaccessible without WRDS"
+P02_bucci_2020,2020,Journal of Financial Econometrics,105,0,Refinitiv Datastream,paywalled (commercial subscription),none,high,"Most-cited paper in our sample; Datastream is closed commercial data"
+P03_luong_2018,2018,JRFM (MDPI),53,0,Reuters (2015) S&P/ASX 200 high-frequency,paywalled (Reuters tick data),none,high,"Australian equity high-frequency from Reuters; commercial; paper has no Data Availability Statement (older 2018 MDPI paper before that section was required)"
+P04_bennedsen_2022,2022,Journal of Financial Econometrics,54,0,E-mini S&P 500 futures from Trades and Quotes (TAQ),paywalled,none,high,
+P05_buccheri_2021,2021,Journal of Financial Econometrics,20,0,Thomson Reuters tick data,paywalled,none,high,
+P06_caporin_2024,2024,Journal of Financial Econometrics,2,0,Kibot.com,commercial (~$50/dataset paywalled),none,high,"Kibot is cheaper than Bloomberg/TAQ but still paywalled; strict reading is RDS-0"
+P07_hong_2023,2023,Journal of Financial Econometrics,18,0,NYSE Trade and Quote (TAQ) database,paywalled (WRDS),none,high,
+P08_zhuo_2024,2024,Risks (MDPI),8,0,Nikkei Media Marketing,paywalled commercial,none,high,"Data Availability Statement: 'Restrictions apply to the availability of these data'"
+P09_rubio_2022,2022,Mathematics (MDPI),44,1,Yahoo Finance API for Python (yfinance),public free,none,high,"Caption Figure 1 explicitly: 'Source: Yahoo Finance API for Python.'"
+P10_shen_2021,2021,JRFM (MDPI),39,1,coinmarketcap.com,public free,none,high,"In-text: 'All the data are available on the website: CoinMarketCap.com'"
+P11_ersin_2023,2023,Mathematics (MDPI),23,1,Borsa Istanbul stock market + OECD economic indicators,public free,none,medium,"Borsa Istanbul has free historical prices; OECD indicators are open data; paper doesn't explicitly URL but data is openly accessible"
+P12_kim_2021,2021,Mathematics (MDPI),34,1,coinmarketcap.com (https://coinmarketcap.com/coins/),public free,none,high,"In-text URL provided"
+P13_wang_2023,2023,Mathematics (MDPI),6,0,not disclosed,not disclosed,none,high,"Data Availability Statement: 'Not applicable.'"
+P14_zahid_2022,2022,Risks (MDPI),21,1,bitcoincharts.com,public free,none,high,"Data Availability Statement: 'data... can be downloaded from www.Bitcoincharts.com'"
+P15_mostafa_2021,2021,JRFM (MDPI),28,1,coingecko.com,public free,none,high,"Data Availability Statement: 'publicly available... coingecko.com'"
+P16_bohte_2019,2019,JRFM (MDPI),25,0,not disclosed,not disclosed,none,high,"Section 3 'Data' describes sample period (8 Aug 2015 to 28 Feb 2019) but no source URL or named platform; older 2019 paper without required Data Availability Statement; strict reading: not disclosed = RDS-0"
+P17_dipersio_2021,2021,Risks (MDPI),17,0,not disclosed (S&P 500 used but source not named),not disclosed,none,high,"Data Availability Statement: 'Not applicable.'"
+P18_lei_2021,2021,Mathematics (MDPI),16,1,joinquant.com/data,public free,none,high,"Data Availability Statement: 'available in the public domain: https://www.joinquant.com/data'"
+P19_zhang_2025,2025,Mathematics (MDPI),8,0,Wind database,paywalled,none,high,"Data Availability Statement: 'Data used in the paper are available upon request' = strict RDS-0"
+P20_lux_2020,2020,arXiv q-fin,0,1,Yahoo Finance via quantmod (R package),public free,none,high,"Discloses 'Yahoo Finance using the quantmod package'"
+P21_aradi_2020,2020,arXiv q-fin,0,1,Quandl (Python module) - S&P 500 constituent stocks,public free,none,medium,"Quandl (now Nasdaq Data Link) has both free and paid datasets; S&P 500 stock daily prices are typically in the free tier"
+P22_bucci_2024,2024,arXiv q-fin,0,0,LOBSTER limit-order-book database,paywalled (academic subscription),none,high,"LOBSTER requires institutional subscription"
+P23_zhao_2024,2024,arXiv q-fin,0,0,not disclosed (S&P 500 used but no specific source named),not disclosed,none,medium,"Strict reading: source not disclosed clearly = RDS-0"
+P24_kumar_2024,2024,arXiv q-fin,0,1,Yahoo Finance (8 global indices),public free,none,high,"Explicitly: 'sourced from Yahoo Finance'"
+P25_xu_2024,2024,arXiv q-fin,0,1,"Yahoo Finance (8 indices, 1992-2022)",public free,none,high,"NOT RDS-2: the only Zenodo URL in the paper (zenodo.org/record/7975104) is a citation to the bashtage/arch package, NOT the authors' own code"
+P26_roszyk_2024,2024,arXiv q-fin,0,1,Yahoo Finance,public free,none,high,"Explicitly: 'obtained from Yahoo Finance'"
+P27_tondapu_2024,2024,arXiv q-fin,0,1,Yahoo Finance (GBP/USD + EUR/GBP),public free,none,high,"Explicitly: 'we gathered data from Yahoo Finance'"
+P28_wei_2025,2025,arXiv q-fin,0,1,Yahoo Finance,public free,none,high,"Data availability statement: 'openly available at Yahoo Finance'"
+P29_wang_2025,2025,arXiv q-fin,0,0,Refinitiv data platform,paywalled commercial,none,high,
+P30_blake_2025,2025,arXiv q-fin,0,0,Bloomberg Terminal SPX 5-min,paywalled (Bloomberg subscription),none,high,

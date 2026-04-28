@@ -1,0 +1,73 @@
+{
+  "paper_id": "P15_mostafa_2021",
+  "title": "GJR-GARCH Volatility Modeling under NIG and ANN for Predicting Top Cryptocurrencies",
+  "year": "2021",
+  "venue": "Journal of Risk and Financial Management (MDPI)",
+  "citations": 28,
+  "doi": "10.3390/jrfm14090421",
+  "arxiv_id": "",
+  "abstract": "Abstract: Cryptocurrencies are currently traded worldwide, with hundreds of different currencies in existence and even more on the way. This study implements some statistical and machine learning approaches for cryptocurrency investments. First, we implement GJR-GARCH over the GARCH model to estimate the volatility of ten popular cryptocurrencies based on market capitalization: Bitcoin, Bitcoin Cash, Bitcoin SV, Chainlink, EOS, Ethereum, Litecoin, TETHER, Tezos, and XRP. Then, we use Monte Carlo simulations to generate the conditional variance of the cryptocurrencies using the GJR-GARCH model, and calculate the value at risk (VaR) of the simulations. We also estimate the tail-risk using VaR backtesting. Finally, we use an artificial neural network (ANN) for predicting the prices of the ten cryptocurrencies. The graphical analysis and mean square errors (MSEs) from the ANN models confirmed that the predicted prices are close to the market prices. For some cryptocurrencies, the ANN models perform better than traditional ARIMA models. Citation: Mostafa, Fahad, Pritam Saha, Mohammad Rafiqul Islam, and Nguyet Nguyen. 2021. GJR-GARCH",
+  "abstract_word_count": 164,
+  "code_urls": [],
+  "all_code_urls": [],
+  "data_source_mentions": [
+    "coingecko",
+    "coinmarketcap",
+    "coinmarketcap.com",
+    "publicly available"
+  ],
+  "rds_score": 1,
+  "rds_reason": "public_data(4) but no code URL",
+  "rds_confidence": 0.7,
+  "needs_review": false,
+  "model_families": {
+    "garch_family": [
+      "garch",
+      "gjr-garch"
+    ],
+    "ml_family": [
+      "lasso",
+      "machine learning",
+      "neural network",
+      "support vector",
+      "svr"
+    ],
+    "classical": [
+      "arima",
+      "arma"
+    ],
+    "ensemble": [
+      "combination"
+    ]
+  },
+  "n_model_families": 4,
+  "asset_classes": [
+    "equity",
+    "crypto",
+    "fx",
+    "commodity"
+  ],
+  "headline_phrases": "",
+  "reproducibility_statement": "",
+  "n_tables": 6,
+  "n_figures": 11,
+  "section_headings": [
+    "1. Introduction",
+    "2. Literature Review",
+    "3. Methodology",
+    "3. Data Selections",
+    "3. Exploratory Data Analysis",
+    "3. Higher Moments, Correlations, and Value at Risk",
+    "3. ARIMA Model for Cryptocurrency Prediction",
+    "3. Volatility Modeling with GJR-GARCH",
+    "3. Confidence Bound by Markov Chain Monte Carlo Simulation",
+    "3. Calculation of Sharpe Ratio",
+    "3. Value at Risk Backtesting",
+    "4. Results and Discussion",
+    "4. GJR-GARCH and GARCH Models for Cryptocurrency Volatilities",
+    "5. Conclusions",
+    "References"
+  ],
+  "n_sections_detected": 15,
+  "pdf_size_kb": 3154
+}

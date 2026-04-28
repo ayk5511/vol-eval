@@ -1,0 +1,61 @@
+{
+  "paper_id": "P22_bucci_2024",
+  "title": "Geometric Deep Learning for Realized Covariance Matrix Forecasting",
+  "year": "2024",
+  "venue": "arXiv q-fin",
+  "citations": 0,
+  "doi": "",
+  "arxiv_id": "2412.09517",
+  "abstract": "Traditional methods employed in matrix volatility forecasting often overlook the inherent Riemannian manifold structure of symmetric positive definite matrices, treating them as elements of Euclidean space, which can lead to suboptimal predictive performance. Moreover, they often struggle to handle high-dimensional matrices. In this paper, we propose a novel approach for forecasting realized covariance matrices of asset returns using a Riemannian-geometry-aware deep learning framework. In this way, we account for the geometric properties of the covariance matrices, including possible non-linear dynamics and efficient handling of high-dimensionality. Moreover, building upon a Fre\u0301chet sample mean of realized covariance matrices, we are able to extend the HAR model to the matrix-variate. We demonstrate the efficacy of our approach using daily realized covariance matrices for the 50 most capitalized companies in the S&P 500 index, showing that our method outperforms traditional approaches in terms of predictive accuracy.",
+  "abstract_word_count": 142,
+  "code_urls": [],
+  "all_code_urls": [],
+  "data_source_mentions": [],
+  "rds_score": 0,
+  "rds_reason": "no code, no public data detected",
+  "rds_confidence": 0.5,
+  "needs_review": true,
+  "model_families": {
+    "garch_family": [
+      "garch"
+    ],
+    "har_family": [
+      "har model"
+    ],
+    "ml_family": [
+      "deep learning",
+      "lasso",
+      "machine learning",
+      "neural network"
+    ],
+    "classical": [
+      "stochastic volatility"
+    ],
+    "ensemble": [
+      "combination",
+      "stacking"
+    ]
+  },
+  "n_model_families": 5,
+  "asset_classes": [
+    "equity",
+    "crypto",
+    "fx",
+    "commodity"
+  ],
+  "headline_phrases": "We demonstrate the efficacy of our approach using daily realized covariance matrices for the 50 most capitalized companies in the S&P 500 index, showing that our me",
+  "reproducibility_statement": "",
+  "n_tables": 4,
+  "n_figures": 0,
+  "section_headings": [
+    "Abstract",
+    "Introduction",
+    "Data",
+    "2. In the table, the ReSPDNET models are trained either using the mean squared",
+    "Model",
+    "Conclusions",
+    "References"
+  ],
+  "n_sections_detected": 7,
+  "pdf_size_kb": 270
+}

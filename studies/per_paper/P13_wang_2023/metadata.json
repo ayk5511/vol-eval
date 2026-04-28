@@ -1,0 +1,82 @@
+{
+  "paper_id": "P13_wang_2023",
+  "title": "Risk Analysis of the Chinese Financial Market with the Application of a Novel Hybrid Volatility Prediction Model",
+  "year": "2023",
+  "venue": "Mathematics (MDPI)",
+  "citations": 6,
+  "doi": "10.3390/math11183937",
+  "arxiv_id": "",
+  "abstract": "Abstract: This paper endeavors to enhance the prediction of volatility in financial markets by developing a novel hybrid model that integrates generalized autoregressive conditional heteroskedasticity (GARCH) models and long short-term memory (LSTM) neural networks. Using high-frequency data, we first estimate realized volatility as a robust measure of volatility. We then feed the outputs of multiple GARCH models into an LSTM network, creating a hybrid model that leverages the strengths of both approaches. The predicted volatility from the hybrid model is used to generate trading strategy signals, which are subsequently used to build an investment strategy. Empirical analysis using the China Securities Index 300 (CSI300) dataset demonstrates that the hybrid model significantly improves value-at-risk (VaR) prediction performance compared to traditional GARCH models. This study\u2019s findings have broad implications for risk management in financial markets, suggesting that hybrid models incorporating mathematical models and economic mechanisms can enhance derivative pricing, portfolio risk management, hedging transactions, and systemic risk early-warning systems.",
+  "abstract_word_count": 157,
+  "code_urls": [],
+  "all_code_urls": [],
+  "data_source_mentions": [],
+  "rds_score": 0,
+  "rds_reason": "no code, no public data detected",
+  "rds_confidence": 0.5,
+  "needs_review": true,
+  "model_families": {
+    "garch_family": [
+      "egarch",
+      "garch"
+    ],
+    "ml_family": [
+      "attention",
+      "cnn",
+      "deep learning",
+      "lstm",
+      "machine learning",
+      "neural network",
+      "rnn"
+    ],
+    "classical": [
+      "exponential smoothing"
+    ],
+    "ensemble": [
+      "combination",
+      "ensemble"
+    ]
+  },
+  "n_model_families": 4,
+  "asset_classes": [
+    "equity",
+    "crypto",
+    "fx",
+    "commodity"
+  ],
+  "headline_phrases": "",
+  "reproducibility_statement": "",
+  "n_tables": 6,
+  "n_figures": 2,
+  "section_headings": [
+    "1. Introduction",
+    "2. Materials and Methods",
+    "2. Realized Volatility",
+    "2. Models",
+    "2. GARCH and EGARCH",
+    "2. LSTM",
+    "2. Proposed Hybrid Models",
+    "2. Variables",
+    "3. Results",
+    "3. Data",
+    "3. Volatility Prediction",
+    "Model",
+    "1. Out-of-sample",
+    "models",
+    "results of hybrid model",
+    "4. Discussion",
+    "4. Robustness Tests",
+    "2. Out-of-sample",
+    "Robustness Tests",
+    "5. July",
+    "results",
+    "model shows a wide range of applications in",
+    "robustness",
+    "6. Variance",
+    "5. Conclusions",
+    "Data Availability Statement: Not applicable",
+    "References"
+  ],
+  "n_sections_detected": 27,
+  "pdf_size_kb": 1166
+}
