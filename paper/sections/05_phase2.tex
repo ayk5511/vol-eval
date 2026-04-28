@@ -122,6 +122,36 @@ The remaining 12 papers fall into two failure patterns. In eleven cases, the pap
 \caption{Phase 2 per-paper QLIKE ratio. Each bar is the QLIKE of the paper-claimed winner divided by the QLIKE of our best-by-QLIKE model in the same reproduction. The vertical dashed line at 1.0 marks the threshold above which the paper's claimed winner is no longer our best. Asterisked entries (*) are reproductions with substantial library / feature substitutions detailed in \Cref{sec:phase2_caveats}; their ratios are not directly comparable to the unstarred reproductions and the most extreme ratio (P12 Kim) is dominated by the limitations of our SV approximation rather than a meaningful disparity in forecast quality. The 11 unstarred fails cluster between ratios of 1.01 and 1.91, suggesting the paper's claimed winners are typically modestly worse than (or statistically tied with) the simpler baseline our reproduction prefers.}\label{fig:phase2_qlike_ratio}
 \end{figure}
 
+\subsection{Cross-section: which methodology classes' wins fail most often?}\label{sec:phase2_methodology_cross}
+
+The 86\% aggregate failure rate masks a sharper finding when the sample is split by the model class of the paper-claimed winner. We classify each paper's headline winner into one of four classes by its prose description: \emph{hybrid} (an econometric model coupled with an ML component, e.g., GARCH-LSTM, GARCH-MIDAS-LSTM, GARCH-GRU, hybrid LSTM-GARCH+VIX, autoencoder-Realized GARCH); \emph{pure ML/DL} (an ML or deep-learning model used standalone, e.g., RNN, LSTM, ANN, dilated CNN, Temporal GAT); \emph{pure econometric} (a classical statistical model, e.g., HAR-RV, Bayesian SV, regime-switching HAR, GJR-GARCH); \emph{methodological} (papers proposing an estimation or modelling framework rather than a specific forecaster).
+
+\Cref{fig:phase2_outcome_by_methodology} reports the survival outcome by class. Two findings stand out.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/phase2_outcome_by_methodology.pdf}
+\caption{Phase 2 survival outcomes broken down by the model class of the paper-claimed winner. Bars stack failures (red), partial-survivors (orange), and full survivors (green) for each class. Annotations show ``reproduced/total in sample.'' The hybrid class (the most-represented in our 30-paper sample, $n=11$) has a 100\% failure rate among the 7 papers we could reproduce. Both surviving (or partially-surviving) cases are pure ML/DL.}\label{fig:phase2_outcome_by_methodology}
+\end{figure}
+
+First, \textbf{hybrid papers fail at 100\%} (7 of 7 reproduced; 0 survive, 0 partial, 4 of the 11 hybrid papers in the sample were not reproducible because of access or library constraints). Hybrid is also the largest single class in our sample (11 of 30 = 37\%), reflecting its dominance in 2022--2025 vol-forecasting publication trends. The combination is a sharp empirical message: the most-published novel-architecture class in this subfield since 2022 is also the class whose claims have most consistently failed to survive significance testing in our reproductions.
+
+Second, \textbf{both surviving claims are pure ML} (Shen 2021's RNN on Bitcoin and Mostafa 2021's ANN on Bitcoin). The pure-ML class has an effective survival rate of 2 of 5 reproduced (40\% if we count partial survival, 20\% strict), well above the hybrid class's 0\%. The pure-econometric class has 0 survivors out of 2 reproduced.
+
+The interpretation is not that hybrid models are intrinsically worse forecasters of volatility; it is that the marginal-improvement claims hybrid papers make over their econometric or ML baselines (which are typically reported as point-estimate ranking gaps of 5--20\%) tend to fall inside the noise band that DM at 5\% requires to reject. A pure-ML paper claiming ``RNN beats GARCH for Bitcoin volatility'' has a larger effect-size gap to overcome and, in the Shen 2021 case, the reproduction confirms the claim survives. Hybrid papers' more incremental claims are exactly the kind that significance testing is designed to rein in.
+
+\subsection{Cross-section: how does RDS evolve across years 2018--2025?}\label{sec:phase2_year_cross}
+
+\Cref{fig:phase2_rds_by_year} plots mean strict RDS by publication year for our 30-paper sample. The trend is consistent with the broader-sample finding of \citet{Khan2026Survey} that financial-ML disclosure has fallen since 2020.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/phase2_rds_by_year.pdf}
+\caption{Mean strict RDS by publication year for the 30-paper sample. Per-year $n$ is annotated above each bar; $n$ ranges from 1 to 8. The dashed reference line at 0.78 is the broader-sample mean of \citet{Khan2026Survey}; the dotted reference line at 0.47 is our 30-paper sample mean. Years with $n=1$ are noisy point estimates; the post-2022 cluster ($n=16$ across 2023--2025) has mean RDS = 0.38, materially below the 2020--2022 cluster ($n=12$, mean 0.67). Post-2022 cluster includes more arXiv papers using paywalled data sources (Refinitiv, Bloomberg, Lobster) than the earlier MDPI-heavy cluster.}\label{fig:phase2_rds_by_year}
+\end{figure}
+
+The per-year sample sizes are too small for individual-year statistics to be authoritative, but the binned comparison is meaningful: 2020--2022 mean RDS is 0.67 ($n=12$); 2023--2025 mean RDS is 0.38 ($n=16$). The decline is partly driven by the post-2022 cluster's heavier representation of arXiv preprints using paywalled commercial data sources (Refinitiv, Bloomberg, Lobster), and partly by an increase in JFEcon-style paywalled-tick-data papers in 2023--2024. The pattern is consistent with the field-wide observation that ML-finance disclosure has not improved despite a decade of editorial pressure \citep{Khan2026Survey}.
+
 \subsection{Caveats: what the failure-rate number does and does not establish}\label{sec:phase2_caveats}
 
 The 86\% failure rate is informative but caveated. Three points limit the strength of any individual ``does not survive'' claim.
