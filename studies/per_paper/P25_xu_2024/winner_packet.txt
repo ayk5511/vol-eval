@@ -1,0 +1,86 @@
+=== P25_xu_2024 ===
+Title:    GARCH-Informed Neural Networks for Volatility Prediction in Financial Markets
+Venue:    arXiv q-fin
+Year:     2024, Citations: 0
+
+--- ABSTRACT ---
+GARCH-Informed Neural Networks for Volatility
+Prediction in Financial Markets
+John Liechty
+
+Zeda Xu
+
+Sebastian Benthall
+
+arXiv:2410.00288v1 [q-fin.CP] 30 Sep 2024
+
+School of Law
+Smeal College of Business
+College of Engineering
+New York University
+Pennsylvania State University
+Carnegie Mellon University
+Pittsburgh, PA, USA, 15213 University Park, PA, USA, 16802 New York City, NY, USA, 10012
+spb413@nyu.edu
+jcl12@psu.edu
+zedaxu@cmu.edu
+
+Nicholas Skar-Gislinge
+Lund University
+Lund, Sweden
+nskg@pm.me
+
+Christopher McComb
+College of Engineering
+Carnegie Mellon University
+Pittsburgh, PA, USA, 15213
+ccm@cmu.edu
+Abstract—Volatility, which indicates the dispersion of returns,
+is a crucial measure of risk and is hence used extensively
+for pricing and discriminating between different financial investments. As a result, accurate volatility prediction receives
+extensive attention. The Generalized Autoregressive Conditional
+Heteroscedasticity (GARCH) model and its succeeding variants
+are well established models for stock volatility forecasting. More
+recently, deep learning models have gained popularity in volatility
+prediction as they demonstrated promising accuracy in certain
+time series prediction tasks. Inspired by Physics-Informed Neural
+Networks (PINN), we constructed a new, hybrid Deep Learning
+model that combines the strengths of GARCH with the flexibility
+of a Long Short-Term Memory (LSTM) Deep Neural Network
+(DNN), thus capturing and forecasting market volatility more
+accurately than either class of models are capable of on their
+own. We refer to this novel model as a GARCH-Informed Neural
+Network (GINN). When compared to other time series models,
+GINN showed superior out-of-sample prediction performance in
+terms of the Coefficient of Determination (R2 ), Mean Squared
+Error (MSE), and Mean Absolute Error (MAE).
+Index Terms—neural networks, hybrid model, volatility prediction, physics informed machine learning
+
+I. I NTRODUCTION
+Prediction of market trends has long been an i
+
+--- CONCLUSION (first 5000 chars) ---
+(no labeled conclusion section found)
+
+--- WINNER-CLAIM SENTENCES (top 30) ---
+- When compared to other time series models, GINN showed superior out-of-sample prediction performance in terms of the Coefficient of Determination (R2 ), Mean Squared Error (MSE), and Mean Absolute Error (MAE).
+- The best weight values should maximize the Coefficient of Determination, while minimizing Mean Squared Error and Mean Absolute Error.
+- Both the average performance metrics results and the best performance metrics results are taken into consideration.
+- Through testing, we determined that λ = 0.01 would yield the best performance.
+- For each time series data and performance metric combination, the three best performing models are highlighted with green and a darker shade stands for better performance.
+- The GARCH model is the third best model in most of the out-of-sample tests, proving that it is still one of the best time series volatility prediction models with a significant lead in performance compared to the GJR-GARCH model, the TGARCH model, and the LSTM model.
+- For easier comparison among the three best-performing models, the prediction results on the S&P 500 Index (GSPC) data of the GARCH model, the GINN model, and the GINN0 model are plotted in a logarithmic scale in Figure 6.
+- This matches the generally poor scores of Coefficient of Determination (R2 ) with all tested models, with the GINN model being the best performer at around 0.33 on the GSPC dataset.
+- It is found that when persistence is high (0.9 ≤ π < 1), the GARCH model seems to perform comparably with or outperform the GINN model, while the GINN model is more likely to outperform the GARCH model when persistence is low (π < 0.9).
+- It showed superior accuracy in the out-of-sample prediction tasks, surpassing all other tested models in most stock market indexes studied.
+- However, upon further inspection, the performance of the GINN model may not be as dominant as it initially seems.
+- This is illustrated in results from the Nikkei 225 (NIK) and the Hang Seng Index (HSI) datasets, where the TGARCH model and the GJR-GARCH model yielded low accuracy (R2 <= 0.1) while still outperforming GINN, GINN-0, and GARCH.
+- As for the comparison between the GINN model and the GINN-0 model, the GINN model usually outperforms the GINN-0 model by a small but noticeable margin.
+- It is still unclear why a model trained to predict the prediction results from the GARCH model would outperform the GARCH model itself.
+- This suggests that the superior performance of the GINN model in real-world stock market data could be a result of the GINN model capturing information in the market that doesn’t satisfy the GARCH process and the GARCH model fails to catch.
+- The current weight is selected because they result in the best average performance on a dedicated dataset to ensure the model’s generalizability.
+- Lunde, “A forecast comparison of volatility models: does anything beat a GARCH(1,1)?” Journal of Applied Econometrics, vol.
+- Lee, “Are the GARCH models best in out-ofsample performance?” Economics Letters, vol.
+
+--- LAST 2500 CHARS (often summary/conclusion) ---
+] G. E. Karniadakis, I. G. Kevrekidis, L. Lu, P. Perdikaris, S. Wang, and L. Yang, “Physics-informed machine learning,” Nature Reviews Physics, vol. 3, no. 6, pp. 422–440, Jun. 2021. [33] J. Chen, J. Pierce, G. Williams, T. W. Simpson, N. Meisel, S. Prabha Narra, and C. McComb, “Accelerating Thermal Simulations in Additive Manufacturing by Training Physics-Informed Neural Networks With Randomly Synthesized Data,” Journal of Computing and Information Science in Engineering, vol. 24, no. 011004, Jul. 2023. [34] K. Sheppard, S. Khrapov, G. Lipták, mikedeltalima, R. Capellini, alejandro cermeno, Hugle, esvhd, S. bot, A. Fortin, JPN, M. Judell, R. Russell, W. Li, 645775992, A. Adams, jbrockmendel, L. Migrator, M. Rabba, M. E. Rose, N. Tretyak, T. Rochette, U. N. O. Leo, X. RENE-CORAIL, X. Du, Joren, and B. Çelik, “bashtage/arch: Release 6.1.0,” May 2023. [Online]. Available: https://zenodo.org/record/7975104 [35] A. Paszke, S. Gross, F. Massa, A. Lerer, J. Bradbury, G. Chanan, T. Killeen, Z. Lin, N. Gimelshein, L. Antiga, A. Desmaison, A. Köpf, E. Yang, Z. DeVito, M. Raison, A. Tejani, S. Chilamkurthy, B. Steiner, L. Fang, J. Bai, and S. Chintala, “PyTorch: an imperative style, highperformance deep learning library,” in Proceedings of the 33rd International Conference on Neural Information Processing Systems. Red Hook, NY, USA: Curran Associates Inc., Dec. 2019, no. 721, pp. 8026–8037. [36] S. Ioffe and C. Szegedy, “Batch normalization: accelerating deep network training by reducing internal covariate shift,” in Proceedings of the 32nd International Conference on International Conference on Machine Learning - Volume 37, ser. ICML’15. Lille, France: JMLR.org, Jul. 2015, pp. 448–456. [37] A. F. Agarap, “Deep Learning using Rectified Linear Units (ReLU),” Mar. 2018. [38] N. Srivastava, G. Hinton, A. Krizhevsky, I. Sutskever, and R. Salakhutdinov, “Dropout: A Simple Way to Prevent Neural Networks from Overfitting,” Journal of Machine Learning Research, vol. 15, no. 56, pp. 1929–1958, 2014. [39] I. Loshchilov and F. Hutter, “Decoupled Weight Decay Regularization,” Nov. 2017. [40] Yahoo, “Yahoo Finance - Stock Market Live, Quotes, Business & Finance News,” 2023. [Online]. Available: https://finance.yahoo.com/ [41] C. G. Lamoureux and W. D. Lastrapes, “Persistence in Variance, Structural Change, and the GARCH Model,” Journal of Business & Economic Statistics, vol. 8, no. 2, pp. 225–234, 1990, publisher: [American Statistical Association, Taylor & Francis, Ltd.]. 

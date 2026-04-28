@@ -1,0 +1,39 @@
+=== P02_bucci_2020 ===
+Title:    Realized Volatility Forecasting with Neural Networks
+Venue:    Journal of Financial Econometrics
+Year:     2020, Citations: 105
+
+--- ABSTRACT ---
+In the last few decades, a broad strand of literature in finance has implemented artificial neural networks as forecasting method. The major advantage of this approach is the possibility to approximate any linear and nonlinear behaviors without knowing the structure of the data generating process. This makes it suitable for forecasting time series which exhibit long memory and nonlinear dependencies, like conditional volatility. In this paper, I compare the predictive performance of feed-forward and recurrent neural networks (RNN), particularly focusing on the recently developed Long short-term memory (LSTM) network and NARX network, with traditional econometric approaches. The results show that recurrent neural networks are able to outperform all the traditional econometric methods. Additionally, capturing long-range dependence through Long short-term memory and NARX models seems to improve the forecasting accuracy also in a highly volatile framework. 1
+
+--- CONCLUSION (first 5000 chars) ---
+(no labeled conclusion section found)
+
+--- WINNER-CLAIM SENTENCES (top 30) ---
+- The results show that recurrent neural networks are able to outperform all the traditional econometric methods.
+- They relied on a Jordan neural network (JNN) and showed that a NN model provides superior forecasting accuracy in comparison with other linear and nonlinear models.
+- This article contributes to this literature investigating whether a totally nonparametric model is able to outperform econometric methods in forecasting realized volatility.
+- Although some rules have been suggested in the literature to find the optimal number of hidden layers and neurons (see Gnana Sheela and Deepa (2013)), there is no commonly agreed solution to this issue.
+- However, the most reliable approach remains the training of different architectures and the choice of the network producing the lowest forecasting error.
+- As previously mentioned, a single hidden layer was assumed throughout the paper, while the selection of the optimal number of hidden neurons was trickier.
+- Since a standard and accepted method for determining the number of hidden nodes does not exist, I evaluated the performance of the networks5 for each sample by the lowest training MSE for an increasing number of hidden nodes, where the maximum number of hidden nodes was equal to the total number of inputs (i.e.
+- Therefore, the number of hidden nodes was selected according to the lowest MSE.
+- This helped understanding whether NNs were able to outperform econometric models in a highly volatile context and in presence of greater persistence.
+- The MCS procedure consists in a sequence of equal predictive accuracy tests through which a set of superior models (SSM) is defined, given a certain confidence level.
+- The set of superior models (SSM) is then defined as the set of models not-rejecting the null hypothesis.
+- As shown by the average of the loss functions in Table 4, all the neural networks were able to outperform the traditional long-memory detecting models in the larger sample, when analysing forecasts for k = 1.
+- The best performance in terms of forecasting accuracy measures was exhibited by LSTMX and NARX.
+- The analysis of multi-step-ahead forecasts, in the entire sample, further highlighted the predictive ability of long-term memory detecting recurrent neural networks, which outperformed all the competing models in terms of robust accuracy measures.
+- Not surprisingly, the SSM contained only the NARX model which provided the best overall performance in terms of accuracy.
+- FNN without exogenous variables exhibited the lowest average losses, which may imply that a simpler model should be implemented when few multi-step-ahead forecasts need to be produced.
+- Furthermore, neural networks model were able to significantly outperform the predictive accuracy of the benchmark method (i.e.
+- Values in boldface represent the lowest average losses.
+- Values in boldface represent the lowest average losses.
+- In a comparison of feed-forward and recurrent neural networks with traditional econometric methods, the best performing models appeared to be LSTM and NARX neural networks.
+- The results further showed that these long-term dependence detecting models consistently outperformed competing neural networks, like FNN, ENN and JNN.
+- The superior forecasting ability of LSTM and NARX was also assessed in a period where the stock market volatility was particularly high, like the recent financial crisis.
+- Among the main results, it emerged that long-term memory detecting neural networks have the best performance when a large sample is analysed, and provide comparable performance with other methods when a smaller and more volatile sample is evaluated.
+- On this purpose, the author acknowledges that this paper was mainly focused on providing superior forecasting accuracy rather than interpreting causal relationships.
+
+--- LAST 2500 CHARS (often summary/conclusion) ---
+, 1990. Stationarity and persistence in the GARCH (1,1) model. Econometric Theory 6, 318–334. Panchal, G., Ganatra, A., Kosta, Y., Panchal, D., 2010. Searching most efficient neural network architecture using Akaikes information criterion (AIC. Inernational Journal of Computer Applications 5, 41–44. Patton, A.J., 2011. Volatility forecast comparison using imperfect volatility proxies. Journal of Econometrics 160, 246 – 256. Pavlidis, E.G., Paya, I., Peel, D.A., 2012. Forecast evaluation of nonlinear models: The case of long-span real exchange rates. Journal of Forecasting 31, 580–595. Paye, B.S., 2012. Dèjà vol: Predictive regressions for aggregate stock market volatility using macroeconomic variables. Journal of Financial Economics 106, 527–546. Pichl, L., Kaizoji, T., 2017. Volatility Analysis of Bitcoin Price Time Series. Quantitative Finance and Economics 1, 474–485. Rossi, E., Santucci de Magistris, P., 2014. Estimation of long memory in integrated variance. Econometric Reviews 33, 785–814. Schittenkopf, C., Dorffner, G., Dockner, E.J., 2000. Forecasting time-dependent conditional densities: a semi non-parametric neural network approach. Journal of Forecasting 19, 355–374. Schwert, W.G., 1989. Why does stock market volatility change over time. Journal of Finance 44, 1115–1153. Tang, Z., Fishwick, P.A., 1993. Feed-forward Neural Nets as Models for Time Series Forecasting. ORSA Journal on Computing 5, 374–385. 31 Tibshirani, R., 1996. Regression Shrinkage and Selection via the Lasso. Journal of the Royal Statistical Society. Series B (Methodological 58, 267–288. Tino, P., Schittenkopf, C., Dorffner, G., 2001. Financial volatility trading using recurrent neural networks. IEEE Transactions on Neural Networks 12, 865–874. Vortelinos, D.I., 2017. Forecasting realized volatility: HAR against Principal Components Combining, neural networks and GARCH. Research in International Business and Finance 39, 824–839. Welch, I., Goyal, A., 2008. A comprehensive look at the empirical performance of equity premium prediction. Review of Financial Studies 21, 1455–1508. White, H., 1988. Economic prediction using neural networks: the case of IBM daily stock returns. IEEE 1988 International Conference on Neural Networks. Xiong, R., Nichols, E.P., Shen, Y., 2016. Deep Learning Stock Volatility with Google Domestic Trends. CoRR abs/1512.04916. Zou, H., 2006. The Adaptive Lasso and Its Oracle Properties. Journal of the American Statistical Association 101, 1418–1429. 32 

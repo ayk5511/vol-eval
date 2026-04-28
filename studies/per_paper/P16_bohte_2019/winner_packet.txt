@@ -1,0 +1,34 @@
+=== P16_bohte_2019 ===
+Title:    Comparing the Forecasting of Cryptocurrencies by Bayesian Time-Varying Volatility Models
+Venue:    Journal of Risk and Financial Management (MDPI)
+Year:     2019, Citations: 25
+
+--- ABSTRACT ---
+Abstract: This paper studies the forecasting ability of cryptocurrency time series. This study is about the four most capitalised cryptocurrencies: Bitcoin, Ethereum, Litecoin and Ripple. Different Bayesian models are compared, including models with constant and time-varying volatility, such as stochastic volatility and GARCH. Moreover, some cryptopredictors are included in the analysis, such as S&P 500 and Nikkei 225. In this paper, the results show that stochastic volatility is significantly outperforming the benchmark of VAR in both point and density forecasting. Using a different type of distribution, for the errors of the stochastic volatility, the student-t distribution is shown to outperform the standard normal approach.
+
+--- CONCLUSION (first 5000 chars) ---
+(no labeled conclusion section found)
+
+--- WINNER-CLAIM SENTENCES (top 30) ---
+- In this paper, the results show that stochastic volatility is significantly outperforming the benchmark of VAR in both point and density forecasting.
+- Using a different type of distribution, for the errors of the stochastic volatility, the student-t distribution is shown to outperform the standard normal approach.
+- (2015) did a statistical analysis of the log-returns of the exchange rate of Bitcoin against the US Dollar and the generalised hyperbolic distribution is shown to give the best fit.
+- Skewness Kurtosis 22.5119 −20.7530 0.2071 0.2343 3.9543 −0.2624 7.8178 41.2337 −31.5469 0.4001 −0.0884 6.7950 0.4898 7.6368 102.7356 −61.6273 0.2781 −0.3537 7.4433 3.0179 42.6234 51.0348 −39.5151 0.1912 0.0000 5.7424 1.2631 15.3417 Ripple has the highest volatility due to the highest kurtosis.
+- As before, Ripple has the highest skewness, which indicates that Ripple has the highest probabilities of higher values than its mean.
+- This gives a return of zero, however this is the best way since the variable is actually not changing for a day.
+- The differences of each models LS to the benchmark are performed such that a positive number indicates a model beats the baseline.
+- The model confidence set procedure compares all the predictions jointly and deletes a model if it is significantly worse, finally ending up with the best possible models of the models that were put in.
+- The BVAR-SV and BVARX-SV models have the highest percentages of all the cryptocurrencies except for Bitcoin.
+- An important observation of this table is that the stochastic volatility models have the best scores overall and are in some cases about 60–67%, which is much more precise than for example 35.45% of the BVAR-GARCH for Bitcoin.
+- This is especially the case for the SV model with a student-t distribution, thus using a SV model with student-t distribution is the best way, among these models, to forecast the direction of the cryptocurrencies.
+- As expected in the descriptive statistics, Ripple is the cryptocurrency with the highest RMSE due to the high kurtosis.
+- (4) Gray cells indicate models that belong to the Superior Set of Models delivered by the Model Confidence Set procedure at confidence level 10%.
+- One difference is that by the CRPS, GARCH outperforms the VAR for Bitcoin and for Ripple if the cryptopredictor variables are included.
+- However, the SV model also outperforms the GARCH model since the values of the SV model are in many cases lower.
+- (4) Gray cells indicate models that belong to the Superior Set of Models delivered by the Model Confidence Set procedure at confidence level 10%.
+- (4) Gray cells indicate models that belong to the Superior Set of Models delivered by the Model Confidence Set procedure at confidence level 10%.
+- In density forecasting for all cryptocurrencies, the stochastic volatility model gives the best predictability.
+- Sequential learning, predictive regressions, and optimal portfolio returns.
+
+--- LAST 2500 CHARS (often summary/conclusion) ---
+as Otto Zörner. 2018. Predicting cryptocurrencies using sparse non–gaussian state space models. Journal of Forecast 36: 627–40. [CrossRef] Johannes, Michael, Arthur Korteweg, and Nicholas Polson. 2014. Sequential learning, predictive regressions, and optimal portfolio returns. Journal of Finance 69: 611–44. [CrossRef] Jolliffe, Ian T., and David B. Stephenson, eds. 2003. Forecast Verification. A Practitioner’s Guide in Atmospheric Science. Hoboken: John Wiley and Sons Ltd., 240p. Koop, Gary, and Dimitris Korobilis. 2010. Bayesian Multivariate Time Series Methods for Empirical Macroeconomics. Foundations and Trends in Econometrics 3: 267–358. [CrossRef] Koop, Gary, and Dimitris Korobilis. 2013. Large time-varying parameter VARs. Journal of Econometrics 177: 185–98. [CrossRef] Litecoin. 2014. Litecoin Wiki. Available online: https://litecoin.info/Litecoin/ (accessed on 9 September 2019). Lütkepohl, Helmut. 2007. New Introduction to Multiple Time Series Analysis. Berlin: Springer Publishing Company, Incorporated. Muglia, Camilla, Luca Santabarbara, and Stefano Grassi. 2019. Is Bitcoin a Relevant Predictor of Standard & Poor’s 500? Journal of Risk and Financial Management 12: 93. Nakamoto, Satoshi. 2008. Bitcoin: A Peer-to-Peer Electronic Cash System. Available online: http://citeseerx.ist. psu.edu/viewdoc/summary?doi=10.1.1.221.9986 (accessed on 9 September 2019). Ripple. 2012. Welcome to Ripple. Available online: https://ripple.com/ (accessed on 9 September 2019). Sapuric, Svetlana, and Angelika Kokkinaki. 2014. Bitcoin is volatile! Isn’t that right? Paper presented at Business Information Systems Workshops, Larnaca, Cyprus, May 22–23, pp. 255–65. Sims, Christopher A. 1980. Macroeconomics and Reality. Econometrica 48: 1–48. [CrossRef] Sims, Christopher A., and Tao Zha. 2006. Were there regime switches in US monetary policy? American Economic Review 96: 54–81. [CrossRef] Stavroyiannis, Stavros, Vassilios Babalos, Stelios Bekiros, Salim Lahmiri, and Gazi Salah Uddin. 2019. The high frequency multifractal properties of Bitcoin. Physica A: Statistical Mechanics and its Applications 1873–2119 520: 62–71. [CrossRef] Yermack, David. 2015. Is Bitcoin a real currency? An Economic appraisal. New York: NYU—Stern School of Business. c 2019 by the authors. Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license (http://creativecommons.org/licenses/by/4.0/). 

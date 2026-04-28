@@ -1,0 +1,28 @@
+=== P15_mostafa_2021 ===
+Title:    GJR-GARCH Volatility Modeling under NIG and ANN for Predicting Top Cryptocurrencies
+Venue:    Journal of Risk and Financial Management (MDPI)
+Year:     2021, Citations: 28
+
+--- ABSTRACT ---
+Abstract: Cryptocurrencies are currently traded worldwide, with hundreds of different currencies in existence and even more on the way. This study implements some statistical and machine learning approaches for cryptocurrency investments. First, we implement GJR-GARCH over the GARCH model to estimate the volatility of ten popular cryptocurrencies based on market capitalization: Bitcoin, Bitcoin Cash, Bitcoin SV, Chainlink, EOS, Ethereum, Litecoin, TETHER, Tezos, and XRP. Then, we use Monte Carlo simulations to generate the conditional variance of the cryptocurrencies using the GJR-GARCH model, and calculate the value at risk (VaR) of the simulations. We also estimate the tail-risk using VaR backtesting. Finally, we use an artificial neural network (ANN) for predicting the prices of the ten cryptocurrencies. The graphical analysis and mean square errors (MSEs) from the ANN models confirmed that the predicted prices are close to the market prices. For some cryptocurrencies, the ANN models perform better than traditional ARIMA models. Citation: Mostafa, Fahad, Pritam Saha, Mohammad Rafiqul Islam, and Nguyet Nguyen. 2021. GJR-GARCH
+
+--- CONCLUSION (first 5000 chars) ---
+(no labeled conclusion section found)
+
+--- WINNER-CLAIM SENTENCES (top 30) ---
+- Using the GJR-GARCH model at a 1% confidence level, we confirm that cryptocurrencies suffer from tail-risk and show that Bitcoin SV and Chainlink have the highest tail-risks of −19.78% and −15.57%, respectively.
+- Moschini and Myers (2002) developed a multivariate generalized ARCH (GARCH) parameterization for the optimal futures hedge ratio using corn prices.
+- From the sample period, Chainlink observed the highest return whereas Bitcoin Cash observed the lowest return.
+- Robust Model Selection To identify the appropriate model for this study, we initially look at the AIC Akaike (1974) to choose which ARI MA( p, d, q) is the best fit for our prediction.
+- The best ARI MA( p, d, q) model was chosen based on criteria that the J.
+- For example, ARI MA(1, 1, 2) has the most negative AIC value for Bitcoin but it was found that ARI MA(0, 2, 1) makes the best prediction.
+- Similarly, all overfitted cases were excluded and the best models are shown in bold fonts (see Table 3).
+- Choosing the best ARIMA model based on AIC values (robust model).
+- The smallest loss is in the (1 − α) × 100% worst cases.
+- In our sample, Chainlink has the highest Sharpe ratio of 0.046, whereas Bitcoin has the second-highest Sharpe ratio of 0.029 in our sample.
+- We also use the lowest AIC value for determining the best p and q for a robust volatility GJR-GARCH(p,q) model for each cryptocurrency.
+- As we know, minimal or least MSE is considered the best fit.
+- Therefore, from this study, it is not possible to say that the ANN is the best model but one can implement the ANN as an alternative procedure.
+
+--- LAST 2500 CHARS (often summary/conclusion) ---
+an Vinh Vo. 2020. Economic policy uncertainty and the bitcoin-us stock nexus. Journal of Multinational Financial Management 57: 100656. [CrossRef] Mokni, Khaled, Elie Bouri, Ahdi Noomen Ajmi, and Xuan Vinh Vo. 2021. Does bitcoin hedge categorical economic uncertainty? A quantile analysis. SAGE Open 11: 21582440211016377. [CrossRef] Moschini, Gian Carlo, and Robert J. Myers. 2002. Testing for constant hedge ratios in commodity markets: A multivariate garch approach. Journal of Empirical Finance 9: 589–603. [CrossRef] Nieppola, Olli. 2009. Backtesting Value-at-Risk Models, Thesis Paper: Department of Economics. Espoo: Aalto University. Available online: https://aaltodoc.aalto.fi/handle/123456789/181 (accessed on 30 March 2021). J. Risk Financial Manag. 2021, 14, 421 22 of 22 Plakandaras, Vasilios, Elie Bouri, and Rangan Gupta. 2021. Forecasting bitcoin returns: Is there a role for the us–china trade war? Journal of Risk 23: 3. [CrossRef] Quah, Tong-Seng, and Bobby Srinivasan. 1999. Improving returns on stock investment through neural network selection. Expert Systems with Applications 17: 295–301. [CrossRef] Selvamuthu, Dharmaraja, Vineet Kumar, and Abhishek Mishra. 2019. Indian stock market prediction using artificial neural networks on tick data. Financial Innovation 5: 16. [CrossRef] Shahzad, Syed Jawad Hussain, Elie Bouri, Mobeen Ur Rehman, and David Roubaud. 2021. The Hedge Asset for Brics Stock Markets: Bitcoin, Gold, or Vix. Kiel: The World Economy. Wang, Gangjin, Yanping Tang, Chi Xie, and Shou Chen. 2019. Is bitcoin a safe haven or a hedging asset? evidence from china. Journal of Management Science and Engineering 4: 173–88. [CrossRef] Wang, Pengfei, Wei Zhang, Xiao Li, and Dehua Shen. 2019. Is cryptocurrency a hedge or a safe haven for international indices? A comprehensive and dynamic perspective. Finance Research Letters 31: 1–18. [CrossRef] White, Halbert. 1988. Economic prediction using neural networks: The case of ibm daily stock returns. Paper presented at IEEE 1988 International Conference on Neural Networks, San Diego, CA, USA, July 24–27; pp. 451–8. vol. 2. [CrossRef] Yao, Jingtao, Chew Lim Tan, and Hean-Lee Poh. 1999. Neural networks for technical analysis: A study on klci. International Journal of Theoretical and Applied Finance 2: 221–41. [CrossRef] Zhang, Guoqiang, B. Eddy Patuwo, and Michael Y. Hu. 1998. Forecasting with artificial neural networks: The state of the art. International Journal of Forecasting 14: 35–62. [CrossRef] 

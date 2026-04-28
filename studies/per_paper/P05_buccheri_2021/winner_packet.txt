@@ -1,0 +1,32 @@
+=== P05_buccheri_2021 ===
+Title:    HARK the SHARK: Realized Volatility Modeling with Measurement Errors and Nonlinear Dependencies
+Venue:    Journal of Financial Econometrics
+Year:     2021, Citations: 20
+
+--- ABSTRACT ---
+Despite their effectiveness, linear models for realized variance neglect measurement errors on integrated variance and exhibit several forms of misspecification due to the inherent nonlinear dynamics of volatility. We propose new extensions of the popular approximate long-memory HAR model apt to disentangle these effects and quantify their separate impact on volatility forecasts. By combining the asymptotic theory of the realized variance estimator with the Kalman filter and by introducing timevarying HAR parameters, we build new models that account for: (i) measurement errors (HARK), (ii) nonlinear dependencies (SHAR) and (iii) both measurement errors and nonlinearities (SHARK). The proposed models are simply estimated through standard maximum likelihood methods and are shown, both on simulated and real data, to provide better out-of-sample forecasts compared to standard HAR specifications and other competing approaches.
+
+--- CONCLUSION (first 5000 chars) ---
+(no labeled conclusion section found)
+
+--- WINNER-CLAIM SENTENCES (top 30) ---
+- They proved that this formulation is optimal from an information theoretic perspective, provided that parameters are driven by the score of the conditional likelihood.
+- Interestingly, we found that the SHAR and the SHARK tend to outperform the benchmark models even if the former are estimated on a fixed window and the latter are estimated on a rolling window.
+- It is useful to investigate whether the weaker misspecification of the HARlog model translates into superior out-of-sample forecasts compared to the HAR model on RVt .
+- In the empirical application in Section (3), we show that the HARlog outperforms the HAR, with forecast gains that are statistically significant for all the time-series under investigation.
+- More flexible specifications are possible, but they do not lead to superior out-of-sample forecasts.
+- In the first subsample, from December 2002 to August 2008, the SHARK provides the lowest MSE and QLIKE.
+- Except for M = 390, where the HARQ has slightly lower MSE loss, the HARK always outperforms the latter in terms of both MSE and QLIKE.
+- We also note that the HARST improves over the HARlog , but is outperformed by the SHAR.
+- The SHARK provides lowest MSE c90% .
+- The ARFIMA, being a long memory and QLIKE in most of the cases, and it is always included in M process, performs particularly well at long horizons, but is often outperformed by the SHARK.
+- With only c90% in most of one exception, the HARK and the SHAR outperform the HARlog and are included in M the cases.
+- The HARQ improves over the HAR, but is outperformed by the HARlog , which provides better 19 Electronic copy available at: https://ssrn.com/abstract=3089929 forecasts, especially on the monthly horizon.
+- In particular, as shown in table (12), we find strong evidence of uniform superior predictive ability for ϕhet , by testing HAR−HARlog MSE losses, (1) and for ϕerr , by testing HARlog −HARK MSE losses.
+- This indicates that today’s Vt is the best proxy for ht and that there are not significant advantages in using lagged Vt ’s.
+- We provided simulation and empirical evidence that the effects captured by these new models are 21 Electronic copy available at: https://ssrn.com/abstract=3089929 statistically significant, since they translate into superior out-of-sample forecasts compared to the basic HARlog specification and other competing approaches.
+- Optimal formulations for nonlinear autoregressive processes.
+- 34 Electronic copy available at: https://ssrn.com/abstract=3089929 ϕhet ϕerr1 ϕtvp1 uSPA test tuSPA 3.5273 2.8827 1.8295 p-value 0 0 0.0365 Table 12: MSE based uniform superior predictive ability test (uSPA) of Quaedvlieg (2019).
+
+--- LAST 2500 CHARS (often summary/conclusion) ---
+ -6 0.05 0 -8 -6 -4 -2 0 2 4 6 -8 -4 8 -2 0 2 4 Standard Normal Quantiles Figure 9: Kernel density estimate of SHAR standardized residuals computed on the series of 5-min daily realized variance of S&P500 future prices from 03-01-1995 to 21-06-2013. Q-Q plot of standardized residuals. M=39 M=78 M=390 0.3 0.3 0.3 0.2 0.2 0.2 0.1 0.1 0.1 0 0 0 -0.1 -0.1 -0.1 -0.2 -0.2 -0.2 -0.3 -0.3 -0.3 -0.4 1995 2000 2005 2010 2015 -0.4 1995 2000 2005 2010 2015 -0.4 1995 2000 2005 2010 2015 Figure 10: Dynamics of filtered SHAR (blue lines) and SHARK (red lines) β0,t parameter obtained by estimating the two models on S&P500 realized variance computed with 10, 5, 1-min returns in the period 23-12-1996 − 21-06-2013. M=39 M=78 M=390 0.65 0.65 0.65 0.6 0.6 0.6 0.55 0.55 0.55 0.5 0.5 0.5 0.45 0.45 0.45 0.4 0.4 0.4 0.35 1995 2000 2005 2010 2015 0.35 1995 2000 2005 2010 2015 0.35 1995 2000 2005 2010 2015 Figure 11: Dynamics of filtered SHAR (blue lines) and SHARK (red lines) β1,t parameters obtained by estimating the two models on S&P500 realized variance computed with 10, 5, 1-min returns in the period 23-12-1996 − 21-06-2013. 40 Electronic copy available at: https://ssrn.com/abstract=3089929 M=39 M=78 M=390 0.14 0.14 0.14 0.12 0.12 0.12 0.1 0.1 0.1 0.08 0.08 0.08 0.06 0.06 0.06 0.04 0.04 0.04 0.02 1995 2000 2005 2010 0.02 1995 2015 2000 2005 2010 0.02 1995 2015 2000 2005 2010 2015 Figure 12: Dynamics of filtered SHAR (blue lines) and SHARK (red lines) β3,t parameters obtained by estimating the two models on S&P500 realized variance computed with 10, 5, 1-min returns in the period 23-12-1996 − 21-06-2013. M=39 M=78 M=390 0.8 0.8 0.8 0.7 0.7 0.7 0.6 0.6 0.6 0.5 0.5 0.5 0.4 0.4 0.4 0.3 0.3 0.3 0.2 0.2 0.2 0.1 0.1 0.1 0 1995 2000 2005 2010 0 1995 2015 2000 2005 2010 0 1995 2015 2000 2005 2010 2015 Figure 13: Dynamics of filtered SHAR (blue lines) and SHARK (red lines) qt parameter obtained by estimating the two models on S&P500 realized variance computed with 10, 5, 1-min returns in the period 23-12-1996 − 21-06-2013. 1 0.98 0.96 0.94 0.92 0.9 0.88 0.86 0.84 ϕhet ϕ1err ϕ1tvp 0.82 0.8 2 4 6 8 10 12 14 16 18 20 22 Forecast horizon Figure 14: MSE-based forecast gains ϕhet , ϕ1err , ϕ1tvp at different forecast horizons. 41 Electronic copy available at: https://ssrn.com/abstract=3089929 

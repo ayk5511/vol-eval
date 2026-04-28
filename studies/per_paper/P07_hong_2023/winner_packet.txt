@@ -1,0 +1,42 @@
+=== P07_hong_2023 ===
+Title:    Volatility Estimation and Forecasts Based on Price Durations
+Venue:    Journal of Financial Econometrics
+Year:     2023, Citations: 18
+
+--- ABSTRACT ---
+We investigate price duration variance estimators that have long been neglected in the literature. In particular, we consider simple-to-construct non-parametric duration estimators, and parametric price duration estimators using autoregressive conditional duration specifications. This paper shows i) how price duration estimators can be used for the estimation and forecasting of the integrated variance of an underlying semi-martingale price process and ii) how they are affected by discrete and irregular spacing of observations, market microstructure noise and finite price jumps. Specifically, we contribute to the literature by constructing the asymptotic theory for the non-parametric estimator with and without the presence of bid/ask spread and time discreteness. Further, we provide guidance about how our estimators can best be implemented in practice by appropriately selecting a threshold parameter that defines a price duration event, or by averaging over a range of non-parametric duration estimators. We also provide simulation and forecasting evidence that price duration estimators can extract relevant information from high-frequency data better and produce more accurate forecasts than competing realized volatility and option-implied variance estimators, when considered in isolation or as part of a forecasting combination setting.
+
+--- CONCLUSION (first 5000 chars) ---
+(no labeled conclusion section found)
+
+--- WINNER-CLAIM SENTENCES (top 30) ---
+- Further, we provide guidance about how our estimators can best be implemented in practice by appropriately selecting a threshold parameter that defines a price duration event, or by averaging over a range of non-parametric duration estimators.
+- Bandi & Russell (2011) investigate finite sample properties of the kernel estimators and their optimal implementation.
+- Tse & Yang (2012) select the threshold values by targeting a desired average duration but acknowledge that an optimal choice is important.
+- For RK we use the optimal bandwidth of Barndorff-Nielsen et al.
+- We see that AN P1 always outperforms AN P2 and that AN P2 always outperforms N P .
+- Likewise, P AV1 is superior to P AV2 and RK is superior to RKN P .
+- Then we note that AN P1 and P AV1 are each superior to RK, with AN P1 minimizing RMSE while P AV1 minimizes QLIKE.
+- We conclude that the best duration estimator compares well with the best RV-type estimator.
+- The conclusion from the LR tests is unequivocal: conditional Burr distributions fit the price durations data best.
+- This month is governed by high uncertainty and the average bid/ask spread level of 4.6 ticks in this month is amongst the highest in our sample period.
+- Nevertheless, the parametric duration estimator, P DV , has the lowest average values in most cases.
+- We see that very often estimator 1 (P DV ) has the highest confidence, which is consistent with it having the least average values of RMSE and QLIKE.
+- The MCS results summarized by Table 7 show that P DV provides the best forecasts, for any choices of loss 9 Hansen et al.
+- At the same level, the second-best methods are SBV and AT M striking a tie at 37, followed by SRV5 with a total of 30, RV5 with a total of 28, and AN P2 with a total of 26.
+- Though SBV performs best in the RV group, we need to keep in mind that it being the forecast target might be an advantage.
+- Apart from SBV , the two simple 5-minute RV estimators outperform all other RV estimators in this group, confirming the conclusion of Liu et al.
+- (2015) that 5-minute RV is difficult to beat when it comes to forecasting future stock volatilities.
+- Secondly, we investigate which group of estimators provides the best forecasts and whether combining different groups improves the accuracy of our forecasts.
+- When we rank the combinations by counting membership of the MCS across loss functions and horizons at the 20% significance level, as before, the best combination is P DV + AT M with a count of 106, followed by P DV at 46, SBV + AT M at 35 and AT M +Duration4 at 28.
+- It is noteworthy that P DV by itself outperforms all but one of the combination forecasts.
+- We evaluate both parametric and non-parametric duration based estimators and find the parametric specification forecasts more accurately than RV-type estimators calculated from tick prices, for our sample period; the non-parametric duration estimators have the same accuracy as the best RV-type estimators.
+- (2011) shows that the parametric duration estimator significantly outperforms all RV-type estimators and at-the-money implied volatility, for one-day, one-week and one-month forecast horizons, for both the RMSE and the QLIKE loss functions.
+- Russell (2008): “Microstructure Noise, Realized Variance, and Optimal Sampling,” The Review of Economic Studies, 75, 339–369.
+- Sheppard (2015): “Does Anything Beat 5-minute RV?
+- The associated density forecast (DF) test results in Tables 12, 15, 18 and 21 show that the Burr density clearly outperforms the other two distributional assumptions, by giving the highest percentages of months in which the null is not rejected at either the 1% or 5% significance level.
+- From the three densities considered the Burr density provides the best fit for the scaled price durations.
+- Overall, the test results for the four reference stocks indicate that the HACD-Burr combination fits the price duration data best.
+
+--- LAST 2500 CHARS (often summary/conclusion) ---
+op (1) −→ [X, X]t ≡ 3 3 3 Zt σs2 ds. a.s. (59) 0 The proof is now complete upon employing the stable limit theorem of Jacod & Shiryaev (2003, Theorem 9.7.3) applied to the stochastic sequence {Un }. 72 Electronic copy available at: https://ssrn.com/abstract=2713322 Proof of Lemma 1 and Theorem 2. By Itô isometry and boundedness of σ we can see that   E Xτn,j+1 − Xτn,j 2 = E τZj+1  2  τZj+1 σs dWs  = E     σs2 ds ≤ (σ∗2 ) · E(τj+1 − τj ),  τj τj from which it follows by Markov’s inequality that ! ∆n . δn i h vτn,j = P Xτn,j+1 − Xτn,j > δn = OP ∗ ∗ Therefore, we have τn,j+1 − τn,j = OP (∆3n /δn ) and also, since ∆n = o(δn1/3 ) it is clear that the thinned Poisson sample {τn∗ } satisfies Assumption A. This proves Lemma 1. We note that we can write     ∆−1 Nt∗ δn2 − [X, X]t = ∆−1 n n ∗ Nt X  2 ∗ ∗ ) − [X, X]t − Bt  (Xτn,j+1 − Xτn,j j=0 where Bt = Bn,t = [Nt∗ δn2 − P h i2 E X ∗ τn,j+1 −X ∗ τn,j ∗ − Xτj∗ )2 ]. Now, we see that j (Xτj+1 ∗ Fn,j  h − δn2 = στ2n,j E W ∗ τn,j+1 −W ∗ τn,j i2 ∗ Fn,j  − δn2 ∗ ∗ = στ2n,j (2 − 1)!!(τn,j+1 − τn,j ) − δn2 ∼ 1 · στ2n,j ∆2n vn − δn2 (60) where !! means double factorial. But since ∆n = O(δn3/5 ) and v = O(∆3n /δn ), it straightfowardly follows that the last term (60) = O(∆5n /δn − δn2 ) = O(δn2 ), implying that the bias term Bn,t = OP (∆5n δn−1 δn−1 ). Therefore, we see that the bias contribution from the time discretization asymptotically tends to zero, since δn1 /δn3/5 → 0. Now it suffices to derive the limiting law of ∆−1 n ( 2 ∗ ∗ ) −[X, X]t ). Following −Xτn,j j (Xτn,j+1 P the same argument leading to (58) in Theorem 1 and applying Lemma 9.1. of Aı̈t-Sahalia & Jacod (2014), we see that the desired CLT holds with asymptotic variance t Z 2 · 3 · σs4 vs ds 3 0 as required. 73 Electronic copy available at: https://ssrn.com/abstract=2713322 Proof of Theorem 3. From (31) and the property of conditional expectation of the unobserved price change, it is straightforward to see that the leading bias term comes from o2 1 n 0 0 0 . − Dτn,j Nn,t · ς 2 Dτn,j+1 4 (61) Now, on noting that both binary variables D· take values of 1 with probability pa and −1 with probability pq (= 1 − pa ), we readily see that the expected value of (61) is given by 2 − 2(pa − pb )2 . Therefore, since ςn = Cς δn , the asymptotic bias of (37) then follows from Theorem 1, completing the proof. 74 Electronic copy available at: https://ssrn.com/abstract=2713322 
