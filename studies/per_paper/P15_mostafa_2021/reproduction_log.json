@@ -1,0 +1,43 @@
+{
+  "data_source": "yfinance crypto tickers (paper: CoinGecko)",
+  "cryptos_analyzed": [
+    "BTC",
+    "ETH",
+    "LTC",
+    "XRP",
+    "BCH"
+  ],
+  "models": [
+    "GARCH_t",
+    "GJR_GARCH_t",
+    "ANN"
+  ],
+  "paper_claimed_winner": "ANN beats ARIMA for some cryptos in MSE",
+  "approximation_notes": [
+    "Paper uses NIG distribution; arch package NIG is limited so we use Student-t.",
+    "ANN: 2-layer feedforward with 64 hidden units; paper architecture not disclosed.",
+    "ARIMA omitted; we use GARCH/GJR-GARCH as the econometric baseline."
+  ],
+  "summary_per_crypto": {
+    "BTC": {
+      "n": 829,
+      "path": "/Users/akmbp/Documents/EB1A-Profile/papers/paper3-vol-eval/studies/per_paper/P15_mostafa_2021/forecasts_BTC.parquet"
+    },
+    "ETH": {
+      "n": 789,
+      "path": "/Users/akmbp/Documents/EB1A-Profile/papers/paper3-vol-eval/studies/per_paper/P15_mostafa_2021/forecasts_ETH.parquet"
+    },
+    "LTC": {
+      "n": 829,
+      "path": "/Users/akmbp/Documents/EB1A-Profile/papers/paper3-vol-eval/studies/per_paper/P15_mostafa_2021/forecasts_LTC.parquet"
+    },
+    "XRP": {
+      "n": 789,
+      "path": "/Users/akmbp/Documents/EB1A-Profile/papers/paper3-vol-eval/studies/per_paper/P15_mostafa_2021/forecasts_XRP.parquet"
+    },
+    "BCH": {
+      "n": 789,
+      "path": "/Users/akmbp/Documents/EB1A-Profile/papers/paper3-vol-eval/studies/per_paper/P15_mostafa_2021/forecasts_BCH.parquet"
+    }
+  }
+}

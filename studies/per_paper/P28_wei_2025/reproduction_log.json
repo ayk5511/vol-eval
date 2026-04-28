@@ -1,0 +1,20 @@
+{
+  "data_source": "yfinance ^GSPC (paper: Yahoo Finance via DAS)",
+  "sample_period": "2011-12-28 to 2020-12-29",
+  "n_test_used": 907,
+  "models": [
+    "GARCH",
+    "LSTM",
+    "GRU",
+    "GARCH_LSTM",
+    "GARCH_GRU",
+    "Transformer"
+  ],
+  "paper_claimed_winner": "GARCH_GRU",
+  "paper_claimed_runner_up": "GARCH_LSTM",
+  "approximation_notes": [
+    "We approximate paper's 'embedded GARCH dynamics' with feature-augmented LSTM/GRU.",
+    "Single train/test split (60/40); paper does walk-forward.",
+    "Transformer is a small 2-layer encoder; paper Transformer architecture not fully disclosed."
+  ]
+}

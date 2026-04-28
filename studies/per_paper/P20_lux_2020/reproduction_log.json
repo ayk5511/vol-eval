@@ -1,0 +1,16 @@
+{
+  "data_source": "yfinance ^GDAXI (paper: Yahoo Finance via quantmod R package)",
+  "sample_period": "2010-01-05 to 2019-12-30",
+  "n_test_used": 812,
+  "models": [
+    "GARCH_normal",
+    "GARCH_t",
+    "SVR_GARCH"
+  ],
+  "paper_claimed_winner": "SVR-GARCH-KDE (nonparametric); we test variance-forecast component",
+  "approximation_notes": [
+    "Paper's KDE quantile estimation for VaR is omitted; we test the variance-forecast horse race only.",
+    "SVR with RBF kernel and lagged squared returns + lagged returns as features.",
+    "Hyperparameters: C=10, gamma='scale', epsilon=1e-7. Paper does not disclose exact hyperparams."
+  ]
+}

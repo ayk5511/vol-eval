@@ -1,0 +1,35 @@
+{
+  "data_source": "yfinance (paper: Yahoo Finance API for Python)",
+  "tickers_analyzed": [
+    "CIB",
+    "EC",
+    "TGLS",
+    "AVAL"
+  ],
+  "models": [
+    "ARIMA",
+    "SVR",
+    "Hybrid_ARIMA_SVR"
+  ],
+  "paper_claimed_winner": "Hybrid_ARIMA_SVR",
+  "approximation_notes": [
+    "Paper's predictand is returns, not volatility; we forecast squared returns to fit Phase 2's vol-eval pipeline.",
+    "ARIMA(1,0,1); paper does not specify exact order.",
+    "SVR uses RBF kernel default hyperparameters; paper does not disclose hyperparams.",
+    "Hybrid: ARIMA on returns, SVR on residual squared."
+  ],
+  "summary_per_ticker": {
+    "CIB": {
+      "n": 1008
+    },
+    "EC": {
+      "n": 1008
+    },
+    "TGLS": {
+      "n": 771
+    },
+    "AVAL": {
+      "n": 533
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "paper_id": "P20_lux_2020",
+  "h": 1,
+  "datasets": {
+    "default": {
+      "n_observations": 812,
+      "model_columns": [
+        "GARCH_normal",
+        "GARCH_t",
+        "SVR_GARCH"
+      ],
+      "qlike_by_model": {
+        "GARCH_normal": 4.5578495122107405,
+        "GARCH_t": 4.553798153148436,
+        "SVR_GARCH": 5.036850640230742
+      },
+      "best_by_qlike": "GARCH_t",
+      "paper_claimed_winner": "SVR_GARCH",
+      "paper_claimed_runner_up": "GARCH_normal",
+      "dm_winner_vs_runner_up": {
+        "models": "SVR_GARCH vs GARCH_normal",
+        "mean_diff": 0.4790011280200011,
+        "t_stat": 3.3124842569699187,
+        "p_value": 0.0009247133028207344,
+        "winner": "b",
+        "rejected_at_5pct": true
+      },
+      "mcs_at_90pct": {
+        "alpha": 0.1,
+        "n_bootstrap": 2000,
+        "survivors": [
+          "GARCH_normal",
+          "GARCH_t"
+        ],
+        "n_survivors": 2,
+        "n_total": 3,
+        "winner_survives": false
+      },
+      "spa_winner_as_benchmark": {
+        "benchmark": "SVR_GARCH",
+        "statistic": 3.3257743616489335,
+        "p_value_consistent": 0.0025,
+        "rejected_at_5pct": true
+      }
+    }
+  }
+}

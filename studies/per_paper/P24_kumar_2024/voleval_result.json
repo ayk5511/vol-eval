@@ -1,0 +1,45 @@
+{
+  "paper_id": "P24_kumar_2024",
+  "h": 1,
+  "datasets": {
+    "GSPC": {
+      "n_observations": 1203,
+      "model_columns": [
+        "GARCH",
+        "MultiIndex_LSTM_approx_TGAT"
+      ],
+      "qlike_by_model": {
+        "GARCH": 6.102877968679541,
+        "MultiIndex_LSTM_approx_TGAT": 7.0995453395645
+      },
+      "best_by_qlike": "GARCH",
+      "paper_claimed_winner": "MultiIndex_LSTM_approx_TGAT",
+      "paper_claimed_runner_up": "GARCH",
+      "dm_winner_vs_runner_up": {
+        "models": "MultiIndex_LSTM_approx_TGAT vs GARCH",
+        "mean_diff": 0.996667370884959,
+        "t_stat": 1.5573846387854051,
+        "p_value": 0.11937919101937977,
+        "winner": "tie",
+        "rejected_at_5pct": false
+      },
+      "mcs_at_90pct": {
+        "alpha": 0.1,
+        "n_bootstrap": 2000,
+        "survivors": [
+          "GARCH",
+          "MultiIndex_LSTM_approx_TGAT"
+        ],
+        "n_survivors": 2,
+        "n_total": 2,
+        "winner_survives": true
+      },
+      "spa_winner_as_benchmark": {
+        "benchmark": "MultiIndex_LSTM_approx_TGAT",
+        "statistic": 1.559101924956947,
+        "p_value_consistent": 0.073,
+        "rejected_at_5pct": false
+      }
+    }
+  }
+}

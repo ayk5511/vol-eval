@@ -1,0 +1,132 @@
+{
+  "n_papers_reproduced": 14,
+  "outcomes": {
+    "fails": 12,
+    "survives": 1,
+    "partial": 1
+  },
+  "outcome_pct": {
+    "fails": 85.7,
+    "survives": 7.1,
+    "partial": 7.1
+  },
+  "per_paper": [
+    {
+      "paper_id": "P09_rubio_2022",
+      "outcome": "fails",
+      "details": [
+        "  TGLS: FAILS (best=ARIMA, DM p=0.355)",
+        "  EC: FAILS (best=ARIMA, DM p=0.595)",
+        "  AVAL: FAILS (best=SVR, DM p=0.432)",
+        "  CIB: FAILS (best=ARIMA, DM p=0.441)"
+      ]
+    },
+    {
+      "paper_id": "P10_shen_2021",
+      "outcome": "survives",
+      "details": [
+        "  default: SURVIVES (MCS narrows to RNN)"
+      ]
+    },
+    {
+      "paper_id": "P11_ersin_2023",
+      "outcome": "fails",
+      "details": [
+        "  default: FAILS (best=GARCH, DM p=0.513)"
+      ]
+    },
+    {
+      "paper_id": "P12_kim_2021",
+      "outcome": "fails",
+      "details": [
+        "  ADA: FAILS (best=GARCH_t)",
+        "  XRP: FAILS (best=GARCH_t, DM p=0.270)",
+        "  ETH: FAILS (best=GARCH_t)",
+        "  BTC: FAILS (best=GARCH_normal)",
+        "  LTC: FAILS (best=GARCH_t)",
+        "  BCH: FAILS (best=GARCH_t)"
+      ]
+    },
+    {
+      "paper_id": "P14_zahid_2022",
+      "outcome": "fails",
+      "details": [
+        "  default: FAILS (best=GRU)"
+      ]
+    },
+    {
+      "paper_id": "P15_mostafa_2021",
+      "outcome": "partial",
+      "details": [
+        "  XRP: FAILS (DM p=0.311)",
+        "  ETH: FAILS (best=GARCH_t, DM p=0.398)",
+        "  BTC: SURVIVES (MCS narrows to ANN)",
+        "  LTC: FAILS (best=GARCH_t, DM p=0.272)",
+        "  BCH: FAILS (DM p=0.262)"
+      ]
+    },
+    {
+      "paper_id": "P18_lei_2021",
+      "outcome": "fails",
+      "details": [
+        "  default: FAILS (best=LSTM)"
+      ]
+    },
+    {
+      "paper_id": "P20_lux_2020",
+      "outcome": "fails",
+      "details": [
+        "  default: FAILS (best=GARCH_t)"
+      ]
+    },
+    {
+      "paper_id": "P21_aradi_2020",
+      "outcome": "fails",
+      "details": [
+        "  default: FAILS (DM p=0.057)"
+      ]
+    },
+    {
+      "paper_id": "P24_kumar_2024",
+      "outcome": "fails",
+      "details": [
+        "  GSPC: FAILS (best=GARCH, DM p=0.119)"
+      ]
+    },
+    {
+      "paper_id": "P25_xu_2024",
+      "outcome": "fails",
+      "details": [
+        "  default: FAILS (best=LSTM)"
+      ]
+    },
+    {
+      "paper_id": "P26_roszyk_2024",
+      "outcome": "fails",
+      "details": [
+        "  default: FAILS (best=LSTM_GARCH, DM p=0.371)"
+      ]
+    },
+    {
+      "paper_id": "P27_tondapu_2024",
+      "outcome": "fails",
+      "details": [
+        "  GBPUSD: FAILS (best=EWMA, DM p=0.438)",
+        "  EURGBP: FAILS (best=Historical_Avg, DM p=0.717)"
+      ]
+    },
+    {
+      "paper_id": "P28_wei_2025",
+      "outcome": "fails",
+      "details": [
+        "  default: FAILS (best=GARCH, DM p=0.112)"
+      ]
+    }
+  ],
+  "interpretation": {
+    "survives": "Paper-claimed winner is the SOLE survivor of MCS at 90%; claim fully supported.",
+    "partial": "Mixed evidence: some subset (e.g., one of multiple datasets) shows significant winner but not all; or DM significant but SPA rejects.",
+    "fails": "Paper-claimed winner is NOT the best by QLIKE OR DM is not significant. Headline claim does not survive significance testing.",
+    "inconclusive": "Insufficient data or could not run vol-eval."
+  }
+}

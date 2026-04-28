@@ -1,0 +1,264 @@
+{
+  "paper_id": "P12_kim_2021",
+  "h": 1,
+  "datasets": {
+    "ADA": {
+      "n_observations": 797,
+      "model_columns": [
+        "GARCH_normal",
+        "GARCH_t",
+        "GJR_GARCH_t",
+        "SV_approx"
+      ],
+      "qlike_by_model": {
+        "GARCH_normal": 7.45226389700934,
+        "GARCH_t": 6.810287766657171,
+        "GJR_GARCH_t": 6.814984441198408,
+        "SV_approx": 304.04187009687564
+      },
+      "best_by_qlike": "GARCH_t",
+      "paper_claimed_winner": "SV_approx",
+      "paper_claimed_runner_up": "GARCH_normal",
+      "dm_winner_vs_runner_up": {
+        "models": "SV_approx vs GARCH_normal",
+        "mean_diff": 296.5896061998663,
+        "t_stat": 4.091809422685591,
+        "p_value": 4.280203470341526e-05,
+        "winner": "b",
+        "rejected_at_5pct": true
+      },
+      "mcs_at_90pct": {
+        "alpha": 0.1,
+        "n_bootstrap": 2000,
+        "survivors": [
+          "GARCH_t",
+          "GJR_GARCH_t"
+        ],
+        "n_survivors": 2,
+        "n_total": 4,
+        "winner_survives": false
+      },
+      "spa_winner_as_benchmark": {
+        "benchmark": "SV_approx",
+        "statistic": 3.6867547856859977,
+        "p_value_consistent": 0.001,
+        "rejected_at_5pct": true
+      }
+    },
+    "XRP": {
+      "n_observations": 797,
+      "model_columns": [
+        "GARCH_normal",
+        "GARCH_t",
+        "GJR_GARCH_t",
+        "SV_approx"
+      ],
+      "qlike_by_model": {
+        "GARCH_normal": 137.00786479697285,
+        "GARCH_t": 122.12536897938156,
+        "GJR_GARCH_t": 122.81092215783279,
+        "SV_approx": 11202.881640966862
+      },
+      "best_by_qlike": "GARCH_t",
+      "paper_claimed_winner": "SV_approx",
+      "paper_claimed_runner_up": "GARCH_normal",
+      "dm_winner_vs_runner_up": {
+        "models": "SV_approx vs GARCH_normal",
+        "mean_diff": 11065.87377616989,
+        "t_stat": 1.1019308720646568,
+        "p_value": 0.27049172584894965,
+        "winner": "tie",
+        "rejected_at_5pct": false
+      },
+      "mcs_at_90pct": {
+        "alpha": 0.1,
+        "n_bootstrap": 2000,
+        "survivors": [
+          "GARCH_normal",
+          "GARCH_t",
+          "GJR_GARCH_t"
+        ],
+        "n_survivors": 3,
+        "n_total": 4,
+        "winner_survives": false
+      },
+      "spa_winner_as_benchmark": {
+        "benchmark": "SV_approx",
+        "statistic": 1.1068523316094527,
+        "p_value_consistent": 0.0845,
+        "rejected_at_5pct": false
+      }
+    },
+    "ETH": {
+      "n_observations": 797,
+      "model_columns": [
+        "GARCH_normal",
+        "GARCH_t",
+        "GJR_GARCH_t",
+        "SV_approx"
+      ],
+      "qlike_by_model": {
+        "GARCH_normal": 6.823837039136923,
+        "GARCH_t": 6.7103797472985365,
+        "GJR_GARCH_t": 6.760841044493478,
+        "SV_approx": 250.24411503839588
+      },
+      "best_by_qlike": "GARCH_t",
+      "paper_claimed_winner": "SV_approx",
+      "paper_claimed_runner_up": "GARCH_normal",
+      "dm_winner_vs_runner_up": {
+        "models": "SV_approx vs GARCH_normal",
+        "mean_diff": 243.42027799925899,
+        "t_stat": 3.9244935313149374,
+        "p_value": 8.691239457947475e-05,
+        "winner": "b",
+        "rejected_at_5pct": true
+      },
+      "mcs_at_90pct": {
+        "alpha": 0.1,
+        "n_bootstrap": 2000,
+        "survivors": [
+          "GARCH_normal",
+          "GARCH_t",
+          "GJR_GARCH_t"
+        ],
+        "n_survivors": 3,
+        "n_total": 4,
+        "winner_survives": false
+      },
+      "spa_winner_as_benchmark": {
+        "benchmark": "SV_approx",
+        "statistic": 3.0554285851093708,
+        "p_value_consistent": 0.0075,
+        "rejected_at_5pct": true
+      }
+    },
+    "BTC": {
+      "n_observations": 837,
+      "model_columns": [
+        "GARCH_normal",
+        "GARCH_t",
+        "GJR_GARCH_t",
+        "SV_approx"
+      ],
+      "qlike_by_model": {
+        "GARCH_normal": 7.896136550982086,
+        "GARCH_t": 12.142337531782767,
+        "GJR_GARCH_t": 12.320533111746268,
+        "SV_approx": 371.99351679796797
+      },
+      "best_by_qlike": "GARCH_normal",
+      "paper_claimed_winner": "SV_approx",
+      "paper_claimed_runner_up": "GARCH_normal",
+      "dm_winner_vs_runner_up": {
+        "models": "SV_approx vs GARCH_normal",
+        "mean_diff": 364.09738024698584,
+        "t_stat": 4.066722430272675,
+        "p_value": 4.7678976064169376e-05,
+        "winner": "b",
+        "rejected_at_5pct": true
+      },
+      "mcs_at_90pct": {
+        "alpha": 0.1,
+        "n_bootstrap": 2000,
+        "survivors": [
+          "GARCH_normal"
+        ],
+        "n_survivors": 1,
+        "n_total": 4,
+        "winner_survives": false
+      },
+      "spa_winner_as_benchmark": {
+        "benchmark": "SV_approx",
+        "statistic": 3.7643562211843924,
+        "p_value_consistent": 0.001,
+        "rejected_at_5pct": true
+      }
+    },
+    "LTC": {
+      "n_observations": 837,
+      "model_columns": [
+        "GARCH_normal",
+        "GARCH_t",
+        "GJR_GARCH_t",
+        "SV_approx"
+      ],
+      "qlike_by_model": {
+        "GARCH_normal": 7.254127611024774,
+        "GARCH_t": 6.870799680917476,
+        "GJR_GARCH_t": 6.893096722081879,
+        "SV_approx": 259.43411348175727
+      },
+      "best_by_qlike": "GARCH_t",
+      "paper_claimed_winner": "SV_approx",
+      "paper_claimed_runner_up": "GARCH_normal",
+      "dm_winner_vs_runner_up": {
+        "models": "SV_approx vs GARCH_normal",
+        "mean_diff": 252.1799858707325,
+        "t_stat": 4.07534673719508,
+        "p_value": 4.5945834835636745e-05,
+        "winner": "b",
+        "rejected_at_5pct": true
+      },
+      "mcs_at_90pct": {
+        "alpha": 0.1,
+        "n_bootstrap": 2000,
+        "survivors": [
+          "GARCH_t",
+          "GJR_GARCH_t"
+        ],
+        "n_survivors": 2,
+        "n_total": 4,
+        "winner_survives": false
+      },
+      "spa_winner_as_benchmark": {
+        "benchmark": "SV_approx",
+        "statistic": 3.739107176043223,
+        "p_value_consistent": 0.0005,
+        "rejected_at_5pct": true
+      }
+    },
+    "BCH": {
+      "n_observations": 797,
+      "model_columns": [
+        "GARCH_normal",
+        "GARCH_t",
+        "GJR_GARCH_t",
+        "SV_approx"
+      ],
+      "qlike_by_model": {
+        "GARCH_normal": 11.74830343439771,
+        "GARCH_t": 10.5460816033149,
+        "GJR_GARCH_t": 10.81784228017141,
+        "SV_approx": 827.4691295683818
+      },
+      "best_by_qlike": "GARCH_t",
+      "paper_claimed_winner": "SV_approx",
+      "paper_claimed_runner_up": "GARCH_normal",
+      "dm_winner_vs_runner_up": {
+        "models": "SV_approx vs GARCH_normal",
+        "mean_diff": 815.7208261339842,
+        "t_stat": 3.5684725329043316,
+        "p_value": 0.0003590684877556871,
+        "winner": "b",
+        "rejected_at_5pct": true
+      },
+      "mcs_at_90pct": {
+        "alpha": 0.1,
+        "n_bootstrap": 2000,
+        "survivors": [
+          "GARCH_t"
+        ],
+        "n_survivors": 1,
+        "n_total": 4,
+        "winner_survives": false
+      },
+      "spa_winner_as_benchmark": {
+        "benchmark": "SV_approx",
+        "statistic": 2.483205839036991,
+        "p_value_consistent": 0.0185,
+        "rejected_at_5pct": true
+      }
+    }
+  }
+}

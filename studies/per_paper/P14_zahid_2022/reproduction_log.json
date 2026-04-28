@@ -1,0 +1,17 @@
+{
+  "data_source": "yfinance BTC-USD (paper specifies bitcoincharts.com; same Bitcoin OHLCV)",
+  "sample_period": "2016-01-31 to 2023-12-29",
+  "n_test_used": 1156,
+  "models": [
+    "GARCH",
+    "LSTM",
+    "GRU",
+    "Hybrid_GARCH_LSTM",
+    "Hybrid_GARCH_GRU"
+  ],
+  "paper_claimed_winner": "Hybrid GARCH+LSTM/GRU/BiLSTM (vs pure GARCH)",
+  "approximation_notes": [
+    "Single-layer LSTM/GRU (50 hidden); paper uses single/double/triple architectures.",
+    "We omit BiLSTM and triple-layer variants for tractability."
+  ]
+}

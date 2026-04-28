@@ -1,0 +1,57 @@
+{
+  "paper_id": "P28_wei_2025",
+  "h": 1,
+  "datasets": {
+    "default": {
+      "n_observations": 907,
+      "model_columns": [
+        "GARCH",
+        "LSTM",
+        "GRU",
+        "GARCH_LSTM",
+        "GARCH_GRU",
+        "Transformer"
+      ],
+      "qlike_by_model": {
+        "GARCH": 6.192696476679257,
+        "LSTM": 10.947105835473085,
+        "GRU": 12.611010926931394,
+        "GARCH_LSTM": 17.260596846917803,
+        "GARCH_GRU": 11.800559206333432,
+        "Transformer": 18.042952393775526
+      },
+      "best_by_qlike": "GARCH",
+      "paper_claimed_winner": "GARCH_GRU",
+      "paper_claimed_runner_up": "GARCH_LSTM",
+      "dm_winner_vs_runner_up": {
+        "models": "GARCH_GRU vs GARCH_LSTM",
+        "mean_diff": -5.46003764058437,
+        "t_stat": -1.588864841372153,
+        "p_value": 0.11209091034192897,
+        "winner": "tie",
+        "rejected_at_5pct": false
+      },
+      "mcs_at_90pct": {
+        "alpha": 0.1,
+        "n_bootstrap": 2000,
+        "survivors": [
+          "GARCH",
+          "LSTM",
+          "GRU",
+          "GARCH_LSTM",
+          "GARCH_GRU",
+          "Transformer"
+        ],
+        "n_survivors": 6,
+        "n_total": 6,
+        "winner_survives": true
+      },
+      "spa_winner_as_benchmark": {
+        "benchmark": "GARCH_GRU",
+        "statistic": 1.3836084146330316,
+        "p_value_consistent": 0.1225,
+        "rejected_at_5pct": false
+      }
+    }
+  }
+}

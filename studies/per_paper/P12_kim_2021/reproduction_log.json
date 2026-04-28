@@ -1,0 +1,43 @@
+{
+  "data_source": "yfinance crypto tickers (paper used CoinMarketCap.com URL)",
+  "cryptos_analyzed": [
+    "BTC",
+    "ETH",
+    "XRP",
+    "BCH",
+    "LTC",
+    "ADA"
+  ],
+  "models": [
+    "GARCH_normal",
+    "GARCH_t",
+    "GJR_GARCH_t",
+    "SV_approx"
+  ],
+  "paper_claimed_winner": "Bayesian SV beats GARCH family",
+  "approximation_notes": [
+    "Paper uses Bayesian SV via MCMC; PyMC not available in our environment.",
+    "We approximate SV with AR(1) on log squared returns - captures the stochastic-vol idea but is not full Bayesian inference.",
+    "Sample period: paper uses ~10 months in 2018; we use 6+ years (2017-2023) for more statistical power."
+  ],
+  "summary_per_crypto": {
+    "BTC": {
+      "n": 837
+    },
+    "ETH": {
+      "n": 797
+    },
+    "XRP": {
+      "n": 797
+    },
+    "BCH": {
+      "n": 797
+    },
+    "LTC": {
+      "n": 837
+    },
+    "ADA": {
+      "n": 797
+    }
+  }
+}

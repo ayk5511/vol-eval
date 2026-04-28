@@ -1,0 +1,17 @@
+{
+  "data_source": "yfinance 000001.SS (paper used JoinQuant Chinese stock high-frequency)",
+  "sample_period": "2011-01-18 to 2023-12-28",
+  "n_test_used": 1258,
+  "models": [
+    "GARCH",
+    "HAR_RV",
+    "TCN",
+    "LSTM"
+  ],
+  "paper_claimed_winner": "TCN with investor attention (Baidu search index)",
+  "approximation_notes": [
+    "Paper uses Baidu search index as 'investor attention' feature; we OMIT this since Baidu Index data is not freely available.",
+    "Our reproduction tests TCN/LSTM/GARCH/HAR-RV horse race WITHOUT the attention feature.",
+    "Paper's headline claim is specifically that the ATTENTION feature improves TCN; that claim is not testable here."
+  ]
+}

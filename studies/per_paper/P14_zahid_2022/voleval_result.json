@@ -1,0 +1,53 @@
+{
+  "paper_id": "P14_zahid_2022",
+  "h": 1,
+  "datasets": {
+    "default": {
+      "n_observations": 1156,
+      "model_columns": [
+        "GARCH",
+        "LSTM",
+        "GRU",
+        "Hybrid_GARCH_LSTM",
+        "Hybrid_GARCH_GRU"
+      ],
+      "qlike_by_model": {
+        "GARCH": 8.933268756797638,
+        "LSTM": 6.987820909945169,
+        "GRU": 6.963674675212765,
+        "Hybrid_GARCH_LSTM": 7.629085616147985,
+        "Hybrid_GARCH_GRU": 7.979926536357607
+      },
+      "best_by_qlike": "GRU",
+      "paper_claimed_winner": "Hybrid_GARCH_LSTM",
+      "paper_claimed_runner_up": "GARCH",
+      "dm_winner_vs_runner_up": {
+        "models": "Hybrid_GARCH_LSTM vs GARCH",
+        "mean_diff": -1.3041831406496533,
+        "t_stat": -2.264483418319379,
+        "p_value": 0.023544398475633832,
+        "winner": "a",
+        "rejected_at_5pct": true
+      },
+      "mcs_at_90pct": {
+        "alpha": 0.1,
+        "n_bootstrap": 2000,
+        "survivors": [
+          "LSTM",
+          "GRU",
+          "Hybrid_GARCH_LSTM",
+          "Hybrid_GARCH_GRU"
+        ],
+        "n_survivors": 4,
+        "n_total": 5,
+        "winner_survives": true
+      },
+      "spa_winner_as_benchmark": {
+        "benchmark": "Hybrid_GARCH_LSTM",
+        "statistic": 2.0126534812422543,
+        "p_value_consistent": 0.028,
+        "rejected_at_5pct": true
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "data_source": "yfinance XU100.IS (paper used Borsa Istanbul + OECD indicators)",
+  "sample_period": "2011-01-04 to 2023-12-28",
+  "n_test_used": 1304,
+  "models": [
+    "GARCH",
+    "GARCH_LSTM_approx"
+  ],
+  "paper_claimed_winner": "GARCH-MIDAS-LSTM (paper claims 39-95% RMSE reduction)",
+  "approximation_notes": [
+    "Paper's GARCH-MIDAS framework requires multiplicative variance decomposition into high-freq (daily GARCH) and low-freq (monthly OECD indicators); not implemented here.",
+    "Our 'GARCH-LSTM' is an approximation: LSTM with GARCH-variance feature.",
+    "We did NOT include macroeconomic indicators (geopolitical risk, industrial production) which are central to the paper's MIDAS approach.",
+    "This reproduction tests whether even a simple GARCH-LSTM combination significantly beats GARCH on Borsa Istanbul; it does NOT test the full GARCH-MIDAS-LSTM proposed in the paper."
+  ]
+}

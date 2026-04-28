@@ -1,0 +1,46 @@
+{
+  "paper_id": "P10_shen_2021",
+  "h": 1,
+  "datasets": {
+    "default": {
+      "n_observations": 1156,
+      "model_columns": [
+        "GARCH",
+        "EWMA",
+        "RNN"
+      ],
+      "qlike_by_model": {
+        "GARCH": 8.933268756797638,
+        "EWMA": 15.04133253587141,
+        "RNN": 6.991764257957446
+      },
+      "best_by_qlike": "RNN",
+      "paper_claimed_winner": "RNN",
+      "paper_claimed_runner_up": "GARCH",
+      "dm_winner_vs_runner_up": {
+        "models": "RNN vs GARCH",
+        "mean_diff": -1.9415044988401928,
+        "t_stat": -2.307664605527626,
+        "p_value": 0.021017798148879052,
+        "winner": "a",
+        "rejected_at_5pct": true
+      },
+      "mcs_at_90pct": {
+        "alpha": 0.1,
+        "n_bootstrap": 2000,
+        "survivors": [
+          "RNN"
+        ],
+        "n_survivors": 1,
+        "n_total": 3,
+        "winner_survives": true
+      },
+      "spa_winner_as_benchmark": {
+        "benchmark": "RNN",
+        "statistic": 0.0,
+        "p_value_consistent": 1.0,
+        "rejected_at_5pct": false
+      }
+    }
+  }
+}

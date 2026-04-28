@@ -1,0 +1,17 @@
+{
+  "data_source": "yfinance ^GSPC (paper: Quandl Python module for S&P 500 stocks)",
+  "sample_period": "2009-02-03 to 2019-12-30",
+  "n_test_used": 898,
+  "models": [
+    "ARIMA",
+    "Dilated_CNN",
+    "Dilated_CNN_Transfer"
+  ],
+  "paper_claimed_winner": "Dilated CNN with transfer learning",
+  "approximation_notes": [
+    "Paper trains on hundreds of stocks; we use S&P 500 index as representative.",
+    "Transfer learning approximation: pre-train on simulated AR(1) returns, fine-tune on actual.",
+    "Dilated CNN: dilations 1/2/4/8, 32 channels, kernel size 3.",
+    "Lookback = 64 days (paper used 250 days per Section 3.2 \u2014 we use shorter for tractability)."
+  ]
+}

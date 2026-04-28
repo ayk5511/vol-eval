@@ -1,0 +1,29 @@
+{
+  "data_source": "yfinance 8 indices (paper used Yahoo Finance)",
+  "indices": [
+    "GSPC",
+    "GDAXI",
+    "FCHI",
+    "FTSE",
+    "NSEI",
+    "N225",
+    "KS11",
+    "HSI"
+  ],
+  "models": [
+    "GARCH",
+    "MultiIndex_LSTM_approx_TGAT"
+  ],
+  "paper_claimed_winner": "Temporal GAT (graph attention network)",
+  "approximation_notes": [
+    "Full Temporal GAT requires PyTorch Geometric (not in our environment).",
+    "We approximate the cross-index information aggregation with a multi-channel LSTM that takes all 8 indices' log returns as features.",
+    "The graph structure (correlation- or volatility-spillover-based) is REPLACED by simple feature concatenation; this is not equivalent to attention.",
+    "Reproduction is for S&P 500 only (representative); paper covers all 8 indices."
+  ],
+  "summary": {
+    "GSPC": {
+      "n": 1203
+    }
+  }
+}

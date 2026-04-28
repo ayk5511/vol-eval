@@ -1,0 +1,48 @@
+{
+  "paper_id": "P21_aradi_2020",
+  "h": 1,
+  "datasets": {
+    "default": {
+      "n_observations": 898,
+      "model_columns": [
+        "ARIMA",
+        "Dilated_CNN",
+        "Dilated_CNN_Transfer"
+      ],
+      "qlike_by_model": {
+        "ARIMA": 6.286311089251959,
+        "Dilated_CNN": 6.2746926336448,
+        "Dilated_CNN_Transfer": 5.9971644722367365
+      },
+      "best_by_qlike": "Dilated_CNN_Transfer",
+      "paper_claimed_winner": "Dilated_CNN_Transfer",
+      "paper_claimed_runner_up": "Dilated_CNN",
+      "dm_winner_vs_runner_up": {
+        "models": "Dilated_CNN_Transfer vs Dilated_CNN",
+        "mean_diff": -0.27752816140806363,
+        "t_stat": -1.9009589702859773,
+        "p_value": 0.05730738699791682,
+        "winner": "tie",
+        "rejected_at_5pct": false
+      },
+      "mcs_at_90pct": {
+        "alpha": 0.1,
+        "n_bootstrap": 2000,
+        "survivors": [
+          "ARIMA",
+          "Dilated_CNN",
+          "Dilated_CNN_Transfer"
+        ],
+        "n_survivors": 3,
+        "n_total": 3,
+        "winner_survives": true
+      },
+      "spa_winner_as_benchmark": {
+        "benchmark": "Dilated_CNN_Transfer",
+        "statistic": 0.0,
+        "p_value_consistent": 1.0,
+        "rejected_at_5pct": false
+      }
+    }
+  }
+}

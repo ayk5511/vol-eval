@@ -1,0 +1,50 @@
+{
+  "paper_id": "P18_lei_2021",
+  "h": 1,
+  "datasets": {
+    "default": {
+      "n_observations": 1258,
+      "model_columns": [
+        "GARCH",
+        "HAR_RV",
+        "TCN",
+        "LSTM"
+      ],
+      "qlike_by_model": {
+        "GARCH": 7.928570125490951,
+        "HAR_RV": 7.231012303906009,
+        "TCN": 9.55670511299419,
+        "LSTM": 7.194657499089786
+      },
+      "best_by_qlike": "LSTM",
+      "paper_claimed_winner": "TCN",
+      "paper_claimed_runner_up": "GARCH",
+      "dm_winner_vs_runner_up": {
+        "models": "TCN vs GARCH",
+        "mean_diff": 1.6281349875032365,
+        "t_stat": 2.5827079329754987,
+        "p_value": 0.009802827064545605,
+        "winner": "b",
+        "rejected_at_5pct": true
+      },
+      "mcs_at_90pct": {
+        "alpha": 0.1,
+        "n_bootstrap": 2000,
+        "survivors": [
+          "GARCH",
+          "HAR_RV",
+          "LSTM"
+        ],
+        "n_survivors": 3,
+        "n_total": 4,
+        "winner_survives": false
+      },
+      "spa_winner_as_benchmark": {
+        "benchmark": "TCN",
+        "statistic": 2.520758576380339,
+        "p_value_consistent": 0.0215,
+        "rejected_at_5pct": true
+      }
+    }
+  }
+}

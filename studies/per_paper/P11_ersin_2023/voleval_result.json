@@ -1,0 +1,45 @@
+{
+  "paper_id": "P11_ersin_2023",
+  "h": 1,
+  "datasets": {
+    "default": {
+      "n_observations": 1304,
+      "model_columns": [
+        "GARCH",
+        "GARCH_LSTM_approx"
+      ],
+      "qlike_by_model": {
+        "GARCH": 11.259163707960225,
+        "GARCH_LSTM_approx": 12.436667223708403
+      },
+      "best_by_qlike": "GARCH",
+      "paper_claimed_winner": "GARCH_LSTM_approx",
+      "paper_claimed_runner_up": "GARCH",
+      "dm_winner_vs_runner_up": {
+        "models": "GARCH_LSTM_approx vs GARCH",
+        "mean_diff": 1.1775035157481784,
+        "t_stat": 0.6543578456283587,
+        "p_value": 0.5128812861506087,
+        "winner": "tie",
+        "rejected_at_5pct": false
+      },
+      "mcs_at_90pct": {
+        "alpha": 0.1,
+        "n_bootstrap": 2000,
+        "survivors": [
+          "GARCH",
+          "GARCH_LSTM_approx"
+        ],
+        "n_survivors": 2,
+        "n_total": 2,
+        "winner_survives": true
+      },
+      "spa_winner_as_benchmark": {
+        "benchmark": "GARCH_LSTM_approx",
+        "statistic": 0.6476472201313014,
+        "p_value_consistent": 0.254,
+        "rejected_at_5pct": false
+      }
+    }
+  }
+}

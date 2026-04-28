@@ -1,0 +1,19 @@
+{
+  "data_source": "yfinance BTC-USD (paper said CoinMarketCap; CoinMarketCap public API now paid)",
+  "sample_period": "2016-01-31 to 2023-12-29",
+  "n_train": 1734,
+  "n_test_used": 1156,
+  "models": [
+    "GARCH",
+    "EWMA",
+    "RNN"
+  ],
+  "paper_claimed_winner": "RNN",
+  "paper_claimed_runner_up": "GARCH or EWMA",
+  "approximation_notes": [
+    "Paper period is 2010-2020+; yfinance BTC-USD starts 2014.",
+    "RNN: 1-layer simple RNN, 50 hidden units, lookback=20, 30 epochs.",
+    "GARCH: GARCH(1,1) with refit every 20 days + manual recursion.",
+    "EWMA: lambda=0.94 RiskMetrics standard."
+  ]
+}

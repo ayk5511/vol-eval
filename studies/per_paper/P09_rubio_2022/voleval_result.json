@@ -1,0 +1,174 @@
+{
+  "paper_id": "P09_rubio_2022",
+  "h": 1,
+  "datasets": {
+    "TGLS": {
+      "n_observations": 771,
+      "model_columns": [
+        "ARIMA",
+        "SVR",
+        "Hybrid_ARIMA_SVR"
+      ],
+      "qlike_by_model": {
+        "ARIMA": 280.64267012864906,
+        "SVR": 1015.0138708900985,
+        "Hybrid_ARIMA_SVR": 469.1616306319513
+      },
+      "best_by_qlike": "ARIMA",
+      "paper_claimed_winner": "Hybrid_ARIMA_SVR",
+      "paper_claimed_runner_up": "ARIMA",
+      "dm_winner_vs_runner_up": {
+        "models": "Hybrid_ARIMA_SVR vs ARIMA",
+        "mean_diff": 188.51896050330214,
+        "t_stat": 0.9253456243614093,
+        "p_value": 0.3547861535263488,
+        "winner": "tie",
+        "rejected_at_5pct": false
+      },
+      "mcs_at_90pct": {
+        "alpha": 0.1,
+        "n_bootstrap": 2000,
+        "survivors": [
+          "ARIMA",
+          "SVR",
+          "Hybrid_ARIMA_SVR"
+        ],
+        "n_survivors": 3,
+        "n_total": 3,
+        "winner_survives": true
+      },
+      "spa_winner_as_benchmark": {
+        "benchmark": "Hybrid_ARIMA_SVR",
+        "statistic": 0.9029765799219444,
+        "p_value_consistent": 0.191,
+        "rejected_at_5pct": false
+      }
+    },
+    "EC": {
+      "n_observations": 1008,
+      "model_columns": [
+        "ARIMA",
+        "SVR",
+        "Hybrid_ARIMA_SVR"
+      ],
+      "qlike_by_model": {
+        "ARIMA": 76.88478811932859,
+        "SVR": 388.5338937052033,
+        "Hybrid_ARIMA_SVR": 91.70859992523516
+      },
+      "best_by_qlike": "ARIMA",
+      "paper_claimed_winner": "Hybrid_ARIMA_SVR",
+      "paper_claimed_runner_up": "ARIMA",
+      "dm_winner_vs_runner_up": {
+        "models": "Hybrid_ARIMA_SVR vs ARIMA",
+        "mean_diff": 14.823811805906608,
+        "t_stat": 0.5309726819023193,
+        "p_value": 0.595437709861351,
+        "winner": "tie",
+        "rejected_at_5pct": false
+      },
+      "mcs_at_90pct": {
+        "alpha": 0.1,
+        "n_bootstrap": 2000,
+        "survivors": [
+          "ARIMA",
+          "SVR",
+          "Hybrid_ARIMA_SVR"
+        ],
+        "n_survivors": 3,
+        "n_total": 3,
+        "winner_survives": true
+      },
+      "spa_winner_as_benchmark": {
+        "benchmark": "Hybrid_ARIMA_SVR",
+        "statistic": 0.5560089639409233,
+        "p_value_consistent": 0.2675,
+        "rejected_at_5pct": false
+      }
+    },
+    "AVAL": {
+      "n_observations": 533,
+      "model_columns": [
+        "ARIMA",
+        "SVR",
+        "Hybrid_ARIMA_SVR"
+      ],
+      "qlike_by_model": {
+        "ARIMA": 165.45365887263134,
+        "SVR": 103.77053345553381,
+        "Hybrid_ARIMA_SVR": 113.6169119627801
+      },
+      "best_by_qlike": "SVR",
+      "paper_claimed_winner": "Hybrid_ARIMA_SVR",
+      "paper_claimed_runner_up": "ARIMA",
+      "dm_winner_vs_runner_up": {
+        "models": "Hybrid_ARIMA_SVR vs ARIMA",
+        "mean_diff": -51.83674690985126,
+        "t_stat": -0.7856762490808035,
+        "p_value": 0.43205718115148795,
+        "winner": "tie",
+        "rejected_at_5pct": false
+      },
+      "mcs_at_90pct": {
+        "alpha": 0.1,
+        "n_bootstrap": 2000,
+        "survivors": [
+          "ARIMA",
+          "SVR",
+          "Hybrid_ARIMA_SVR"
+        ],
+        "n_survivors": 3,
+        "n_total": 3,
+        "winner_survives": true
+      },
+      "spa_winner_as_benchmark": {
+        "benchmark": "Hybrid_ARIMA_SVR",
+        "statistic": 1.3425105312737196,
+        "p_value_consistent": 0.1035,
+        "rejected_at_5pct": false
+      }
+    },
+    "CIB": {
+      "n_observations": 1008,
+      "model_columns": [
+        "ARIMA",
+        "SVR",
+        "Hybrid_ARIMA_SVR"
+      ],
+      "qlike_by_model": {
+        "ARIMA": 136.9667652195743,
+        "SVR": 254.3650185626968,
+        "Hybrid_ARIMA_SVR": 242.08385867331833
+      },
+      "best_by_qlike": "ARIMA",
+      "paper_claimed_winner": "Hybrid_ARIMA_SVR",
+      "paper_claimed_runner_up": "ARIMA",
+      "dm_winner_vs_runner_up": {
+        "models": "Hybrid_ARIMA_SVR vs ARIMA",
+        "mean_diff": 105.11709345374402,
+        "t_stat": 0.7709433018840429,
+        "p_value": 0.4407405391516024,
+        "winner": "tie",
+        "rejected_at_5pct": false
+      },
+      "mcs_at_90pct": {
+        "alpha": 0.1,
+        "n_bootstrap": 2000,
+        "survivors": [
+          "ARIMA",
+          "SVR",
+          "Hybrid_ARIMA_SVR"
+        ],
+        "n_survivors": 3,
+        "n_total": 3,
+        "winner_survives": true
+      },
+      "spa_winner_as_benchmark": {
+        "benchmark": "Hybrid_ARIMA_SVR",
+        "statistic": 0.8782964037567759,
+        "p_value_consistent": 0.248,
+        "rejected_at_5pct": false
+      }
+    }
+  }
+}
