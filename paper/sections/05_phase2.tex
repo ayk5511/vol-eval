@@ -78,7 +78,7 @@ This is the strongest empirical case for the \texttt{vol-eval} package. The vola
 
 \subsection{Finding 3: Survival of headline wins under vol-eval}\label{sec:phase2_survival}
 
-For each of the 14 RDS-1 papers (the only papers with publicly accessible data), we re-implemented the headline winner and runner-up models on the paper's stated data source, generated per-day forecasts via a 60/40 train/test split with rolling refits, and applied the \texttt{vol-eval} battery (DM, MCS at 90\%, SPA at 5\%) to test whether the paper's claimed win is statistically significant. The full reproductions (one \texttt{reproduce.py} script per paper) and per-paper \texttt{voleval\_result.json} outputs are in the project repository.
+For each of the 14 RDS-1 papers (the only papers with publicly accessible data), we re-implemented the headline winner and runner-up models on the paper's stated data source, generated per-day forecasts via a 60/40 train/test split with rolling refits, and applied the \texttt{vol-eval} battery (DM, MCS at $\alpha = 0.10$, SPA at $\alpha = 0.05$, all using forecast horizon $h = 1$ for the HAC bandwidth in Newey-West and the bootstrap design in MCS/SPA) to test whether the paper's claimed win is statistically significant. The full reproductions (one \texttt{reproduce.py} script per paper) and per-paper \texttt{voleval\_result.json} outputs are in the project repository.
 
 We classify each paper into one of three outcomes (\Cref{tab:phase2_survival}):
 
@@ -90,25 +90,37 @@ We classify each paper into one of three outcomes (\Cref{tab:phase2_survival}):
 
 \begin{table}[H]
 \centering
-\caption{Phase 2 survival outcomes ($n=14$ reproducible papers). The full per-paper detail (QLIKE, DM, MCS, SPA) is in \texttt{studies/results/phase2\_summary.json}.}\label{tab:phase2_survival}
-\begin{tabular}{lcc}
+\caption{Phase 2 survival outcomes ($n=14$ reproducible papers). The full per-paper detail (QLIKE, DM, MCS, SPA) is in \Cref{tab:phase2_appendix} and the source-of-record JSON at \texttt{studies/results/phase2\_summary.json}.}\label{tab:phase2_survival}
+\begin{tabular}{lcccc}
 \toprule
-Outcome & $n$ & \% \\
+Venue & $n$ reproduced & Fails & Partial & Survives \\
 \midrule
-Fails (paper-claimed win does not survive) & 12 & 86\% \\
-Partial survival & 1 & 7\% \\
-Survives in full & 1 & 7\% \\
+arXiv q-fin & 7 & 7 & 0 & 0 \\
+Mathematics (MDPI) & 4 & 4 & 0 & 0 \\
+Risks (MDPI) & 1 & 1 & 0 & 0 \\
+Journal of Risk and Financial Management (MDPI) & 2 & 0 & 1 & 1 \\
 \midrule
-Total reproduced & 14 & 100\% \\
+Total & 14 & 12 & 1 & 1 \\
+\multicolumn{2}{l}{\hspace{2em}as \%} & 86\% & 7\% & 7\% \\
 \bottomrule
 \end{tabular}
 \end{table}
+
+The per-venue split is striking on its own. Both surviving cases come from the same MDPI venue (\emph{Journal of Risk and Financial Management}), where the Data Availability Statement is editorially required and where, in our sample, the data sources disclosed in that block (CoinMarketCap, CoinGecko) lend themselves to clean reproduction. The arXiv preprint cohort, with the largest reproducible $n$ in our sample, has zero survivors. We caution against over-reading this venue-level pattern: the cohort sizes are small ($n$ between 1 and 7) and the venue-level differences could plausibly be artefacts of which papers happened to disclose their data carefully. The pattern is suggestive, not a population-level claim.
 
 The single full survivor is \citet{Shen2021}: in our reproduction on Bitcoin (Yahoo Finance \texttt{BTC-USD} as a substitute for the paper's CoinMarketCap source, since the latter no longer offers a public API), the recurrent neural network significantly outperforms both GARCH(1,1) and EWMA at the 5\% level (DM $t=-2.31$, $p=0.021$), and the 90\% Model Confidence Set narrows to RNN alone, eliminating both econometric baselines.
 
 The single partial survivor is \citet{MostafaSahaIslamNguyen2021}: in our reproduction on five cryptocurrencies (CoinGecko data, ticker substitutes from yfinance), the ANN is significantly better than GJR-GARCH for Bitcoin (DM $p=0.010$, MCS narrows to ANN alone) but not for the other four; for Ether and Litecoin, GARCH-$t$ has lower QLIKE than ANN, and the comparison is a tie.
 
-The remaining 12 papers fall into one of two failure patterns. In seven cases, the paper-claimed winner is not the lowest-QLIKE model in our reproduction. The most striking instance is \citet{Wei2025}: the paper claims that the GARCH-GRU hybrid consistently outperforms classical GARCH and Transformer baselines on US equity volatility, but in our reproduction on the S\&P 500, plain GARCH(1,1) has the lowest QLIKE (6.19), and the paper's claimed winner GARCH-GRU ranks third (11.80). In five other cases, the paper-claimed winner matches our best-by-QLIKE but the DM test fails to reject equal predictive accuracy at 5\% (typically $p$ between 0.06 and 0.40), the 90\% MCS keeps multiple models, and the SPA cannot establish significance. The strongest example here is \citet{Roszyk2024}: the paper claims that adding the VIX index to a hybrid LSTM-GARCH significantly improves S\&P 500 volatility forecasts, but in our reproduction the no-VIX hybrid actually has lower QLIKE than the with-VIX variant, and the DM test of with-VIX versus no-VIX gives $p=0.371$.
+The remaining 12 papers fall into two failure patterns. In eleven cases, the paper-claimed winner is not the lowest-QLIKE model in our reproduction. The most striking instance is \citet{Wei2025}: the paper claims that the GARCH-GRU hybrid consistently outperforms classical GARCH and Transformer baselines on US equity volatility, but in our reproduction on the S\&P 500, plain GARCH(1,1) has the lowest QLIKE (6.19), and the paper's claimed winner GARCH-GRU ranks third (11.80). A similarly clean reversal is \citet{Roszyk2024}: the paper claims that adding the VIX index to a hybrid LSTM-GARCH significantly improves S\&P 500 volatility forecasts, but in our reproduction the no-VIX hybrid actually has lower QLIKE than the with-VIX variant, and the DM test of with-VIX versus no-VIX gives $p=0.371$. In one case (P21, \citet{Aradi2020}), the paper-claimed winner does match our best-by-QLIKE (dilated CNN with transfer learning beats dilated CNN without transfer), but the DM test gives $p=0.057$, just above the 5\% threshold; the 90\% MCS keeps all three models including ARIMA. We classify P21 as ``fails'' because we adopt a strict $\alpha = 0.05$ threshold; under a 10\% threshold it would be a partial survivor.
+
+\Cref{fig:phase2_qlike_ratio} visualises the per-paper outcome as the ratio of the paper-claimed winner's QLIKE to our best-by-QLIKE in the same reproduction. A ratio of 1.0 means the paper's winner is also our best (which is the case for the survivor P10, the partial survivor P15 on BTC, and P21 Aradi where the DM test gives $p=0.057$). Ratios above 1.0 mean the paper's winner is worse than at least one alternative in our reproduction; the larger the bar, the larger the QLIKE gap.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/phase2_qlike_ratio.pdf}
+\caption{Phase 2 per-paper QLIKE ratio. Each bar is the QLIKE of the paper-claimed winner divided by the QLIKE of our best-by-QLIKE model in the same reproduction. The vertical dashed line at 1.0 marks the threshold above which the paper's claimed winner is no longer our best. Asterisked entries (*) are reproductions with substantial library / feature substitutions detailed in \Cref{sec:phase2_caveats}; their ratios are not directly comparable to the unstarred reproductions and the most extreme ratio (P12 Kim) is dominated by the limitations of our SV approximation rather than a meaningful disparity in forecast quality. The 11 unstarred fails cluster between ratios of 1.01 and 1.91, suggesting the paper's claimed winners are typically modestly worse than (or statistically tied with) the simpler baseline our reproduction prefers.}\label{fig:phase2_qlike_ratio}
+\end{figure}
 
 \subsection{Caveats: what the failure-rate number does and does not establish}\label{sec:phase2_caveats}
 
@@ -118,6 +130,39 @@ First, our reproductions are necessarily \emph{approximations} of the original p
 
 Second, three reproductions required substituting a library or feature that we could not reproduce. \citet{Kim2021} uses Bayesian stochastic volatility via MCMC; we approximated with an AR(1) on log-squared returns because PyMC was not available in our environment. \citet{ErsinBildirici2023} uses the GARCH-MIDAS framework with macroeconomic indicators; we omitted both the MIDAS multiplicative decomposition and the macro indicators. \citet{Kumar2024} uses a Temporal Graph Attention Network requiring PyTorch Geometric; we approximated with a multi-channel LSTM. For these three, the ``does not survive'' verdict is heavily caveated: we are not testing the paper's exact contribution, only a simpler counterpart. We report these as failures in the headline tabulation but note the caveat in the per-paper logs.
 
-Third, our 14-paper reproducible subset is not a random sample of vol-forecasting papers. It is the subset for which (a) the data is publicly accessible and (b) the headline architecture is reconstructable from the paper's prose. Papers requiring proprietary high-frequency tick data (the entire JFEcon cohort in our sample) are absent from the reproducibility analysis, and the absence is correlated with venue and methodology. Specifically, the JFEcon papers tend to use econometric methods (GARCH variants, HAR-RV) where the original analysis is more methodologically careful (3 of 6 use formal significance testing; the remaining 3 are methodological/proofs papers without head-to-head comparisons). The 86\% failure rate is the rate among the openly-reproducible subset, not the rate one would expect across the full 30-paper population.
+Third, our 14-paper reproducible subset is not a random sample of vol-forecasting papers. It is the subset for which (a) the data is publicly accessible and (b) the headline architecture is reconstructable from the paper's prose. Papers requiring proprietary high-frequency tick data (the entire JFEcon cohort in our sample) are absent from the reproducibility analysis, and the absence is correlated with venue and methodology. The JFEcon papers tend to use econometric methods (GARCH variants, HAR-RV) where the original analysis is more methodologically careful: 2 of the 6 (\citet{ChristensenSiggaardVeliyev2023}, \citet{Bucci2020}) report formal significance testing; the remaining 4 either give an informal horse-race comparison without a formal test (P05 \citet{Buccheri2021}) or are primarily methodological / estimation-theory papers with limited head-to-head content (P04 \citet{Bennedsen2022}, P06 \citet{Caporin2024}, P07 \citet{Hong2023}). The 86\% failure rate is the rate among the openly-reproducible subset, not the rate one would expect across the full 30-paper population.
 
 With these caveats in place, the modal outcome remains striking: in a 14-paper reproducible subset spanning equities, FX, commodities, and crypto, only one paper has its headline win survive under DM at 5\%, MCS at 90\%, and SPA at 5\%. Twelve do not. The point of \texttt{vol-eval} is not to embarrass the field; it is to make this kind of test routine.
+
+\subsection{Appendix to Phase 2: per-paper detail}\label{sec:phase2_appendix_text}
+
+\Cref{tab:phase2_appendix} provides one row per reproduced paper with the key vol-eval outputs: paper-claimed winner, our best-by-QLIKE model in the reproduction, DM $p$-value of the comparison the paper makes, and 90\% MCS survivor count. Multi-asset reproductions (P09 across four Colombian ADRs, P12 across six cryptocurrencies, P15 across five cryptocurrencies, P27 across two FX pairs) report the worst-case dataset for the paper's claim; the per-asset detail is at \texttt{studies/per\_paper/<paper\_id>/voleval\_result.json}.
+
+\begin{table}[H]
+\centering
+\caption{Per-paper vol-eval outcomes for the 14 reproducible papers. ``DM~$p$'' is the Diebold-Mariano $p$-value for paper-claimed winner versus paper-claimed runner-up at $h=1$. ``MCS surv/tot'' is the number of models retained by the 90\% MCS over the total in the comparison. Asterisk (*) marks reproductions with substantial library/feature substitutions detailed in \Cref{sec:phase2_caveats}.}\label{tab:phase2_appendix}
+\footnotesize
+\begin{tabular}{llllccc}
+\toprule
+Paper ID & Venue & Claimed winner & Our best (QLIKE) & DM $p$ & MCS surv/tot & Outcome \\
+\midrule
+P10 (Shen) & JRFM & RNN & RNN & 0.021 & 1/3 & \textbf{Survives} \\
+P15 (Mostafa) & JRFM & ANN & ANN (BTC) & 0.010 & 1/3 & Partial \\
+\midrule
+P09 (Rubio) & Math & Hybrid ARIMA-SVR & ARIMA & 0.355 & 3/3 & Fails \\
+P11* (Ersin) & Math & GARCH-MIDAS-LSTM & GARCH & 0.513 & 2/2 & Fails \\
+P12* (Kim) & Math & Bayesian SV & GARCH-$t$ & $<$0.001 & 2/4 & Fails \\
+P14 (Zahid) & Risks & Hybrid GARCH-LSTM & GRU & 0.024 & 4/5 & Fails \\
+P18* (Lei) & Math & TCN + attention & LSTM & 0.010~(rev) & 3/4 & Fails \\
+P20 (Lux) & arXiv & SVR-GARCH-KDE & GARCH-$t$ & 0.001~(rev) & 2/3 & Fails \\
+P21 (Aradi) & arXiv & Dilated CNN + TL & Dilated CNN + TL & 0.057 & 3/3 & Fails \\
+P24* (Kumar) & arXiv & Temporal GAT & GARCH & 0.119 & 2/2 & Fails \\
+P25 (Xu) & arXiv & GINN & LSTM & 0.231 & 3/3 & Fails \\
+P26 (Roszyk) & arXiv & LSTM-GARCH+VIX & LSTM-GARCH & 0.371 & 4/4 & Fails \\
+P27 (Tondapu) & arXiv & GARCH (rolling) & EWMA / Historical & 0.438 & 4/4 & Fails \\
+P28 (Wei) & arXiv & GARCH-GRU & GARCH & 0.112 & 6/6 & Fails \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\noindent The ``DM $p$ (rev)'' annotation on P18 and P20 indicates that the DM test result is significant in the \emph{reverse} direction of the paper's claim: the paper-claimed winner is significantly \emph{worse} than the runner-up in our reproduction. For P18 the reversal is caveated by our omission of the paper's Baidu search-index attention feature; for P20 the reversal is caveated by our omission of the paper's KDE quantile estimator.
