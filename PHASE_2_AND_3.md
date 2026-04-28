@@ -25,7 +25,9 @@ significance testing.
 
 ### Sample selection
 
-Target: 30 comparison papers from 2018-2025, drawn from:
+Target: 30 comparison papers from 2018-2025.
+
+**Original target frame** (planned):
 
 - Journals: *Journal of Financial Econometrics*, *Journal of Empirical
   Finance*, *Quantitative Finance*, *Journal of Forecasting*, *International
@@ -34,11 +36,49 @@ Target: 30 comparison papers from 2018-2025, drawn from:
   Finance, ICML application track
 - SSRN working papers with 50+ downloads in the topic area
 
-Inclusion criteria:
+**Actual frame after access-driven adjustment** (as of 2026-04-28):
+
+The sample was identified via a Crossref + OpenAlex + arXiv bibliographic
+search (`studies/04_search_candidates.py`) filtered to papers comparing
+≥2 model families with out-of-sample loss evaluation
+(`studies/05_narrow_candidates.py`). Of the originally-targeted journals,
+only the *Journal of Financial Econometrics* contributed papers with
+freely accessible PDFs at the analysis stage; the Wiley and Elsevier
+journals (JoF, IJF, JEF, QF, JFDS) were excluded due to PDF access
+constraints during programmatic download. To preserve the n=30 target,
+the sample was extended to three open-access MDPI venues
+(*Mathematics*, *Risks*, *Journal of Risk and Financial Management*),
+all indexed in DOAJ.
+
+Final sample composition:
+
+| Venue | Papers | Notes |
+|---|---|---|
+| Journal of Financial Econometrics | 6 | Tier 1 finance econometrics |
+| Mathematics (MDPI) | 6 | Open access, DOAJ-indexed |
+| Journal of Risk and Financial Management (MDPI) | 4 | Open access, DOAJ-indexed |
+| Risks (MDPI) | 3 | Open access, DOAJ-indexed |
+| arXiv q-fin | 11 | Preprints, includes some pre-publication of journal versions |
+| **Total** | **30** | |
+
+The 30 papers, with DOIs/arXiv IDs and citation counts at time of
+selection, are recorded in `studies/candidate_30.csv`. PDFs are at
+`studies/per_paper/<paper_id>/source.pdf`.
+
+Inclusion criteria (applied via bibliographic + manual filter):
 1. Published between 2018-01-01 and 2025-12-31
-2. Reports a head-to-head comparison of at least 3 volatility forecasters
-3. Has a clearly identified "winner" in the abstract or conclusion
-4. Either uses public data or ships code/data sufficient to reproduce
+2. Reports a head-to-head comparison of ≥2 volatility forecasters
+   from distinct model families (GARCH-family, HAR, ML, classical, ensemble)
+3. Reports out-of-sample loss evaluation (QLIKE, RMSE, MZ R², MCS, DM, etc.)
+4. PDF freely accessible (open access, author preprint, or arXiv)
+
+The sample-frame deviation from the original target is documented as a
+Phase 2 limitation. It is honest to disclose that an "open-access only"
+constraint may bias the sample toward (a) MDPI venues with shorter peer
+review cycles and (b) preprints that have not yet been formally
+peer-reviewed. The implications for our headline finding (what fraction
+of "wins" survive significance testing) are unclear *a priori* — the
+direction of bias is not obvious.
 
 ### Per-paper procedure
 

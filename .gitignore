@@ -29,3 +29,9 @@ build/
 # Override global gitignore *.parquet rule for any supplementary release
 # (currently no parquets shipped with vol-eval; uncomment if needed)
 # !data/*.parquet
+
+# Phase 2 source PDFs are not committed to keep repo size manageable.
+# All 30 are re-acquirable via studies/06_check_unpaywall.py +
+# studies/07_download_papers.py for the 17 automated, plus 13 MDPI
+# papers via browser download (URLs in studies/README.md).
+studies/per_paper/**/source.pdf

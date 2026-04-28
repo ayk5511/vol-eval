@@ -1,0 +1,31 @@
+paper_id,doi,arxiv_id,title,authors,year,venue,citations,url
+P01_christensen_2023,10.1093/jjfinec/nbac020,,A Machine Learning Approach to Volatility Forecasting,Christensen et al.,2023,Journal of Financial Econometrics,85,https://doi.org/10.1093/jjfinec/nbac020
+P02_bucci_2020,10.1093/jjfinec/nbaa008,,Realized Volatility Forecasting with Neural Networks,Bucci Andrea,2020,Journal of Financial Econometrics,105,https://doi.org/10.1093/jjfinec/nbaa008
+P03_luong_2018,10.3390/jrfm11040061,,Forecasting of Realised Volatility with the Random Forests Algorithm,Luong et al.,2018,Journal of Risk and Financial Management (MDPI),53,https://doi.org/10.3390/jrfm11040061
+P04_bennedsen_2022,10.1093/jjfinec/nbaa049,,Decoupling the Short- and Long-Term Behavior of Stochastic Volatility,Bennedsen Mikkel et al.,2022,Journal of Financial Econometrics,54,https://doi.org/10.1093/jjfinec/nbaa049
+P05_buccheri_2021,10.1093/jjfinec/nbz025,,HARK the SHARK: Realized Volatility Modeling with Measurement Errors and Nonlinear Dependencies,Buccheri Giuseppe et al.,2021,Journal of Financial Econometrics,20,https://doi.org/10.1093/jjfinec/nbz025
+P06_caporin_2024,10.1093/jjfinec/nbae014,,Exploiting Intraday Decompositions in Realized Volatility Forecasting: A Forecast Reconciliation Approach,Caporin Massimiliano et al.,2024,Journal of Financial Econometrics,2,https://doi.org/10.1093/jjfinec/nbae014
+P07_hong_2023,10.1093/jjfinec/nbab006,,Volatility Estimation and Forecasts Based on Price Durations,Hong Seok Young et al.,2023,Journal of Financial Econometrics,18,https://doi.org/10.1093/jjfinec/nbab006
+P08_zhuo_2024,10.3390/risks12010012,,A Hybrid Model for Forecasting Realized Volatility Based on Heterogeneous Autoregressive Model and Support Vector Regression,Zhuo et al.,2024,Risks (MDPI),8,https://doi.org/10.3390/risks12010012
+P09_rubio_2022,10.3390/math10132181,,Forecasting Selected Colombian Shares Using a Hybrid ARIMA-SVR Model,Rubio et al.,2022,Mathematics (MDPI),44,https://doi.org/10.3390/math10132181
+P10_shen_2021,10.3390/jrfm14070337,,Bitcoin Return Volatility Forecasting: A Comparative Study between GARCH and RNN,Shen et al.,2021,Journal of Risk and Financial Management (MDPI),39,https://doi.org/10.3390/jrfm14070337
+P11_ersin_2023,10.3390/math11081785,,Financial Volatility Modeling with the GARCH-MIDAS-LSTM Approach,Ersin et al.,2023,Mathematics (MDPI),23,https://doi.org/10.3390/math11081785
+P12_kim_2021,10.3390/math9141614,,Forecasting the Volatility of the Cryptocurrency Market by GARCH and Stochastic Volatility,Kim et al.,2021,Mathematics (MDPI),34,https://doi.org/10.3390/math9141614
+P13_wang_2023,10.3390/math11183937,,Risk Analysis of the Chinese Financial Market with the Application of a Novel Hybrid Volatility Prediction Model,Wang et al.,2023,Mathematics (MDPI),6,https://doi.org/10.3390/math11183937
+P14_zahid_2022,10.3390/risks10120237,,Forecasting Bitcoin Volatility Using Hybrid GARCH Models with Machine Learning,Zahid et al.,2022,Risks (MDPI),21,https://doi.org/10.3390/risks10120237
+P15_mostafa_2021,10.3390/jrfm14090421,,GJR-GARCH Volatility Modeling under NIG and ANN for Predicting Top Cryptocurrencies,Mostafa et al.,2021,Journal of Risk and Financial Management (MDPI),28,https://doi.org/10.3390/jrfm14090421
+P16_bohte_2019,10.3390/jrfm12030150,,Comparing the Forecasting of Cryptocurrencies by Bayesian Time-Varying Volatility Models,Bohte et al.,2019,Journal of Risk and Financial Management (MDPI),25,https://doi.org/10.3390/jrfm12030150
+P17_dipersio_2021,10.3390/risks9020033,,Forward-Looking Volatility Estimation for Risk-Managed Investment Strategies during COVID-19,Di Persio et al.,2021,Risks (MDPI),17,https://doi.org/10.3390/risks9020033
+P18_lei_2021,10.3390/math9040320,,Volatility Forecasting for High-Frequency Financial Data Based on Web Search Index and Deep Learning,Lei et al.,2021,Mathematics (MDPI),16,https://doi.org/10.3390/math9040320
+P19_zhang_2025,10.3390/math13111889,,Forecasting Stock Market Volatility Using CNN-BiLSTM-Attention Model with Mixed-Frequency Data,Zhang et al.,2025,Mathematics (MDPI),8,https://doi.org/10.3390/math13111889
+P20_lux_2020,,2009.06910,Data driven value-at-risk forecasting using a SVR-GARCH-KDE hybrid,Lux Marius,2020,arXiv q-fin,0,https://arxiv.org/abs/2009.06910
+P21_aradi_2020,,2009.05508,Volatility Forecasting with 1-dimensional CNNs via transfer learning,Aradi Bernadett,2020,arXiv q-fin,0,https://arxiv.org/abs/2009.05508
+P22_bucci_2024,,2412.09517,Geometric Deep Learning for Realized Covariance Matrix Forecasting,Bucci Andrea,2024,arXiv q-fin,0,https://arxiv.org/abs/2412.09517
+P23_zhao_2024,,2411.17136,Autoencoder Enhanced Realised GARCH on Volatility Forecasting,Zhao Qianli,2024,arXiv q-fin,0,https://arxiv.org/abs/2411.17136
+P24_kumar_2024,,2410.16858,Dynamic graph neural networks for enhanced volatility prediction in financial markets,Kumar Pulikandala Nithish,2024,arXiv q-fin,0,https://arxiv.org/abs/2410.16858
+P25_xu_2024,,2410.00288,GARCH-Informed Neural Networks for Volatility Prediction in Financial Markets,Xu Zeda,2024,arXiv q-fin,0,https://arxiv.org/abs/2410.00288
+P26_roszyk_2024,,2407.16780,The Hybrid Forecast of S&P 500 Volatility ensembled from VIX GARCH and LSTM models,Roszyk Natalia,2024,arXiv q-fin,0,https://arxiv.org/abs/2407.16780
+P27_tondapu_2024,,2402.07435,Analyzing Currency Fluctuations: A Comparative Study of GARCH EWMA and IV Models for GBP/USD and EUR/GBP Pairs,Tondapu Narayan,2024,arXiv q-fin,0,https://arxiv.org/abs/2402.07435
+P28_wei_2025,,2504.09380,Unified GARCH-Recurrent Neural Network in Financial Volatility Forecasting,Wei Jingyi,2025,arXiv q-fin,0,https://arxiv.org/abs/2504.09380
+P29_wang_2025,,2506.02796,Deep Learning Enhanced Multivariate GARCH,Wang Haoyuan,2025,arXiv q-fin,0,https://arxiv.org/abs/2506.02796
+P30_blake_2025,,2510.03236,Improving S&P 500 Volatility Forecasting through Regime-Switching Methods,Blake Ava C.,2025,arXiv q-fin,0,https://arxiv.org/abs/2510.03236
