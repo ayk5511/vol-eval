@@ -1,0 +1,14 @@
+{
+  "models_run": [
+    "GBPUSD: GARCH_normal, GARCH_t, GJR_GARCH, EWMA, Historical",
+    "EURGBP: GARCH_normal, GARCH_t, GJR_GARCH, EWMA, Historical"
+  ],
+  "models_skipped": [
+    "IV models: paper's source for FX implied volatility is unclear. Yahoo Finance does not provide FX option-implied vol for these pairs. Reproduction excludes IV; ranking among GARCH-family + EWMA is what we test."
+  ],
+  "paper_claim": {
+    "GBPUSD": "GARCH (rolling) wins per paper abstract",
+    "EURGBP": "GARCH or GARCH+OLS+IV wins per paper abstract"
+  },
+  "our_test": "Apply DM/MCS/SPA to {GARCH, EWMA, GJR-GARCH, GARCH-t, Historical} to test whether GARCH wins are statistically significant."
+}

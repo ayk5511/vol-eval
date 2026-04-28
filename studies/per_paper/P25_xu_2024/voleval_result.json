@@ -1,0 +1,80 @@
+{
+  "paper_id": "P25_xu_2024",
+  "paper_claim": "GINN (GARCH-Informed Neural Network) significantly outperforms standalone GARCH and standalone LSTM in R², MSE, MAE on 8 stock indices",
+  "reproduction_setup": {
+    "data_source": "Yahoo Finance ^GSPC (S&P 500) — paper uses 8 indices; we reproduce on S&P 500 as representative",
+    "sample_period": "1992-06-01 to 2022-05-31 (matches paper)",
+    "horizon": "1-day-ahead (squared log return as actual)",
+    "train_test_split": "60/40 (4232 train, 2822 test) - approximation of paper's setup",
+    "models": [
+      "GARCH(1,1) with refit every 20 days + manual recursion update",
+      "LSTM (1 layer, 50 hidden, lookback=20, features: log_ret + sq_ret)",
+      "GINN (LSTM with GARCH-fitted variance as additional feature — approximation of paper's PINN-inspired architecture)"
+    ],
+    "approximation_notes": [
+      "Paper reproduces on 8 indices; we use S&P 500 as the representative single-index test.",
+      "Paper's GINN is described as PINN (Physics-Informed Neural Network) inspired; we approximate with our LSTM_GARCH variant which feeds GARCH-fitted variance as an LSTM input feature.",
+      "LSTM hyperparameters set to standard defaults; paper does not disclose its full architecture.",
+      "Single train/test split (60/40); paper may use different split or rolling refits."
+    ]
+  },
+  "n_observations_test": 2822,
+  "qlike_by_model": {
+    "LSTM": 4.99134,
+    "GINN": 5.08097,
+    "GARCH": 5.72071
+  },
+  "best_model_observed": "LSTM",
+  "paper_claimed_winner": "GINN",
+  "paper_claimed_runner_up": "LSTM or GARCH",
+  "dm_winner_vs_lstm": {
+    "models_compared": "GINN vs LSTM",
+    "t_stat": 1.199,
+    "p_value": 0.2307,
+    "winner": "tie",
+    "rejected_at_5pct": false,
+    "interpretation": "Paper's headline claim that GINN significantly beats LSTM is NOT supported."
+  },
+  "dm_winner_vs_garch": {
+    "models_compared": "GINN vs GARCH",
+    "t_stat": -1.877,
+    "p_value": 0.0606,
+    "winner": "tie",
+    "rejected_at_5pct": false,
+    "interpretation": "GINN vs GARCH is marginal (p=0.06) — close to but not below the 5% threshold."
+  },
+  "dm_lstm_vs_garch": {
+    "models_compared": "LSTM vs GARCH (a side-finding)",
+    "t_stat": -2.292,
+    "p_value": 0.0219,
+    "winner": "LSTM",
+    "rejected_at_5pct": true,
+    "interpretation": "Pure LSTM significantly outperforms plain GARCH at 5% — but the paper's main claim is that GINN beats LSTM, which is what we cannot establish."
+  },
+  "mcs_at_90pct": {
+    "alpha": 0.10,
+    "n_bootstrap": 2000,
+    "survivors": ["GARCH", "LSTM", "GINN"],
+    "n_survivors": 3,
+    "n_total": 3,
+    "winner_survives": true,
+    "interpretation": "All 3 models tie at 90% MCS; no statistically distinguishable winner."
+  },
+  "spa_winner_as_benchmark": {
+    "benchmark": "GINN",
+    "competitors": ["GARCH", "LSTM"],
+    "statistic": 1.181,
+    "p_value_consistent": 0.1225,
+    "rejected_at_5pct": false,
+    "interpretation": "SPA cannot establish GINN as significantly the best forecaster."
+  },
+  "phase2_summary_for_this_paper": {
+    "headline_finding": "Paper P25's claim that 'GINN significantly outperforms' is NOT supported by significance testing in our reproduction. Pure LSTM (without GARCH information) actually has lower QLIKE than GINN, though the difference is not significant either. DM(GINN vs LSTM) p=0.23; MCS at 90% retains all 3 models.",
+    "ranking_observed": [
+      "1. LSTM — lowest QLIKE (paper claimed GINN wins; result reversed)",
+      "2. GINN (paper's claimed winner)",
+      "3. GARCH"
+    ],
+    "what_this_means": "The 'GARCH-Informed' addition does not improve the LSTM in our reproduction. Without significance testing in the original paper, the claim of GINN's superiority is overstated. This is consistent with the broader Phase 2 finding."
+  }
+}

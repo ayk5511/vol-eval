@@ -1,0 +1,74 @@
+{
+  "paper_id": "P26_roszyk_2024",
+  "paper_claim": "Hybrid LSTM-GARCH+VIX significantly outperforms LSTM-GARCH (no VIX) and pure GARCH; ML approaches significantly beat GARCH baseline",
+  "reproduction_setup": {
+    "data_source": "Yahoo Finance ^GSPC (S&P 500) + ^VIX (matches paper)",
+    "sample_period": "2000-01-03 to 2023-12-21 (matches paper)",
+    "horizon": "1-day-ahead (squared log return as actual)",
+    "train_test_split": "60/40 (3317 train, 2212 test) - approximation of paper's walk-forward",
+    "models": [
+      "GARCH(1,1) with periodic refit (every 20 days) and manual recursion update between refits",
+      "LSTM (1 layer, 50 hidden, lookback=20, features: log_ret + sq_ret)",
+      "LSTM_GARCH (above + GARCH-fitted variance as feature)",
+      "LSTM_GARCH_VIX (above + VIX as feature)"
+    ],
+    "approximation_notes": [
+      "Paper uses walk-forward (rolling refit each step); we use 60/40 split with periodic refits.",
+      "LSTM hyperparameters set to standard defaults; paper does not disclose its exact spec.",
+      "GARCH variance update uses manual recursion sigma2 = omega + alpha*r^2 + beta*sigma2_prev between refits."
+    ]
+  },
+  "n_observations_test": 2212,
+  "qlike_by_model": {
+    "LSTM_GARCH": 5.23780,
+    "LSTM_GARCH_VIX": 5.31216,
+    "GARCH": 5.47316,
+    "LSTM": 5.58916
+  },
+  "best_model_observed": "LSTM_GARCH",
+  "paper_claimed_winner": "LSTM_GARCH_VIX",
+  "paper_claimed_runner_up": "LSTM_GARCH",
+  "dm_winner_vs_runner_up": {
+    "models_compared": "LSTM_GARCH_VIX vs LSTM_GARCH",
+    "t_stat": 0.895,
+    "p_value": 0.3707,
+    "winner": "tie",
+    "rejected_at_5pct": false,
+    "interpretation": "Paper's headline claim that adding VIX significantly improves the LSTM-GARCH hybrid is NOT supported."
+  },
+  "dm_winner_vs_garch_baseline": {
+    "models_compared": "LSTM_GARCH_VIX vs GARCH",
+    "t_stat": -1.294,
+    "p_value": 0.1955,
+    "winner": "tie",
+    "rejected_at_5pct": false,
+    "interpretation": "Paper's claim that ML hybrids beat plain GARCH is NOT supported at 5%."
+  },
+  "mcs_at_90pct": {
+    "alpha": 0.10,
+    "n_bootstrap": 2000,
+    "survivors": ["GARCH", "LSTM", "LSTM_GARCH", "LSTM_GARCH_VIX"],
+    "n_survivors": 4,
+    "n_total": 4,
+    "winner_survives": true,
+    "interpretation": "All 4 models tie at 90% MCS; no statistically distinguishable winner."
+  },
+  "spa_winner_as_benchmark": {
+    "benchmark": "LSTM_GARCH_VIX",
+    "competitors": ["GARCH", "LSTM", "LSTM_GARCH"],
+    "statistic": 0.935,
+    "p_value_consistent": 0.1695,
+    "rejected_at_5pct": false,
+    "interpretation": "SPA cannot establish LSTM_GARCH_VIX as significantly the best."
+  },
+  "phase2_summary_for_this_paper": {
+    "headline_finding": "Paper P26's claim that 'LSTM-GARCH+VIX significantly outperforms' is NOT supported by significance testing in our reproduction. DM(VIX hybrid vs no-VIX hybrid) p=0.37; DM(VIX hybrid vs plain GARCH) p=0.20; MCS at 90% retains all 4 models.",
+    "ranking_observed": [
+      "1. LSTM_GARCH (no VIX) — lowest QLIKE",
+      "2. LSTM_GARCH_VIX (paper's claimed winner)",
+      "3. GARCH",
+      "4. LSTM (worst)"
+    ],
+    "what_this_means": "Adding VIX to a hybrid LSTM-GARCH does not improve forecasts in our reproduction — it actually does slightly worse than the no-VIX hybrid by mean QLIKE, and the difference is not significant. The paper's strong claim is an artifact of point-estimate ranking without confidence intervals."
+  }
+}

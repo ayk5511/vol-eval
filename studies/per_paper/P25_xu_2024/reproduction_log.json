@@ -1,0 +1,20 @@
+{
+  "data_source": "Yahoo Finance ^GSPC",
+  "sample_period": "1992-06-01 to 2022-05-31",
+  "n_total": 7054,
+  "n_train": 4232,
+  "n_test_used": 2822,
+  "models": [
+    "GARCH",
+    "LSTM",
+    "GINN"
+  ],
+  "paper_claimed_winner": "GINN",
+  "paper_claimed_runner_up": "LSTM or GARCH (whichever closer)",
+  "approximation_notes": [
+    "Paper uses 8 indices; we reproduce on S&P 500 only (representative).",
+    "Paper's GINN architecture is described as PINN-inspired LSTM with GARCH input \u2014 we approximate with our LSTM_GARCH variant.",
+    "LSTM hyperparameters: 50 hidden, 1 layer, lookback=20, epochs=30.",
+    "Single train/test split (60/40); paper may use rolling refits."
+  ]
+}

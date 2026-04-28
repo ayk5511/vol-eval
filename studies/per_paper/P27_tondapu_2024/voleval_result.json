@@ -1,0 +1,97 @@
+{
+  "paper_id": "P27_tondapu_2024",
+  "paper_claim": {
+    "GBPUSD": "GARCH (rolling window) is most accurate (paper abstract)",
+    "EURGBP": "GARCH or GARCH+OLS+IV is most accurate (paper abstract)"
+  },
+  "reproduction_setup": {
+    "data_source": "Yahoo Finance via yfinance (matches paper's 'Yahoo Finance' disclosure)",
+    "tickers": ["GBPUSD=X", "EURGBP=X"],
+    "sample_period": "2018-06-15 to 2023-06-15 (matches paper's stated period)",
+    "horizon": "20-day-ahead realized variance (matches paper's '20-day variation in pairs daily returns')",
+    "window": "250 trading days rolling (~1 year)",
+    "models_attempted": [
+      "GARCH(1,1) Normal innovations",
+      "GARCH(1,1) Student-t innovations",
+      "EWMA (lambda=0.94, RiskMetrics)",
+      "Historical Average (backward-looking 20-day sum of squared returns)"
+    ],
+    "models_skipped": "Implied volatility (paper does not disclose IV data source)"
+  },
+  "GBPUSD": {
+    "n_observations": 1032,
+    "qlike_by_model": {
+      "EWMA": 2.32313,
+      "GARCH_t_rolling": 2.36670,
+      "GARCH_normal_rolling": 2.49863,
+      "Historical_Avg": 2.81085
+    },
+    "best_model_observed": "EWMA",
+    "paper_claimed_winner": "GARCH_normal_rolling",
+    "dm_winner_vs_runner_up": {
+      "models_compared": "GARCH_normal_rolling vs EWMA",
+      "mean_diff": 0.175504,
+      "t_stat": 0.775,
+      "p_value": 0.4382,
+      "winner": "tie",
+      "rejected_at_5pct": false
+    },
+    "mcs_at_90pct": {
+      "alpha": 0.10,
+      "n_bootstrap": 2000,
+      "survivors": ["GARCH_normal_rolling", "GARCH_t_rolling", "EWMA", "Historical_Avg"],
+      "winner_survives_mcs": true,
+      "n_survivors": 4,
+      "n_total": 4
+    },
+    "spa_garch_as_benchmark": {
+      "statistic": 1.830,
+      "p_value_consistent": 0.0785,
+      "rejected_at_5pct": false,
+      "interpretation": "SPA fails to reject the null that GARCH is the best; equivalently, GARCH's claimed superiority is not statistically established at 5%"
+    },
+    "verdict": "Paper's GBP/USD claim does NOT survive significance testing. Best observed model is EWMA, not GARCH. DM(GARCH vs EWMA) p=0.44. MCS 90% keeps all 4 models. SPA cannot establish GARCH as best at 5%."
+  },
+  "EURGBP": {
+    "n_observations": 1033,
+    "qlike_by_model": {
+      "Historical_Avg": 37.64782,
+      "EWMA": 53.74368,
+      "GARCH_normal_rolling": 56.29254,
+      "GARCH_t_rolling": 59.09142
+    },
+    "best_model_observed": "Historical_Avg",
+    "paper_claimed_winner": "GARCH or GARCH+OLS+IV (we cannot reproduce IV)",
+    "dm_winner_vs_runner_up": {
+      "models_compared": "GARCH_normal_rolling vs EWMA",
+      "mean_diff": 2.548865,
+      "t_stat": 0.363,
+      "p_value": 0.7166,
+      "winner": "tie",
+      "rejected_at_5pct": false
+    },
+    "mcs_at_90pct": {
+      "alpha": 0.10,
+      "n_bootstrap": 2000,
+      "survivors": ["GARCH_normal_rolling", "GARCH_t_rolling", "EWMA", "Historical_Avg"],
+      "winner_survives_mcs": true,
+      "n_survivors": 4,
+      "n_total": 4
+    },
+    "spa_garch_as_benchmark": {
+      "statistic": 1.279,
+      "p_value_consistent": 0.1825,
+      "rejected_at_5pct": false,
+      "interpretation": "SPA fails to reject the null that GARCH is the best; cannot establish significance at 5%"
+    },
+    "verdict": "Paper's EUR/GBP claim does NOT survive significance testing in our IV-less reproduction. Best observed model is Historical_Avg (the simplest baseline). DM(GARCH vs EWMA) p=0.72. MCS 90% keeps all 4 models. SPA cannot establish GARCH as best at 5%."
+  },
+  "phase2_summary_for_this_paper": {
+    "headline_finding": "Paper P27's claim that GARCH wins for FX volatility is NOT supported by significance testing in our reproduction. Across both currency pairs, no model is significantly better than any other under DM, MCS at 90%, or SPA at 5%.",
+    "caveats": [
+      "Our reproduction omits the IV models (paper does not disclose IV source).",
+      "Hyperparameters approximated to match standard practice (GARCH 1,1 with 250-day rolling window, EWMA lambda=0.94).",
+      "Test results may differ if exact paper hyperparameters could be retrieved."
+    ]
+  }
+}

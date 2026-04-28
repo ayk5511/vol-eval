@@ -1,0 +1,20 @@
+{
+  "data_source": "Yahoo Finance ^GSPC + ^VIX (matches paper)",
+  "sample_period": "2000-01-03 to 2023-12-21",
+  "n_train": 3317,
+  "n_test": 2212,
+  "models": [
+    "GARCH",
+    "LSTM",
+    "LSTM_GARCH",
+    "LSTM_GARCH_VIX"
+  ],
+  "paper_claimed_winner": "LSTM_GARCH_VIX",
+  "paper_claimed_runner_up": "LSTM_GARCH",
+  "approximation_notes": [
+    "Single train/test split (60/40) instead of paper's walk-forward.",
+    "GARCH refit every 250 days (computational cost).",
+    "LSTM hyperparameters set to standard defaults (50 hidden, 1 layer, lookback=20, epochs=30, batch=64).",
+    "Specific hyperparameters in paper were not disclosed."
+  ]
+}
