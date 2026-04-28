@@ -1,0 +1,34 @@
+cff-version: 1.2.0
+title: "vol-eval: A Python Package for Volatility Forecast Evaluation"
+message: "If you use this software in research, please cite it as below."
+type: software
+authors:
+  - family-names: Khan
+    given-names: Akram
+    orcid: "https://orcid.org/0009-0002-7521-8648"
+    email: 1819ak@gmail.com
+date-released: 2026-04-27
+version: "0.1.0"
+url: "https://github.com/ayk5511/vol-eval"
+repository-code: "https://github.com/ayk5511/vol-eval"
+license: MIT
+keywords:
+  - volatility-forecasting
+  - diebold-mariano
+  - model-confidence-set
+  - hansen-spa
+  - reality-check
+  - qlike
+  - forecast-evaluation
+  - econometrics
+  - financial-machine-learning
+preferred-citation:
+  type: software
+  title: "vol-eval: A Python Package for Volatility Forecast Evaluation"
+  authors:
+    - family-names: Khan
+      given-names: Akram
+      orcid: "https://orcid.org/0009-0002-7521-8648"
+  year: 2026
+  url: "https://github.com/ayk5511/vol-eval"
+  version: "0.1.0"
