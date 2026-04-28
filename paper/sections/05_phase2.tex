@@ -1,0 +1,123 @@
+\section{Phase 2: Re-analysis of 30 Published Volatility-Forecasting Comparison Papers}\label{sec:phase2}
+
+The single-panel demonstration of \Cref{sec:demonstration} shows what the \texttt{vol-eval} battery looks like when applied to one well-documented horse race. The natural question is how the findings generalise. This section reports the result of applying \texttt{vol-eval} to a sample of 30 published volatility-forecasting comparison papers from 2018--2025.
+
+We organise the section around three layered findings: (i) reproducibility-disclosure rates in the sample, (ii) the use of formal significance tests in the original papers, and (iii) for the subset we can reproduce, the survival of headline ``wins'' under \texttt{vol-eval}.
+
+\subsection{Sample selection}\label{sec:phase2_sample}
+
+The 30 papers were identified via a Crossref + OpenAlex + arXiv bibliographic search (\texttt{studies/04\_search\_candidates.py}) restricted to articles published 2018--2025 in a target set of finance and forecasting journals plus arXiv q-fin preprints. We applied two filtering passes (\texttt{studies/05\_narrow\_candidates.py}): a horse-race language filter (papers comparing $\geq 2$ model families and reporting out-of-sample loss evaluation) and a per-venue cap to preserve diversity.
+
+Initial inclusion criteria targeted six journals (\emph{Journal of Financial Econometrics}, \emph{Journal of Empirical Finance}, \emph{Quantitative Finance}, \emph{Journal of Forecasting}, \emph{International Journal of Forecasting}, \emph{Journal of Financial Data Science}) plus arXiv q-fin. After applying the horse-race filter and prioritising papers with openly-accessible PDFs at the analysis stage, the final sample comprises six papers from the \emph{Journal of Financial Econometrics}, thirteen from three open-access MDPI venues (\emph{Mathematics}, \emph{Risks}, \emph{Journal of Risk and Financial Management}), and eleven arXiv q-fin preprints (\Cref{tab:phase2_venues}). The originally-targeted Wiley and Elsevier journals are absent from this analysis-stage sample due to PDF access constraints during programmatic download. We document this access-driven sample-frame deviation as a limitation in \Cref{sec:discussion}, noting that the open-access MDPI venues we use are indexed in DOAJ and apply transparent peer review.
+
+\begin{table}[H]
+\centering
+\caption{Sample composition by venue ($n=30$).}\label{tab:phase2_venues}
+\begin{tabular}{lcc}
+\toprule
+Venue & $n$ & Mean strict RDS \\
+\midrule
+Journal of Financial Econometrics & 6 & 0.00 \\
+Mathematics (MDPI) & 6 & 0.67 \\
+Journal of Risk and Financial Management (MDPI) & 4 & 0.50 \\
+Risks (MDPI) & 3 & 0.33 \\
+arXiv q-fin & 11 & 0.64 \\
+\midrule
+Total / overall mean & 30 & \textbf{0.47} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The full sample list with paper IDs, DOIs/arXiv IDs, citation counts, and headline-winner extractions is at \texttt{studies/candidate\_30.csv} and \texttt{studies/results/phase2\_headline\_models.csv} in the project repository.
+
+\subsection{Finding 1: Reproducibility-disclosure rates}\label{sec:phase2_rds}
+
+We applied the Reproducibility Disclosure Score (RDS) rubric of \citet{Khan2026Survey} to each paper in the sample, using a strict reading: RDS-2 requires both (a) explicit code-repository disclosure in the paper text or supplementary material with sufficient context to be the authors' own code (not a citation to a software dependency) and (b) a publicly accessible data source. RDS-1 requires (b) only. RDS-0 is the residual.
+
+The strict-reading distribution across our 30-paper sample is RDS-0: 16 (53\%), RDS-1: 14 (47\%), RDS-2: 0 (0\%). The strict-reading mean RDS is 0.47, materially lower than the 0.78 reported by \citet{Khan2026Survey} for the broader 99-paper ML-finance sample (\Cref{tab:phase2_rds}). The 0/30 RDS-2 result is striking: in our sample, no published volatility-forecasting comparison paper from 2018--2025 ships both code and publicly accessible data together.
+
+\begin{table}[H]
+\centering
+\caption{Strict RDS distribution. Paper P25 (Xu et al.\ 2024) was initially scored RDS-2 by an automated code-URL detector; manual review revealed the paper's only Zenodo URL is a citation to the \texttt{bashtage/arch} Python package (a software dependency), not the authors' own code repository. Strict reading: P25 is RDS-1.}\label{tab:phase2_rds}
+\begin{tabular}{lcc}
+\toprule
+RDS score & $n$ in our sample & \% \\
+\midrule
+0 (no code, no public data) & 16 & 53\% \\
+1 (public data, no code) & 14 & 47\% \\
+2 (both code and data) & 0 & 0\% \\
+\midrule
+Mean strict RDS (this sample) & \multicolumn{2}{c}{0.47} \\
+Mean RDS (\citet{Khan2026Survey} broader $n=99$ sample) & \multicolumn{2}{c}{0.78} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The disclosure gap is venue-driven. The six \emph{Journal of Financial Econometrics} papers in our sample all use paywalled tick-data sources (NYSE TAQ, Refinitiv Datastream, Thomson Reuters, Kibot.com), yielding strict RDS = 0 across all six. The MDPI venues and arXiv preprints, by contrast, frequently disclose public data sources (Yahoo Finance, CoinMarketCap, CoinGecko, JoinQuant), reaching strict RDS = 1 in 14 cases. The conclusion is not that JFEcon papers are less rigorous (they are typically more methodologically careful than the MDPI papers in our sample); it is that JFEcon's empirical norms accept paywalled data, and the RDS rubric is sensitive to that choice.
+
+\subsection{Finding 2: Formal significance testing in the original papers}\label{sec:phase2_sigtest}
+
+For each paper we recorded whether the original analysis used a formal predictive-accuracy test (Diebold-Mariano, Model Confidence Set, SPA, or Reality Check) when declaring its winner. The result: 27 of 30 papers (90\%) declare a headline winner without applying any formal significance test. Only three papers report a formal test (\Cref{tab:phase2_sigtest}): \citet{ChristensenSiggaardVeliyev2023} (DM + MCS), \citet{Bucci2020} (MCS), and \citet{ZhuoMorimoto2024} (MCS). The remaining 27 declare wins on the basis of point-estimate ranking by MSE, RMSE, MAE, $R^2$, or QLIKE, sometimes with claimed effect sizes as large as ``39--95\% RMSE reduction''~\citep{ErsinBildirici2023} but without confidence-interval reporting.
+
+\begin{table}[H]
+\centering
+\caption{Use of formal predictive-accuracy tests in the 30 original papers.}\label{tab:phase2_sigtest}
+\begin{tabular}{lcc}
+\toprule
+Test reported in original paper & $n$ & \% \\
+\midrule
+None (point-estimate ranking only) & 27 & 90\% \\
+MCS only & 2 & 7\% \\
+DM + MCS & 1 & 3\% \\
+SPA / Reality Check & 0 & 0\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+This is the strongest empirical case for the \texttt{vol-eval} package. The volatility-forecasting subfield publishes ``X beats Y'' claims at scale without significance testing. The package exists to remove the labour cost of doing the right thing: each test is a one-line API call.
+
+\subsection{Finding 3: Survival of headline wins under vol-eval}\label{sec:phase2_survival}
+
+For each of the 14 RDS-1 papers (the only papers with publicly accessible data), we re-implemented the headline winner and runner-up models on the paper's stated data source, generated per-day forecasts via a 60/40 train/test split with rolling refits, and applied the \texttt{vol-eval} battery (DM, MCS at 90\%, SPA at 5\%) to test whether the paper's claimed win is statistically significant. The full reproductions (one \texttt{reproduce.py} script per paper) and per-paper \texttt{voleval\_result.json} outputs are in the project repository.
+
+We classify each paper into one of three outcomes (\Cref{tab:phase2_survival}):
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Survives.} The paper-claimed winner is the sole survivor of the 90\% Model Confidence Set, AND it is the lowest-QLIKE model in our reproduction.
+    \item \textbf{Partial.} The paper-claimed winner is significantly better than at least one competitor by DM (or one of multiple datasets shows survival) but the MCS keeps multiple models or SPA cannot establish the winner as best.
+    \item \textbf{Fails.} The paper-claimed winner is either not the lowest-QLIKE model in our reproduction, OR the DM test of winner versus runner-up is not significant at 5\%.
+\end{itemize}
+
+\begin{table}[H]
+\centering
+\caption{Phase 2 survival outcomes ($n=14$ reproducible papers). The full per-paper detail (QLIKE, DM, MCS, SPA) is in \texttt{studies/results/phase2\_summary.json}.}\label{tab:phase2_survival}
+\begin{tabular}{lcc}
+\toprule
+Outcome & $n$ & \% \\
+\midrule
+Fails (paper-claimed win does not survive) & 12 & 86\% \\
+Partial survival & 1 & 7\% \\
+Survives in full & 1 & 7\% \\
+\midrule
+Total reproduced & 14 & 100\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The single full survivor is \citet{Shen2021}: in our reproduction on Bitcoin (Yahoo Finance \texttt{BTC-USD} as a substitute for the paper's CoinMarketCap source, since the latter no longer offers a public API), the recurrent neural network significantly outperforms both GARCH(1,1) and EWMA at the 5\% level (DM $t=-2.31$, $p=0.021$), and the 90\% Model Confidence Set narrows to RNN alone, eliminating both econometric baselines.
+
+The single partial survivor is \citet{MostafaSahaIslamNguyen2021}: in our reproduction on five cryptocurrencies (CoinGecko data, ticker substitutes from yfinance), the ANN is significantly better than GJR-GARCH for Bitcoin (DM $p=0.010$, MCS narrows to ANN alone) but not for the other four; for Ether and Litecoin, GARCH-$t$ has lower QLIKE than ANN, and the comparison is a tie.
+
+The remaining 12 papers fall into one of two failure patterns. In seven cases, the paper-claimed winner is not the lowest-QLIKE model in our reproduction. The most striking instance is \citet{Wei2025}: the paper claims that the GARCH-GRU hybrid consistently outperforms classical GARCH and Transformer baselines on US equity volatility, but in our reproduction on the S\&P 500, plain GARCH(1,1) has the lowest QLIKE (6.19), and the paper's claimed winner GARCH-GRU ranks third (11.80). In five other cases, the paper-claimed winner matches our best-by-QLIKE but the DM test fails to reject equal predictive accuracy at 5\% (typically $p$ between 0.06 and 0.40), the 90\% MCS keeps multiple models, and the SPA cannot establish significance. The strongest example here is \citet{Roszyk2024}: the paper claims that adding the VIX index to a hybrid LSTM-GARCH significantly improves S\&P 500 volatility forecasts, but in our reproduction the no-VIX hybrid actually has lower QLIKE than the with-VIX variant, and the DM test of with-VIX versus no-VIX gives $p=0.371$.
+
+\subsection{Caveats: what the failure-rate number does and does not establish}\label{sec:phase2_caveats}
+
+The 86\% failure rate is informative but caveated. Three points limit the strength of any individual ``does not survive'' claim.
+
+First, our reproductions are necessarily \emph{approximations} of the original papers. Because RDS-1 papers ship no code, we re-implement the headline architectures from the paper's prose description, defaulting to standard hyperparameters (e.g., 1-layer LSTM with 50 hidden units, 20-day lookback, 30 epochs, RBF kernel for SVR with library defaults, GARCH(1,1) refit every 20 days with manual recursion between refits). Where a paper discloses a different specification we follow the paper, but in many cases the disclosure is incomplete (e.g., ``we trained an LSTM'' with no architecture or training-budget specification). We use a single 60/40 train/test split where some papers use rolling walk-forward; we document each approximation in the per-paper \texttt{reproduction\_log.json}.
+
+Second, three reproductions required substituting a library or feature that we could not reproduce. \citet{Kim2021} uses Bayesian stochastic volatility via MCMC; we approximated with an AR(1) on log-squared returns because PyMC was not available in our environment. \citet{ErsinBildirici2023} uses the GARCH-MIDAS framework with macroeconomic indicators; we omitted both the MIDAS multiplicative decomposition and the macro indicators. \citet{Kumar2024} uses a Temporal Graph Attention Network requiring PyTorch Geometric; we approximated with a multi-channel LSTM. For these three, the ``does not survive'' verdict is heavily caveated: we are not testing the paper's exact contribution, only a simpler counterpart. We report these as failures in the headline tabulation but note the caveat in the per-paper logs.
+
+Third, our 14-paper reproducible subset is not a random sample of vol-forecasting papers. It is the subset for which (a) the data is publicly accessible and (b) the headline architecture is reconstructable from the paper's prose. Papers requiring proprietary high-frequency tick data (the entire JFEcon cohort in our sample) are absent from the reproducibility analysis, and the absence is correlated with venue and methodology. Specifically, the JFEcon papers tend to use econometric methods (GARCH variants, HAR-RV) where the original analysis is more methodologically careful (3 of 6 use formal significance testing; the remaining 3 are methodological/proofs papers without head-to-head comparisons). The 86\% failure rate is the rate among the openly-reproducible subset, not the rate one would expect across the full 30-paper population.
+
+With these caveats in place, the modal outcome remains striking: in a 14-paper reproducible subset spanning equities, FX, commodities, and crypto, only one paper has its headline win survive under DM at 5\%, MCS at 90\%, and SPA at 5\%. Twelve do not. The point of \texttt{vol-eval} is not to embarrass the field; it is to make this kind of test routine.

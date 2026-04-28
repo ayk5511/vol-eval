@@ -156,6 +156,102 @@ def main() -> int:
                 f"Subperiod {label}: expected {sorted(exp_survivors)}, got {sorted(actual_survivors)}"
             )
 
+    # ============================================================
+    # v1 ADDITIONS: Phase 2 (30-paper) numerical claims
+    # ============================================================
+    section("PAPER PHASE 2 RDS DISTRIBUTION (Tab. 6, Tab. 7)")
+    rds_csv = ROOT / "studies" / "results" / "phase2_rds_strict.csv"
+    if not rds_csv.exists():
+        fails += fail(f"missing {rds_csv}")
+    else:
+        import csv
+        with rds_csv.open() as f:
+            rows = list(csv.DictReader(f))
+        n_total = len(rows)
+        n_rds0 = sum(1 for r in rows if int(r["strict_rds"]) == 0)
+        n_rds1 = sum(1 for r in rows if int(r["strict_rds"]) == 1)
+        n_rds2 = sum(1 for r in rows if int(r["strict_rds"]) == 2)
+        mean_rds = sum(int(r["strict_rds"]) for r in rows) / n_total
+
+        expected = {"n_total": 30, "rds0": 16, "rds1": 14, "rds2": 0, "mean": 0.47}
+        if n_total == expected["n_total"]:
+            passmsg(f"n_total = {n_total}")
+        else:
+            fails += fail(f"n_total: expected {expected['n_total']}, got {n_total}")
+        if n_rds0 == expected["rds0"]:
+            passmsg(f"RDS-0: {n_rds0}")
+        else:
+            fails += fail(f"RDS-0: expected {expected['rds0']}, got {n_rds0}")
+        if n_rds1 == expected["rds1"]:
+            passmsg(f"RDS-1: {n_rds1}")
+        else:
+            fails += fail(f"RDS-1: expected {expected['rds1']}, got {n_rds1}")
+        if n_rds2 == expected["rds2"]:
+            passmsg(f"RDS-2: {n_rds2}")
+        else:
+            fails += fail(f"RDS-2: expected {expected['rds2']}, got {n_rds2}")
+        if abs(mean_rds - expected["mean"]) < 0.01:
+            passmsg(f"Mean strict RDS = {mean_rds:.2f}")
+        else:
+            fails += fail(f"Mean strict RDS: expected {expected['mean']:.2f}, got {mean_rds:.2f}")
+
+    section("PAPER PHASE 2 SAMPLE BY VENUE (Tab. 6)")
+    if rds_csv.exists():
+        from collections import Counter
+        venues = Counter(r["venue"] for r in rows)
+        expected_venues = {
+            "Journal of Financial Econometrics": 6,
+            "Mathematics (MDPI)": 6,
+            "JRFM (MDPI)": 4,
+            "Risks (MDPI)": 3,
+            "arXiv q-fin": 11,
+        }
+        for v, n_exp in expected_venues.items():
+            n_got = venues.get(v, 0)
+            if n_got == n_exp:
+                passmsg(f"{v}: {n_got}")
+            else:
+                fails += fail(f"{v}: expected {n_exp}, got {n_got}")
+
+    section("PAPER PHASE 2 SIG-TEST USAGE")
+    headline_csv = ROOT / "studies" / "results" / "phase2_headline_models.csv"
+    if not headline_csv.exists():
+        fails += fail(f"missing {headline_csv}")
+    else:
+        with headline_csv.open() as f:
+            hrows = list(csv.DictReader(f))
+        sig = Counter(r["sig_test_in_paper"] for r in hrows)
+        n_no_test = sig.get("none", 0)
+        if n_no_test == 27:
+            passmsg(f"papers with NO formal significance test: {n_no_test}/30 (90%)")
+        else:
+            fails += fail(f"papers with no sig test: expected 27, got {n_no_test}")
+        n_mcs = sig.get("MCS", 0) + sig.get("DM + MCS", 0)
+        if n_mcs == 3:
+            passmsg(f"papers with MCS or DM+MCS in original analysis: {n_mcs}/30")
+        else:
+            fails += fail(f"MCS papers: expected 3, got {n_mcs}")
+
+    section("PAPER PHASE 2 SURVIVAL OUTCOMES (Tab. 8)")
+    summary_path = ROOT / "studies" / "results" / "phase2_summary.json"
+    if not summary_path.exists():
+        fails += fail(f"missing {summary_path}")
+    else:
+        summary = json.loads(summary_path.read_text())
+        outcomes = summary.get("outcomes", {})
+        expected_outcomes = {"fails": 12, "survives": 1, "partial": 1}
+        for k, v_exp in expected_outcomes.items():
+            v_got = outcomes.get(k, 0)
+            if v_got == v_exp:
+                passmsg(f"{k}: {v_got}/14")
+            else:
+                fails += fail(f"{k}: expected {v_exp}, got {v_got}")
+        n_total_repro = summary.get("n_papers_reproduced", 0)
+        if n_total_repro == 14:
+            passmsg(f"n_papers_reproduced: {n_total_repro}")
+        else:
+            fails += fail(f"n_papers_reproduced: expected 14, got {n_total_repro}")
+
     section("FINAL")
     if fails == 0:
         print("\nALL CHECKS PASSED")
