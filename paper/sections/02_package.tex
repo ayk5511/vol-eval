@@ -1,0 +1,74 @@
+\section{The vol-eval package}\label{sec:package}
+
+\texttt{vol-eval} is a small Python package that does one thing: evaluate volatility forecasts. It does not fit models, manage data pipelines, or provide a CLI. It is designed to be imported by an existing forecasting workflow that has already produced per-day forecasts, and to be invoked at the point in the workflow where the question changes from ``what does my model predict?'' to ``how does it compare to alternatives, with what confidence?''
+
+\subsection{Design choices}
+
+Three principles shape the API.
+
+\textit{Functional, not class-based.} Every loss function and every significance test is a top-level function that takes NumPy arrays and returns a typed dataclass result. There are no model objects, no configuration files, no implicit state. A complete pairwise Diebold-Mariano comparison is one line:
+
+\begin{lstlisting}[language=Python]
+from vol_eval import dm_test
+result = dm_test(actual, forecast_a, forecast_b, loss="qlike", h=5)
+print(result.t_stat, result.p_value, result.winner)
+\end{lstlisting}
+
+The functional design has two consequences worth noting. It composes cleanly with existing pipelines that already produce DataFrame or array outputs (no need to wrap forecasts in a package-specific object), and it makes the package easy to reason about (no hidden state means each call is its own unit of correctness). The result-object pattern \citep[c.f.][]{Ousterhout2018} preserves the studentized statistic, the standard error, the sample size, and any other metadata a downstream user might need without forcing the caller to extract them from a tuple.
+
+\textit{Reproducibility-first.} Every test that uses random sampling accepts an optional \texttt{numpy.random.Generator}. The package's bootstrap procedures use the Politis-Romano stationary bootstrap with sample-size-scaled block length, but a user who wants a different block size can pass it explicitly. Default choices are documented in code and matched in the paper text, so a result reported in the paper can be reproduced exactly by a reader from a clean checkout.
+
+\textit{No vendor dependencies.} \texttt{vol-eval}'s only required dependencies are NumPy, SciPy, and Pandas, all of which are baseline scientific Python. The development install adds pytest and ruff. The package does not depend on \texttt{arch}, \texttt{statsmodels}, or any commercial library. This is partly an aesthetic choice and partly a maintenance choice: every additional dependency is a vector for breakage, and the operations \texttt{vol-eval} needs are small enough to implement directly.
+
+\subsection{What is included}
+
+\Cref{tab:api} lists the public API as of v0.1.0.
+
+\begin{table}[H]
+\centering
+\caption{vol-eval public API as of v0.1.0.}
+\label{tab:api}
+\small
+\setlength{\tabcolsep}{6pt}
+\begin{tabular}{l l l}
+\toprule
+\textbf{Function} & \textbf{Reference} & \textbf{Notes} \\
+\midrule
+\multicolumn{3}{l}{\emph{Loss functions} (\texttt{vol\_eval.losses})} \\
+\texttt{qlike} & \citet{Patton2011} & Robust to noise in the volatility proxy \\
+\texttt{mse}   & Standard           & Mean squared error \\
+\texttt{mae}   & Standard           & Mean absolute error \\
+\texttt{rmse}  & Standard           & $\sqrt{\text{MSE}}$ \\
+\texttt{mz\_r2} & \citet{MincerZarnowitz1969} & Higher is better \\
+\midrule
+\multicolumn{3}{l}{\emph{Significance tests} (\texttt{vol\_eval.tests})} \\
+\texttt{dm\_test}              & \citet{DieboldMariano1995} & Pairwise; HAC SE; bandwidth $h{-}1$ \\
+\texttt{model\_confidence\_set} & \citet{HansenLundeNason2011} & Stationary bootstrap; t-max statistic \\
+\texttt{spa\_test}             & \citet{Hansen2005} & Three p-value variants (lower, consistent, upper) \\
+\texttt{reality\_check}        & \citet{White2000} & Equivalent to SPA upper-bound \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+All tests use a Newey-West HAC standard error with bandwidth equal to $h-1$, where $h$ is the forecast horizon in periods. This is the rule-of-thumb default in the volatility-forecasting literature. The bootstrap-based tests (MCS, SPA, RC) use the Politis-Romano stationary bootstrap with mean block length $\lceil n^{1/3}\rceil$ unless overridden.
+
+\subsection{What is verified}
+
+The package ships with 34 unit tests. The tests fall into four categories:
+
+\begin{enumerate}[leftmargin=*]
+    \item \textit{Loss-function correctness.} QLIKE returns 0 when forecast equals actual; MSE matches a hand-computed value; the Mincer-Zarnowitz $R^2$ returns 1 when forecast and actual are perfectly linearly related; all losses reject mismatched shapes and handle NaN.
+    \item \textit{Diebold-Mariano correctness.} The DM test recovers the manually-computed t-statistic and p-value to nine significant figures; identical forecasters produce a zero mean differential; the test handles short samples gracefully (returning NaN below $n=10$).
+    \item \textit{MCS / SPA properties.} The MCS keeps a clearly dominant model and eliminates an obvious laggard; SPA rejects non-inferiority when the benchmark is clearly worse than a competitor; SPA does not reject when the benchmark is clearly best; the Reality Check matches the SPA upper-bound to numerical precision.
+    \item \textit{Cross-validation against \texttt{arch}.} The DM test result is matched against a hand-rolled implementation that replicates the \texttt{arch} package's calculation conventions; the SPA p-value ordering ($p_{\text{lower}} \le p_{\text{consistent}} \le p_{\text{upper}}$) holds on average over multiple bootstrap seeds.
+\end{enumerate}
+
+The full test suite runs in under three seconds on a laptop. Continuous integration is configured to run the suite on every push to the GitHub repository.
+
+\subsection{Software stack and licensing}
+
+The package targets Python 3.10+ and is packaged with the modern Hatchling backend. The source code is MIT-licensed; the documentation, this paper, and the demonstration scripts are CC BY 4.0 licensed. The repository ships a \texttt{CITATION.cff} file so that GitHub renders a one-click ``Cite this repository'' button. The full development install, including pytest, ruff, and mypy, is available via:
+
+\begin{lstlisting}[language=bash]
+pip install -e ".[dev]"
+\end{lstlisting}

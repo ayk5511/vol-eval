@@ -1,0 +1,51 @@
+{
+  "GARCH": {
+    "n_competitors": 6,
+    "statistic": 3.308389661373797,
+    "p_value_lower": 0.0045,
+    "p_value_consistent": 0.0045,
+    "p_value_upper": 0.0045
+  },
+  "EGARCH": {
+    "n_competitors": 6,
+    "statistic": 2.7358004999749914,
+    "p_value_lower": 0.0075,
+    "p_value_consistent": 0.0075,
+    "p_value_upper": 0.009
+  },
+  "GJR-GARCH": {
+    "n_competitors": 6,
+    "statistic": 0.11533249507439444,
+    "p_value_lower": 0.5305,
+    "p_value_consistent": 0.5305,
+    "p_value_upper": 0.8255
+  },
+  "HAR-RV": {
+    "n_competitors": 6,
+    "statistic": 3.787207038137352,
+    "p_value_lower": 0.002,
+    "p_value_consistent": 0.002,
+    "p_value_upper": 0.002
+  },
+  "LightGBM": {
+    "n_competitors": 6,
+    "statistic": 1.029124807875723,
+    "p_value_lower": 0.306,
+    "p_value_consistent": 0.306,
+    "p_value_upper": 0.352
+  },
+  "XGBoost": {
+    "n_competitors": 6,
+    "statistic": 0.5977263580571656,
+    "p_value_lower": 0.387,
+    "p_value_consistent": 0.387,
+    "p_value_upper": 0.574
+  },
+  "Ensemble": {
+    "n_competitors": 6,
+    "statistic": 0.0,
+    "p_value_lower": 1.0,
+    "p_value_consistent": 1.0,
+    "p_value_upper": 1.0
+  }
+}

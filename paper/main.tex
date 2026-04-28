@@ -1,0 +1,79 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{listings}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue!70!black,
+    citecolor=green!50!black,
+    urlcolor=blue!70!black
+}
+
+\onehalfspacing
+
+\lstset{
+    basicstyle=\ttfamily\small,
+    backgroundcolor=\color{gray!5},
+    frame=single,
+    framerule=0.4pt,
+    breaklines=true,
+    showstringspaces=false,
+    columns=flexible
+}
+
+\title{vol-eval: A Python Package for Volatility Forecast Evaluation,\\
+with a Demonstration That Most ``Wins'' in a Seven-Model\\
+Horse Race Are Not Statistically Distinguishable}
+
+\author{
+    Akram Khan\thanks{Independent Researcher. ORCID: \href{https://orcid.org/0009-0002-7521-8648}{0009-0002-7521-8648}. Replication code, data, and audit script: \href{https://github.com/ayk5511/vol-eval}{github.com/ayk5511/vol-eval}.}
+}
+
+\date{April 2026}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+We introduce \texttt{vol-eval}, an open-source Python package that implements the standard loss functions and significance tests for volatility forecast evaluation: QLIKE, MSE, MAE, Mincer-Zarnowitz $R^2$, Diebold-Mariano (1995) with Newey-West HAC standard errors, the Hansen-Lunde-Nason (2011) Model Confidence Set with stationary bootstrap, Hansen's (2005) SPA test with three p-value variants, and White's (2000) Reality Check. The package follows a functional API with typed result objects, ships under MIT license, and is verified by 34 unit tests including cross-validation against the \texttt{arch} package's reference implementation. We then apply \texttt{vol-eval} to the seven-model volatility-forecasting horse race of Khan (2026), a controlled comparison of three GARCH variants, HAR-RV, LightGBM, XGBoost, and an equal-weight ensemble on 980 trading days of S\&P 500 5-day realized volatility. Three findings emerge from the demonstration. First, the Diebold-Mariano test rejects equal accuracy at 5\% for only 6 of 21 model pairs; the headline ``ensemble wins'' result of Khan (2026) is not statistically distinguishable from the runner-up (GJR-GARCH) at $p = 0.90$. Second, the 90\% Model Confidence Set keeps six of the seven models, eliminating only HAR-RV; the ``winner'' framing common in volatility-forecasting papers cannot honestly be applied to this comparison. Third, the SPA test with each model in turn as the benchmark rejects the null of non-inferiority at the 5\% level only when HAR-RV is the benchmark. The paper concludes with a queued empirical extension: applying \texttt{vol-eval} to a sample of 30 published volatility-forecasting comparison papers (2018--2025) and tabulating what fraction of headline ``wins'' survive significance testing. We release the full \texttt{vol-eval} source, the demonstration scripts, the per-test JSON outputs, and an audit script that re-derives every numerical claim in this paper at \href{https://github.com/ayk5511/vol-eval}{github.com/ayk5511/vol-eval}, scoring 2 on the Reproducibility Disclosure Score rubric of \citet{Khan2026Survey}.
+
+\medskip
+\noindent\textbf{Keywords:} volatility forecasting, Diebold-Mariano test, Model Confidence Set, Hansen SPA, Reality Check, QLIKE, forecast evaluation, reproducibility, open-source software
+
+\medskip
+\noindent\textbf{JEL Classification:} C12, C15, C22, C52, C53, G17
+\end{abstract}
+
+\newpage
+\tableofcontents
+\newpage
+
+\input{sections/01_introduction}
+\input{sections/02_package}
+\input{sections/03_methodology}
+\input{sections/04_demonstration}
+\input{sections/05_discussion}
+\input{sections/06_reproducibility}
+
+\bibliographystyle{apalike}
+\bibliography{bib/references}
+
+\end{document}

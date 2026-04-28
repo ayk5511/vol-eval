@@ -1,0 +1,13 @@
+\section{Reproducibility}\label{sec:reproducibility}
+
+This paper aims to score 2 on the Reproducibility Disclosure Score rubric proposed in \citet{Khan2026Survey}: \emph{(i) code public}, \emph{(ii) data openly accessible}.
+
+\textit{Code.} The \texttt{vol-eval} package is at \url{https://github.com/ayk5511/vol-eval}, MIT-licensed. The empirical demonstration in \Cref{sec:demonstration} is produced by \texttt{studies/01\_paper2\_demonstration.py} in the same repository, which loads the upstream Paper 2 forecast panel and writes every numerical value reported in this paper to JSON files in \texttt{studies/results/}.
+
+\textit{Data.} The upstream forecast panel is at \url{https://github.com/ayk5511/volatility-forecasting/blob/main/results/forecasts_5d.parquet}, CC0 licensed. It is reproducible from the upstream paper's data-collection scripts (Yahoo Finance public data) in under five minutes from a clean Python environment.
+
+\textit{Audit.} The repository includes \texttt{paper/audit.py}, which re-derives every numerical claim in this paper from the JSON outputs of the demonstration script and verifies agreement to four decimals. The audit script must print \texttt{ALL CHECKS PASSED} (exit 0) for the paper to be considered ship-ready. We adopted this convention after an earlier paper in this series \citep{KhanVol2026} had a sub-table whose values had been transcribed from imagination rather than from the JSON outputs; the audit-script convention catches that class of error mechanically.
+
+\textit{Issues.} Corrections, extensions, and challenges to the rankings reported here are welcomed via the repository's issue tracker (\url{https://github.com/ayk5511/vol-eval/issues}). Issues become part of the public record and feed the next version of this paper.
+
+\textit{Self-citation network.} This paper extends the methodological agenda of \citet{Khan2026Survey} (the Reproducibility Disclosure Score) and the empirical agenda of \citet{KhanVol2026} (the seven-model demonstration). It serves as the technical foundation for a follow-on Phase 2 paper that applies \texttt{vol-eval} to a sample of 30 published volatility-forecasting comparison papers, currently in preparation.

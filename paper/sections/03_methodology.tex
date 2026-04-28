@@ -1,0 +1,74 @@
+\section{Significance tests for forecast comparison}\label{sec:methodology}
+
+This section reviews the four significance tests \texttt{vol-eval} implements, with attention to the implementation details that matter for reproducibility.
+
+\subsection{Diebold-Mariano (1995)}
+
+The Diebold-Mariano test compares two forecasters on the basis of a chosen loss function $L$. Given a sample of $T$ realized values $\sigma_t$ and corresponding forecasts $\hat\sigma^A_t$ and $\hat\sigma^B_t$, define the pointwise loss differential:
+\begin{equation}
+    d_t = L(\sigma_t, \hat\sigma^A_t) - L(\sigma_t, \hat\sigma^B_t).
+\end{equation}
+
+The null hypothesis is $H_0: \mathbb{E}[d_t] = 0$ (equal expected loss). Under regularity conditions, the studentized mean differential converges in distribution to a standard normal:
+\begin{equation}
+    \frac{\bar d}{\widehat{\text{SE}}(\bar d)} \xrightarrow{d} N(0, 1)
+\end{equation}
+where $\widehat{\text{SE}}(\bar d)$ is the long-run standard error of the mean. The Newey-West HAC estimator with Bartlett kernel and bandwidth $q$ is:
+\begin{equation}
+    \widehat{\text{Var}}(\bar d) = \frac{1}{T}\left[ \widehat\gamma_0 + 2 \sum_{k=1}^{q} \left(1 - \frac{k}{q+1}\right) \widehat\gamma_k \right]
+\end{equation}
+where $\widehat\gamma_k$ is the sample autocovariance at lag $k$ of the centered loss differential. The bandwidth defaults in \texttt{vol-eval} to $q = h - 1$, where $h$ is the forecast horizon. The two-sided p-value is $2(1 - \Phi(|t|))$ where $\Phi$ is the standard normal CDF.
+
+The choice of loss function $L$ matters. For volatility forecasting, the QLIKE loss of \citet{Patton2011} is robust to noise in the volatility proxy and is the theoretically preferred default. \texttt{vol-eval}'s \texttt{dm\_test} accepts \texttt{loss="qlike"} (default), \texttt{"mse"}, or \texttt{"mae"}.
+
+\subsection{Model Confidence Set (Hansen-Lunde-Nason 2011)}
+
+The Diebold-Mariano test handles a single pairwise comparison. When there are $M > 2$ forecasters, the natural question is not ``does model $A$ beat model $B$?'' but ``which subset of models is statistically equivalent to the best?'' The Hansen-Lunde-Nason Model Confidence Set (MCS) answers this directly.
+
+The MCS procedure starts with the full set of $M$ models. At each iteration, it tests the null hypothesis that all surviving models have equal expected loss (the equivalence hypothesis). If the null is not rejected at level $\alpha$, the procedure halts and returns the surviving set as the $(1-\alpha)$ MCS. If the null is rejected, the model with the highest model-relative average loss is eliminated and the procedure repeats.
+
+The test statistic at each iteration is the studentized maximum loss differential:
+\begin{equation}
+    T_{\max} = \max_{i \in \mathcal{M}_n} \frac{\bar d_i - \bar d_{\bar{\mathcal{M}}_n}}{\widehat{\text{SE}}(\bar d_i - \bar d_{\bar{\mathcal{M}}_n})}
+\end{equation}
+where $\bar d_{\bar{\mathcal{M}}_n}$ is the average loss across surviving models and $\widehat{\text{SE}}$ is computed via stationary bootstrap of \citet{PolitisRomano1994}. The bootstrap p-value is the fraction of bootstrap replicates in which the analogous statistic exceeds the sample value.
+
+\texttt{vol-eval} defaults to $\alpha = 0.10$ (90\% confidence), $n_{\text{bootstrap}} = 1000$, and stationary bootstrap mean block length $\lceil n^{1/3}\rceil$. All defaults are user-overridable.
+
+\subsection{Hansen SPA (2005)}
+
+The SPA test asks a different question than the MCS. Given one model designated as the \emph{benchmark} and a set of $K$ \emph{competitors}, the SPA test the null that the benchmark is not inferior to any competitor:
+\begin{equation}
+    H_0: \max_{k=1,\ldots,K} \mathbb{E}[L^{\text{benchmark}}_t - L^{\text{competitor}_k}_t] \le 0.
+\end{equation}
+
+This is more useful than a battery of pairwise DM tests when the question is ``can I defend this particular benchmark forecaster against a set of plausible alternatives?'' rather than ``which of these models is best?''.
+
+The SPA statistic is the studentized maximum loss differential:
+\begin{equation}
+    T^{\text{SPA}} = \max\left(0, \, \max_{k=1,\ldots,K} \frac{\bar d_k}{\widehat{\text{SE}}(\bar d_k)}\right).
+\end{equation}
+
+The p-value is computed by stationary bootstrap. Hansen (2005) defines three variants based on how the bootstrap distribution is recentered, corresponding to three different assumptions about which competitors are ``binding'' in the null hypothesis:
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Lower}: $g_l(d_k) = \max(d_k, 0)$. Treats only competitors that beat the benchmark in-sample as relevant to the null. Most liberal; smallest p-value.
+    \item \textbf{Consistent}: $g_c(d_k) = d_k$ if $d_k \ge -A_n$, else $0$, where $A_n = \sqrt{2 \log\log n / n} \cdot \widehat{\text{SE}}(d_k)$. Treats competitors that are not too far below as relevant. Recommended for inference.
+    \item \textbf{Upper}: $g_u(d_k) = d_k$ for all $k$. Treats all competitors as relevant. Most conservative; largest p-value. Equivalent to White's Reality Check.
+\end{itemize}
+
+Hansen \citeyearpar[p.371]{Hansen2005} establishes that $g_l \le g_c \le g_u$, which implies $p_l \le p_c \le p_u$ in the population. The lower variant is the liberal one (easier to reject); the upper variant is the conservative Reality Check.
+
+\subsection{White's Reality Check (2000)}
+
+The Reality Check predates the SPA test and is functionally equivalent to the SPA upper-bound variant. \texttt{vol-eval} ships \texttt{reality\_check} as a separate function for users who want the canonical reference, but internally it dispatches to \texttt{spa\_test} and returns the upper-bound p-value.
+
+\subsection{Bandwidth and bootstrap defaults}
+
+Two implementation choices warrant explicit documentation because they materially affect reported p-values and are commonly under-specified in the literature.
+
+\textit{HAC bandwidth.} \texttt{vol-eval} defaults to $q = h - 1$ where $h$ is the forecast horizon. This is the rule-of-thumb in \citet{DieboldMariano1995} for forecasts of horizon $h$. For 1-step-ahead forecasts ($h = 1$), the default is $q = 0$ which reduces to the simple sample-variance estimate.
+
+\textit{Bootstrap block length.} The Politis-Romano stationary bootstrap requires a mean block length parameter. \texttt{vol-eval} defaults to $\lceil n^{1/3}\rceil$, which is a standard rate-consistent choice. The user can override via the \texttt{block\_size} keyword argument.
+
+\textit{Number of bootstrap replications.} Default is 1000. The MCS demonstration in \Cref{sec:demonstration} uses 2000 replications for tighter p-value resolution; the SPA demonstration similarly uses 2000.

@@ -1,0 +1,20 @@
+{
+  "loss": "qlike",
+  "alpha": 0.1,
+  "n_bootstrap": 2000,
+  "statistic": "t_max",
+  "survivors": [
+    "GARCH",
+    "EGARCH",
+    "GJR-GARCH",
+    "LightGBM",
+    "XGBoost",
+    "Ensemble"
+  ],
+  "eliminated": [
+    "HAR-RV"
+  ],
+  "eliminated_p_values": [
+    0.048
+  ]
+}

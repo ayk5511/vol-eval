@@ -24,16 +24,21 @@ from vol_eval.tests.model_confidence_set import _stationary_bootstrap_indices
 class SPAResult:
     """Hansen (2005) SPA test result.
 
+    Per Hansen (2005, p.371), the three p-values satisfy
+    p_lower <= p_consistent <= p_upper in the population. The lower variant is
+    the liberal one (smallest p-value, easiest to reject); the upper variant is
+    the conservative one (largest p-value, equivalent to White's Reality Check).
+
     Attributes:
         n: Effective sample size.
         n_competitors: Number of competitor models tested against the benchmark.
         statistic: Sample value of the SPA test statistic.
         p_value_consistent: Bootstrap p-value using the consistent estimator
-            of the indicator (Hansen 2005, Section 3.3). Recommended.
-        p_value_lower: Conservative lower-bound p-value (assumes all
-            competitors have weakly negative population mean differential).
-        p_value_upper: Liberal upper-bound p-value (corresponds to White's
-            Reality Check). Use as an upper bound on the true p-value.
+            of the indicator (Hansen 2005, Section 3.3). Recommended for
+            inference.
+        p_value_lower: Liberal lower-bound estimate. Smallest of the three.
+        p_value_upper: Conservative upper-bound estimate. Equals White's
+            Reality Check p-value.
         loss: Loss function used.
     """
 
