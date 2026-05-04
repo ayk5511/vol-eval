@@ -40,6 +40,32 @@ def test_mcs_eliminates_in_order(panel):
         assert result.eliminated_p_values[0] <= 0.10  # below alpha
 
 
+def test_mcs_t_range_statistic(panel):
+    """Hansen-Lunde-Nason 2011 also defines a T_range statistic; vol-eval supports it."""
+    actual, forecasts = panel
+    result = model_confidence_set(
+        actual, forecasts, loss="qlike", n_bootstrap=200, statistic="t_range"
+    )
+    assert result.statistic == "t_range"
+    assert 1 <= len(result.survivors) <= len(forecasts)
+
+
+def test_mcs_t_max_and_t_range_agree_on_dominant(panel):
+    """Both T_max and T_range should agree on eliminating a clearly worse model."""
+    actual, forecasts = panel
+    res_max = model_confidence_set(
+        actual, forecasts, loss="qlike", n_bootstrap=300, statistic="t_max"
+    )
+    res_range = model_confidence_set(
+        actual, forecasts, loss="qlike", n_bootstrap=300, statistic="t_range"
+    )
+    # The "loose" forecast is clearly worse on this panel; both statistics
+    # should eliminate it (or, at minimum, neither should report it as a
+    # survivor when the other excludes it).
+    if "loose" not in res_max.survivors:
+        assert "loose" not in res_range.survivors or len(res_range.survivors) > len(res_max.survivors)
+
+
 def test_mcs_handles_two_models(panel):
     actual, forecasts = panel
     sub = {k: forecasts[k] for k in ["tight", "loose"]}

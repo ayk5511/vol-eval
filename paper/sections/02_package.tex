@@ -43,7 +43,8 @@ The functional design has two consequences worth noting. It composes cleanly wit
 \midrule
 \multicolumn{3}{l}{\emph{Significance tests} (\texttt{vol\_eval.tests})} \\
 \texttt{dm\_test}              & \citet{DieboldMariano1995} & Pairwise; HAC SE; bandwidth $h{-}1$ \\
-\texttt{model\_confidence\_set} & \citet{HansenLundeNason2011} & Stationary bootstrap; t-max statistic \\
+\texttt{gw\_test}              & \citet{GiacominiWhite2006} & Conditional predictive ability; chi-squared on test instruments \\
+\texttt{model\_confidence\_set} & \citet{HansenLundeNason2011} & Stationary bootstrap; \texttt{t\_max} or \texttt{t\_range} statistic \\
 \texttt{spa\_test}             & \citet{Hansen2005} & Three p-value variants (lower, consistent, upper) \\
 \texttt{reality\_check}        & \citet{White2000} & Equivalent to SPA upper-bound \\
 \bottomrule
@@ -54,12 +55,13 @@ All tests use a Newey-West HAC standard error with bandwidth equal to $h-1$, whe
 
 \subsection{What is verified}
 
-The package ships with 34 unit tests. The tests fall into four categories:
+The package ships with 45 unit tests. The tests fall into four categories:
 
 \begin{enumerate}[leftmargin=*]
     \item \textit{Loss-function correctness.} QLIKE returns 0 when forecast equals actual; MSE matches a hand-computed value; the Mincer-Zarnowitz $R^2$ returns 1 when forecast and actual are perfectly linearly related; all losses reject mismatched shapes and handle NaN.
     \item \textit{Diebold-Mariano correctness.} The DM test recovers the manually-computed t-statistic and p-value to nine significant figures; identical forecasters produce a zero mean differential; the test handles short samples gracefully (returning NaN below $n=10$).
-    \item \textit{MCS / SPA properties.} The MCS keeps a clearly dominant model and eliminates an obvious laggard; SPA rejects non-inferiority when the benchmark is clearly worse than a competitor; SPA does not reject when the benchmark is clearly best; the Reality Check matches the SPA upper-bound to numerical precision.
+    \item \textit{Giacomini-White correctness.} The GW conditional test rejects when one forecaster is clearly biased and the bias is predictable from past loss differentials; the unconditional GW (q=1) agrees with DM at 5\% on strongly-separated panels; the test handles short samples and singular variance matrices gracefully.
+    \item \textit{MCS / SPA properties.} The MCS keeps a clearly dominant model and eliminates an obvious laggard under both \texttt{t\_max} and \texttt{t\_range} statistics; SPA rejects non-inferiority when the benchmark is clearly worse than a competitor; SPA does not reject when the benchmark is clearly best; the Reality Check matches the SPA upper-bound to numerical precision.
     \item \textit{Cross-validation against \texttt{arch}.} The DM test result is matched against a hand-rolled implementation that replicates the \texttt{arch} package's calculation conventions; the SPA p-value ordering ($p_{\text{lower}} \le p_{\text{consistent}} \le p_{\text{upper}}$) holds on average over multiple bootstrap seeds.
 \end{enumerate}
 

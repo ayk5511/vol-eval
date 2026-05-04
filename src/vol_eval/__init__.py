@@ -21,16 +21,18 @@ from __future__ import annotations
 from vol_eval.losses import mae, mse, mz_r2, qlike, rmse
 from vol_eval.tests import (
     DMResult,
+    GWResult,
     MCSResult,
     RealityCheckResult,
     SPAResult,
     dm_test,
+    gw_test,
     model_confidence_set,
     reality_check,
     spa_test,
 )
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 
 __all__ = [
     # Losses
@@ -41,11 +43,13 @@ __all__ = [
     "mz_r2",
     # Tests
     "dm_test",
+    "gw_test",
     "model_confidence_set",
     "spa_test",
     "reality_check",
     # Result types
     "DMResult",
+    "GWResult",
     "MCSResult",
     "SPAResult",
     "RealityCheckResult",
