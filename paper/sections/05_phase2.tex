@@ -1,5 +1,7 @@
 \section{Phase 2: Re-analysis of 30 Published Volatility-Forecasting Comparison Papers}\label{sec:phase2}
 
+\sloppy
+
 The single-panel demonstration of \Cref{sec:demonstration} shows what the \texttt{vol-eval} battery looks like when applied to one well-documented horse race. The natural question is how the findings generalise. This section reports the result of applying \texttt{vol-eval} to a sample of 30 published volatility-forecasting comparison papers from 2018--2025.
 
 We organise the section around three layered findings: (i) reproducibility-disclosure rates in the sample, (ii) the use of formal significance tests in the original papers, and (iii) for the subset we can reproduce, the survival of headline ``wins'' under \texttt{vol-eval}.
@@ -90,8 +92,9 @@ We classify each paper into one of three outcomes (\Cref{tab:phase2_survival}):
 
 \begin{table}[H]
 \centering
-\caption{Phase 2 survival outcomes ($n=14$ reproducible papers). The full per-paper detail (QLIKE, DM, MCS, SPA) is in \Cref{tab:phase2_appendix} and the source-of-record JSON at \texttt{studies/results/phase2\_summary.json}.}\label{tab:phase2_survival}
-\begin{tabular}{lcccc}
+\small
+\caption{Phase 2 survival outcomes ($n=14$ reproducible papers). The full per-paper detail (QLIKE, DM, MCS, SPA) is in \Cref{tab:phase2_appendix}.}\label{tab:phase2_survival}
+\begin{tabular}{@{}p{6.5cm}cccc@{}}
 \toprule
 Venue & $n$ reproduced & Fails & Partial & Survives \\
 \midrule
@@ -166,13 +169,14 @@ With these caveats in place, the modal outcome remains striking: in a 14-paper r
 
 \subsection{Appendix to Phase 2: per-paper detail}\label{sec:phase2_appendix_text}
 
-\Cref{tab:phase2_appendix} provides one row per reproduced paper with the key vol-eval outputs: paper-claimed winner, our best-by-QLIKE model in the reproduction, DM $p$-value of the comparison the paper makes, and 90\% MCS survivor count. Multi-asset reproductions (P09 across four Colombian ADRs, P12 across six cryptocurrencies, P15 across five cryptocurrencies, P27 across two FX pairs) report the worst-case dataset for the paper's claim; the per-asset detail is at \texttt{studies/per\_paper/<paper\_id>/voleval\_result.json}.
+\Cref{tab:phase2_appendix} provides one row per reproduced paper with the key vol-eval outputs: paper-claimed winner, our best-by-QLIKE model in the reproduction, DM $p$-value of the comparison the paper makes, and 90\% MCS survivor count. Multi-asset reproductions (P09 across four Colombian ADRs, P12 across six cryptocurrencies, P15 across five cryptocurrencies, P27 across two FX pairs) report the worst-case dataset for the paper's claim; the per-asset detail is in the per-paper JSON output files.
 
 \begin{table}[H]
 \centering
 \caption{Per-paper vol-eval outcomes for the 14 reproducible papers. ``DM~$p$'' is the Diebold-Mariano $p$-value for paper-claimed winner versus paper-claimed runner-up at $h=1$. ``MCS surv/tot'' is the number of models retained by the 90\% MCS over the total in the comparison. Asterisk (*) marks reproductions with substantial library/feature substitutions detailed in \Cref{sec:phase2_caveats}.}\label{tab:phase2_appendix}
-\footnotesize
-\begin{tabular}{llllccc}
+\scriptsize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}p{1.4cm}p{0.9cm}p{2.4cm}p{2.4cm}cccp{1.0cm}@{}}
 \toprule
 Paper ID & Venue & Claimed winner & Our best (QLIKE) & DM $p$ & MCS surv/tot & Outcome \\
 \midrule

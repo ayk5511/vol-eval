@@ -1,5 +1,7 @@
 \section{Demonstration: the seven-model panel of Khan (2026)}\label{sec:demonstration}
 
+\sloppy
+
 We demonstrate \texttt{vol-eval} by applying it to the seven-model volatility-forecasting horse race of \citet{KhanVol2026}. That paper ran a controlled out-of-sample comparison of three GARCH variants (GARCH(1,1), EGARCH, GJR-GARCH), HAR-RV, LightGBM, XGBoost, and an equal-weight ensemble of LightGBM, HAR-RV, and GARCH(1,1) on 980 trading days of S\&P 500 5-day forward realized volatility (January 2022 through November 2025). The forecast panel is publicly available at \url{https://github.com/ayk5511/volatility-forecasting/blob/main/results/forecasts_5d.parquet}.
 
 The panel is well-suited as a demonstration data set for several reasons. It contains seven structurally distinct forecasters, which exercises both the pairwise DM test and the multi-model MCS / SPA tests. It uses public data and is itself fully reproducible (the upstream paper scores 2 on the Reproducibility Disclosure Score rubric of \citet{Khan2026Survey}). And the headline finding of the original paper, that ``the equal-weight ensemble narrowly leads on QLIKE,'' is exactly the kind of close-margin claim that significance testing should be applied to.

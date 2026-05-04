@@ -1,5 +1,7 @@
 \section{Reproducibility}\label{sec:reproducibility}
 
+\sloppy
+
 This paper aims to score 2 on the Reproducibility Disclosure Score rubric proposed in \citet{Khan2026Survey}: \emph{(i) code public}, \emph{(ii) data openly accessible}.
 
 \textit{Code.} The \texttt{vol-eval} package is at \url{https://github.com/ayk5511/vol-eval}, MIT-licensed. The seven-model demonstration of \Cref{sec:demonstration} is produced by \texttt{studies/01\_paper2\_demonstration.py} in the same repository, which loads the upstream Paper 2 forecast panel and writes every numerical value reported in \Cref{sec:demonstration} to JSON files in \texttt{studies/results/}. The Phase 2 reproductions of \Cref{sec:phase2} are produced by 14 per-paper scripts at \texttt{studies/per\_paper/<paper\_id>/reproduce.py}, plus three pipeline scripts (\texttt{studies/04\_search\_candidates.py}, \texttt{studies/05\_narrow\_candidates.py}, and \texttt{studies/06\_check\_unpaywall.py}) that document how the 30-paper sample was constructed. Each reproduction directory contains a \texttt{reproduction\_log.json} that records the data source, hyperparameter choices, and any approximations relative to the original paper.
