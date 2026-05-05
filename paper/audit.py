@@ -80,31 +80,52 @@ def main() -> int:
             else:
                 fails += fail(f"{model}.{metric} expected {exp_val:.4f}, got {actual:.4f}")
 
-    section("PAPER DM TABLE (Tab. 2) - selected rows")
-    # Sample of headline DM claims from the paper
+    section("PAPER DM TABLE (Tab. demo_dm) - all 21 ordered pairs")
+    # All 21 rows match the paper's Table demo_dm at h=5 (q_HAC=4).
+    # The audit fails if any cell drifts beyond the documented tolerance,
+    # so the paper text and the JSON outputs cannot diverge silently.
     expected_dm = [
-        ("GARCH_vs_GJR-GARCH",     +0.0359, +2.14, 0.033),
-        ("GARCH_vs_Ensemble",      +0.0375, +3.25, 0.001),
+        ("GARCH_vs_EGARCH",        +0.0058, +0.84, 0.399),
+        ("GARCH_vs_GJR-GARCH",     +0.0358, +2.14, 0.033),
+        ("GARCH_vs_HAR-RV",        -0.0392, -2.32, 0.020),
+        ("GARCH_vs_LightGBM",      +0.0173, +0.55, 0.581),
+        ("GARCH_vs_XGBoost",       +0.0252, +0.83, 0.408),
+        ("GARCH_vs_Ensemble",      +0.0374, +3.25, 0.001),
         ("EGARCH_vs_GJR-GARCH",    +0.0301, +2.00, 0.045),
         ("EGARCH_vs_HAR-RV",       -0.0450, -2.24, 0.025),
+        ("EGARCH_vs_LightGBM",     +0.0116, +0.38, 0.706),
+        ("EGARCH_vs_XGBoost",      +0.0194, +0.66, 0.511),
+        ("EGARCH_vs_Ensemble",     +0.0317, +2.61, 0.009),
         ("GJR-GARCH_vs_HAR-RV",    -0.0751, -2.99, 0.003),
+        ("GJR-GARCH_vs_LightGBM",  -0.0185, -0.73, 0.464),
+        ("GJR-GARCH_vs_XGBoost",   -0.0106, -0.43, 0.667),
         ("GJR-GARCH_vs_Ensemble",  +0.0016, +0.12, 0.903),
         ("HAR-RV_vs_LightGBM",     +0.0566, +1.48, 0.140),
+        ("HAR-RV_vs_XGBoost",      +0.0644, +1.68, 0.093),
+        ("HAR-RV_vs_Ensemble",     +0.0767, +3.70, 0.000),
         ("LightGBM_vs_XGBoost",    +0.0079, +0.92, 0.359),
         ("LightGBM_vs_Ensemble",   +0.0201, +0.96, 0.337),
+        ("XGBoost_vs_Ensemble",    +0.0122, +0.59, 0.557),
     ]
     for pair, exp_diff, exp_t, exp_p in expected_dm:
         if pair not in dm:
             fails += fail(f"DM pair {pair} not in JSON")
             continue
         d = dm[pair]
-        if close(d["mean_diff"], exp_diff, tol=5e-4) and close(d["t_stat"], exp_t, tol=0.02) and close(d["p_value"], exp_p, tol=5e-3):
+        if close(d["mean_diff"], exp_diff, tol=5e-4) and close(d["t_stat"], exp_t, tol=0.02) and close(d["p_value"], exp_p, tol=2e-3):
             passmsg(f"{pair}  diff={d['mean_diff']:+.4f}  t={d['t_stat']:+.2f}  p={d['p_value']:.3f}")
         else:
             fails += fail(
                 f"{pair}: expected diff={exp_diff:+.4f}/t={exp_t:+.2f}/p={exp_p:.3f}; "
                 f"got diff={d['mean_diff']:+.4f}/t={d['t_stat']:+.2f}/p={d['p_value']:.3f}"
             )
+
+    # Also verify the count of significant pairs at 5% matches the paper's claim.
+    n_sig = sum(1 for v in dm.values() if v["p_value"] < 0.05)
+    if n_sig == 8:
+        passmsg("DM significance count at 5% = 8 (matches paper claim)")
+    else:
+        fails += fail(f"DM significance count at 5% = {n_sig}, expected 8 (paper text)")
 
     section("PAPER MCS RESULT (Tab. 3)")
     expected_mcs_survivors = {"GARCH", "EGARCH", "GJR-GARCH", "LightGBM", "XGBoost", "Ensemble"}

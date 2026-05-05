@@ -1,6 +1,6 @@
 \section{Significance tests for forecast comparison}\label{sec:methodology}
 
-This section reviews the four significance tests \texttt{vol-eval} implements, with attention to the implementation details that matter for reproducibility.
+This section reviews the five significance tests \texttt{vol-eval} implements (Diebold-Mariano, Model Confidence Set, Hansen SPA, White Reality Check, and Giacomini-White), with attention to the implementation details that matter for reproducibility.
 
 \subsection{Diebold-Mariano (1995)}
 
@@ -65,6 +65,8 @@ The Reality Check predates the SPA test and is functionally equivalent to the SP
 
 \subsection{Giacomini-White (2006) Conditional Predictive Ability}\label{sec:gw}
 
+\sloppy
+
 The Diebold-Mariano test asks whether two forecasters have equal \emph{unconditional} expected loss. \citet{GiacominiWhite2006} extend the framework in two directions. First, the null becomes conditional on a vector of test instruments $h_t$ observable at time $t$:
 \begin{equation}
     H_0: \mathbb{E}\!\left[ h_t \cdot d_{t+\tau} \right] = 0 \quad \forall t,
@@ -80,8 +82,8 @@ where $\overline{h \cdot d}$ is the sample mean of the elementwise product $h_t 
 Two instrument specifications are practically useful and both are supported by \texttt{vol-eval}'s \texttt{gw\_test}:
 
 \begin{itemize}[leftmargin=*]
-    \item $h_t = 1$ (constant; $q = 1$): the unconditional GW test, asymptotically equivalent to DM at the population level. Differences arise only from finite-sample HAC and the chi-squared-vs-normal asymptotic reference distribution.
-    \item $h_t = (1, d_{t-1})^\top$ (constant + lag-1 differential; $q = 2$): the standard conditional test. The lagged differential captures whether one forecaster's edge over the other is predictable from yesterday's relative loss. The conditional null is strictly more informative than the unconditional one: a non-rejection of DM can coexist with a rejection of GW when the loss differential exhibits serial structure.
+    \item $h_t = 1$ (constant, $q = 1$): the unconditional GW test, asymptotically equivalent to DM at the population level. Differences arise only from finite-sample HAC and the chi-squared-versus-normal asymptotic reference distribution.
+    \item $h_t = (1, d_{t-1})^\top$ (constant plus lag-1 differential, $q = 2$): the standard conditional test. The lagged differential captures whether one forecaster's edge is predictable from yesterday's relative loss. The conditional null is strictly more informative than the unconditional one. A non-rejection of DM can coexist with a rejection of GW when the loss differential has serial structure.
 \end{itemize}
 
 The conditional case is the practical reason to add GW to the battery. A modal failure pattern in vol-forecasting comparison papers is to report a non-significant DM and conclude ``the models are tied''; the GW conditional test will, in cases where one model has a regime-dependent edge that washes out unconditionally, reject the joint orthogonality null and identify the edge that DM misses.

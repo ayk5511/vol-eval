@@ -4,7 +4,7 @@
 # paper/submission-ssrn/ so it's separated from working build artefacts.
 set -euo pipefail
 
-VERSION="v2"
+VERSION="v3"
 OUT_NAME="Khan_2026_vol_eval_${VERSION}.pdf"
 
 cd "$(dirname "$0")"

@@ -48,31 +48,31 @@ The headline of the original paper is the QLIKE column: the ensemble narrowly le
 \textbf{Model A} & \textbf{Model B} & \textbf{Mean diff} & \textbf{t-stat} & \textbf{p-value} & \textbf{5\%} \\
 \midrule
 GARCH       & EGARCH       & $+$0.0058 & $+$0.84 & 0.399 & ns \\
-GARCH       & GJR-GARCH    & $+$0.0359 & $+$2.14 & 0.033 & S  \\
-GARCH       & HAR-RV       & $-$0.0392 & $-$1.81 & 0.071 & ns \\
-GARCH       & LightGBM     & $+$0.0174 & $+$0.69 & 0.490 & ns \\
-GARCH       & XGBoost      & $+$0.0253 & $+$1.04 & 0.297 & ns \\
-GARCH       & Ensemble     & $+$0.0375 & $+$3.25 & 0.001 & S  \\
+GARCH       & GJR-GARCH    & $+$0.0358 & $+$2.14 & 0.033 & S  \\
+GARCH       & HAR-RV       & $-$0.0392 & $-$2.32 & 0.020 & S  \\
+GARCH       & LightGBM     & $+$0.0173 & $+$0.55 & 0.581 & ns \\
+GARCH       & XGBoost      & $+$0.0252 & $+$0.83 & 0.408 & ns \\
+GARCH       & Ensemble     & $+$0.0374 & $+$3.25 & 0.001 & S  \\
 EGARCH      & GJR-GARCH    & $+$0.0301 & $+$2.00 & 0.045 & S  \\
 EGARCH      & HAR-RV       & $-$0.0450 & $-$2.24 & 0.025 & S  \\
-EGARCH      & LightGBM     & $+$0.0116 & $+$0.50 & 0.616 & ns \\
-EGARCH      & XGBoost      & $+$0.0195 & $+$0.85 & 0.396 & ns \\
-EGARCH      & Ensemble     & $+$0.0317 & $+$2.55 & 0.011 & S  \\
+EGARCH      & LightGBM     & $+$0.0116 & $+$0.38 & 0.706 & ns \\
+EGARCH      & XGBoost      & $+$0.0194 & $+$0.66 & 0.511 & ns \\
+EGARCH      & Ensemble     & $+$0.0317 & $+$2.61 & 0.009 & S  \\
 GJR-GARCH   & HAR-RV       & $-$0.0751 & $-$2.99 & 0.003 & S  \\
 GJR-GARCH   & LightGBM     & $-$0.0185 & $-$0.73 & 0.464 & ns \\
-GJR-GARCH   & XGBoost      & $-$0.0106 & $-$0.46 & 0.643 & ns \\
+GJR-GARCH   & XGBoost      & $-$0.0106 & $-$0.43 & 0.667 & ns \\
 GJR-GARCH   & Ensemble     & $+$0.0016 & $+$0.12 & 0.903 & ns \\
 HAR-RV      & LightGBM     & $+$0.0566 & $+$1.48 & 0.140 & ns \\
-HAR-RV      & XGBoost      & $+$0.0645 & $+$1.74 & 0.082 & ns \\
-HAR-RV      & Ensemble     & $+$0.0767 & $+$3.05 & 0.002 & S  \\
+HAR-RV      & XGBoost      & $+$0.0644 & $+$1.68 & 0.093 & ns \\
+HAR-RV      & Ensemble     & $+$0.0767 & $+$3.70 & 0.000 & S  \\
 LightGBM    & XGBoost      & $+$0.0079 & $+$0.92 & 0.359 & ns \\
 LightGBM    & Ensemble     & $+$0.0201 & $+$0.96 & 0.337 & ns \\
-XGBoost     & Ensemble     & $+$0.0122 & $+$0.91 & 0.362 & ns \\
+XGBoost     & Ensemble     & $+$0.0122 & $+$0.59 & 0.557 & ns \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\textbf{Of 21 ordered pairs, only 6 have a significant difference at the 5\% level.} The significant pairs all involve either GJR-GARCH (which significantly beats GARCH and EGARCH and HAR-RV) or the Ensemble (which significantly beats GARCH and EGARCH and HAR-RV) or HAR-RV (which significantly loses to GJR-GARCH, EGARCH, and the Ensemble). The pairs that the original paper's headline focused on, in particular Ensemble vs.\ GJR-GARCH, are not significant: $\bar d = +0.0016$, $t = +0.12$, $p = 0.90$. The ensemble's nominal lead over GJR-GARCH on the QLIKE column is, by Diebold-Mariano, indistinguishable from zero.
+\textbf{Of 21 ordered pairs, 8 are significant at the 5\% level.} The pattern is concentrated rather than diffuse: HAR-RV loses significantly to all four better-performing models (GARCH, EGARCH, GJR-GARCH, and the Ensemble), and GJR-GARCH plus the Ensemble each significantly beat the two symmetric GARCH variants (GARCH and EGARCH). The pairs that the original paper's headline focused on, in particular Ensemble vs.\ GJR-GARCH, are not significant: $\bar d = +0.0016$, $t = +0.12$, $p = 0.90$. The Ensemble's nominal lead over GJR-GARCH on the QLIKE column is, by Diebold-Mariano, indistinguishable from zero. None of the tree-vs-tree, tree-vs-GJR, or tree-vs-Ensemble pairs separate at conventional levels either.
 
 \subsection{Model Confidence Set at the 90\% confidence level}
 
@@ -83,7 +83,7 @@ XGBoost     & Ensemble     & $+$0.0122 & $+$0.91 & 0.362 & ns \\
 \small
 \caption{Hansen-Lunde-Nason MCS at 90\% confidence ($\alpha=0.10$, $n_{\text{bootstrap}}=2000$, t-max statistic, QLIKE loss).}
 \label{tab:demo_mcs}
-\begin{tabular}{l l}
+\begin{tabular}{@{}l p{10cm}@{}}
 \toprule
 \textbf{Outcome} & \textbf{Models} \\
 \midrule
@@ -135,7 +135,7 @@ The original paper documents a subperiod reversal: the GARCH family wins 2022 (t
 \small
 \caption{90\% MCS by calendar-year subperiod ($n_{\text{bootstrap}}=1000$, t-max statistic, QLIKE loss, seed 2026).}
 \label{tab:demo_subperiod_mcs}
-\begin{tabular}{l l}
+\begin{tabular}{@{}l p{8.5cm}@{}}
 \toprule
 \textbf{Subperiod} & \textbf{MCS survivors} \\
 \midrule
@@ -151,6 +151,6 @@ This pattern is consistent with the original paper's narrative: parametric GARCH
 
 \subsection{What this demonstration shows}
 
-Three things, jointly. First, that the headline ``win'' in a published volatility-forecasting comparison can collapse under standard significance tests; in this case, the ``ensemble narrowly wins overall'' result of the original paper translates to ``the ensemble matches GJR-GARCH at $p = 0.90$ and is statistically tied with five other models at 90\% MCS.'' Second, that pairwise DM and the MCS / SPA tests can disagree in interesting ways; the DM table identifies six significant pairs, but the MCS keeps six out of seven models; the joint reading is that significant pairwise differences exist locally (e.g., GJR-GARCH significantly beats GARCH) without supporting a global ranking. Third, that the full battery of tests is cheap to run once a package implements them; the full \Cref{sec:demonstration} analysis (full sample + 21 DM pairs + MCS + 7-fold SPA + subperiod MCS) ran in under 30 seconds on a laptop.
+Three things, jointly. First, that the headline ``win'' in a published volatility-forecasting comparison can collapse under standard significance tests; in this case, the ``ensemble narrowly wins overall'' result of the original paper translates to ``the Ensemble matches GJR-GARCH at $p = 0.90$ and is statistically tied with five other models at 90\% MCS.'' Second, that pairwise DM and the MCS / SPA tests can disagree in interesting ways. The DM table identifies eight significant pairs, but the 90\% MCS keeps six of seven models; the joint reading is that significant pairwise differences exist locally (e.g., GJR-GARCH significantly beats GARCH) without supporting a global ranking once family-wise error is controlled. Third, that the full battery of tests is cheap to run once a package implements them: the full \Cref{sec:demonstration} analysis (full sample + 21 DM pairs + MCS + 7-fold SPA + subperiod MCS) ran in under 30 seconds on a laptop.
 
 These findings are about a single seven-model panel and should not be over-generalized. The next section discusses the queued empirical extension that would test whether they generalize to the broader literature.

@@ -4,7 +4,7 @@ The two empirical sections of this paper, the seven-model demonstration of \Cref
 
 \subsection{What the two empirical sections agree on}
 
-The self-contained demonstration shows that within a single, well-documented seven-model panel, only 6 of 21 pairwise DM comparisons are significant at 5\%, the 90\% MCS keeps six of seven models, and SPA cannot reject any of the top six as the best forecaster. The 30-paper re-analysis shows that, across a larger sample, 86\% (12 of 14) of paper-claimed wins do not survive significance testing in our reproductions.
+The self-contained demonstration shows that within a single, well-documented seven-model panel, 8 of 21 pairwise DM comparisons are significant at 5\%, the 90\% MCS keeps six of seven models, and SPA cannot reject any of the top four (GJR-GARCH, LightGBM, XGBoost, Ensemble) as the best forecaster. The 30-paper re-analysis shows that, across a larger sample, 86\% (12 of 14) of paper-claimed wins do not survive significance testing in our reproductions.
 
 The agreement matters because the two pieces of evidence have orthogonal weaknesses. The seven-model demonstration is on one panel; its specific p-values are panel-specific. The Phase 2 reproductions span multiple asset classes, multiple model classes, and multiple authors but are necessarily approximations of the originals (RDS-1 papers ship no code; we re-implement from prose). Either piece of evidence taken alone would invite ``but is your specific test contaminated?'' as a response. Taken together, they describe a pattern that is robust to either critique.
 
@@ -26,7 +26,7 @@ Three editorial recommendations follow.
 
 \textit{Be especially careful with multi-model comparisons.} The DM test is for two models; using it as a battery of pairwise comparisons across many models without multiplicity adjustment will inflate the family-wise error rate and produce illusory ``wins.'' The MCS handles this correctly. The SPA / Reality Check handle the related ``one benchmark vs.\ many competitors'' question.
 
-A fourth recommendation, which the Phase 2 disclosure findings (\Cref{sec:phase2_rds}) make especially salient: include a labelled ``Data and Code Availability'' block in the manuscript itself. Of the 30 papers in our sample, only the MDPI cohort consistently includes such a block (it is required by MDPI editorial policy as of 2020). The \emph{Journal of Financial Econometrics} cohort, despite being the most methodologically careful subset of our sample, embeds data descriptions in the prose of the data section without a separable disclosure block. This makes mechanical RDS scoring harder and reproduction-attempt feasibility opaque to the reader. A short labelled block costs the author nothing and saves the reader an hour of search.
+A fourth recommendation, which the Phase 2 disclosure findings (\Cref{sec:phase2_rds}) make especially salient: include a labeled ``Data and Code Availability'' block in the manuscript itself. Of the 30 papers in our sample, only the MDPI cohort consistently includes such a block (it is required by MDPI editorial policy as of 2020). The \emph{Journal of Financial Econometrics} cohort, despite being the most methodologically careful subset of our sample, embeds data descriptions in the prose of the data section without a separable disclosure block. This makes mechanical RDS scoring harder and reproduction-attempt feasibility opaque to the reader. A short labeled block costs the author nothing and saves the reader an hour of search.
 
 \subsection{Limitations}\label{sec:limitations}
 

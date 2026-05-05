@@ -2,9 +2,9 @@
 
 \sloppy
 
-The single-panel demonstration of \Cref{sec:demonstration} shows what the \texttt{vol-eval} battery looks like when applied to one well-documented horse race. The natural question is how the findings generalise. This section reports the result of applying \texttt{vol-eval} to a sample of 30 published volatility-forecasting comparison papers from 2018--2025.
+The single-panel demonstration of \Cref{sec:demonstration} shows what the \texttt{vol-eval} battery looks like when applied to one well-documented horse race. The natural question is how the findings generalize. This section reports the result of applying \texttt{vol-eval} to a sample of 30 published volatility-forecasting comparison papers from 2018--2025.
 
-We organise the section around three layered findings: (i) reproducibility-disclosure rates in the sample, (ii) the use of formal significance tests in the original papers, and (iii) for the subset we can reproduce, the survival of headline ``wins'' under \texttt{vol-eval}.
+We organize the section around three layered findings: (i) reproducibility-disclosure rates in the sample, (ii) the use of formal significance tests in the original papers, and (iii) for the subset we can reproduce, the survival of headline ``wins'' under \texttt{vol-eval}.
 
 \subsection{Sample selection}\label{sec:phase2_sample}
 
@@ -117,7 +117,7 @@ The single partial survivor is \citet{MostafaSahaIslamNguyen2021}: in our reprod
 
 The remaining 12 papers fall into two failure patterns. In eleven cases, the paper-claimed winner is not the lowest-QLIKE model in our reproduction. The most striking instance is \citet{Wei2025}: the paper claims that the GARCH-GRU hybrid consistently outperforms classical GARCH and Transformer baselines on US equity volatility, but in our reproduction on the S\&P 500, plain GARCH(1,1) has the lowest QLIKE (6.19), and the paper's claimed winner GARCH-GRU ranks third (11.80). A similarly clean reversal is \citet{Roszyk2024}: the paper claims that adding the VIX index to a hybrid LSTM-GARCH significantly improves S\&P 500 volatility forecasts, but in our reproduction the no-VIX hybrid actually has lower QLIKE than the with-VIX variant, and the DM test of with-VIX versus no-VIX gives $p=0.371$. In one case (P21, \citet{Aradi2020}), the paper-claimed winner does match our best-by-QLIKE (dilated CNN with transfer learning beats dilated CNN without transfer), but the DM test gives $p=0.057$, just above the 5\% threshold; the 90\% MCS keeps all three models including ARIMA. We classify P21 as ``fails'' because we adopt a strict $\alpha = 0.05$ threshold; under a 10\% threshold it would be a partial survivor.
 
-\Cref{fig:phase2_qlike_ratio} visualises the per-paper outcome as the ratio of the paper-claimed winner's QLIKE to our best-by-QLIKE in the same reproduction. A ratio of 1.0 means the paper's winner is also our best (which is the case for the survivor P10, the partial survivor P15 on BTC, and P21 Aradi where the DM test gives $p=0.057$). Ratios above 1.0 mean the paper's winner is worse than at least one alternative in our reproduction; the larger the bar, the larger the QLIKE gap.
+\Cref{fig:phase2_qlike_ratio} visualizes the per-paper outcome as the ratio of the paper-claimed winner's QLIKE to our best-by-QLIKE in the same reproduction. A ratio of 1.0 means the paper's winner is also our best (which is the case for the survivor P10, the partial survivor P15 on BTC, and P21 Aradi where the DM test gives $p=0.057$). Ratios above 1.0 mean the paper's winner is worse than at least one alternative in our reproduction; the larger the bar, the larger the QLIKE gap.
 
 \begin{figure}[H]
 \centering
@@ -127,7 +127,7 @@ The remaining 12 papers fall into two failure patterns. In eleven cases, the pap
 
 \subsection{Cross-section: which methodology classes' wins fail most often?}\label{sec:phase2_methodology_cross}
 
-The 86\% aggregate failure rate masks a sharper finding when the sample is split by the model class of the paper-claimed winner. We classify each paper's headline winner into one of four classes by its prose description: \emph{hybrid} (an econometric model coupled with an ML component, e.g., GARCH-LSTM, GARCH-MIDAS-LSTM, GARCH-GRU, hybrid LSTM-GARCH+VIX, autoencoder-Realized GARCH); \emph{pure ML/DL} (an ML or deep-learning model used standalone, e.g., RNN, LSTM, ANN, dilated CNN, Temporal GAT); \emph{pure econometric} (a classical statistical model, e.g., HAR-RV, Bayesian SV, regime-switching HAR, GJR-GARCH); \emph{methodological} (papers proposing an estimation or modelling framework rather than a specific forecaster).
+The 86\% aggregate failure rate masks a sharper finding when the sample is split by the model class of the paper-claimed winner. We classify each paper's headline winner into one of four classes by its prose description: \emph{hybrid} (an econometric model coupled with an ML component, e.g., GARCH-LSTM, GARCH-MIDAS-LSTM, GARCH-GRU, hybrid LSTM-GARCH+VIX, autoencoder-Realized GARCH); \emph{pure ML/DL} (an ML or deep-learning model used standalone, e.g., RNN, LSTM, ANN, dilated CNN, Temporal GAT); \emph{pure econometric} (a classical statistical model, e.g., HAR-RV, Bayesian SV, regime-switching HAR, GJR-GARCH); \emph{methodological} (papers proposing an estimation or modeling framework rather than a specific forecaster).
 
 \Cref{fig:phase2_outcome_by_methodology} reports the survival outcome by class. Two findings stand out.
 

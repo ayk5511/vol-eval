@@ -22,11 +22,11 @@ The functional design has two consequences worth noting. It composes cleanly wit
 
 \subsection{What is included}
 
-\Cref{tab:api} lists the public API as of v0.1.0.
+\Cref{tab:api} lists the public API as of v0.2.0.
 
 \begin{table}[H]
 \centering
-\caption{vol-eval public API as of v0.1.0.}
+\caption{vol-eval public API as of v0.2.0.}
 \label{tab:api}
 \footnotesize
 \setlength{\tabcolsep}{4pt}
@@ -55,7 +55,7 @@ All tests use a Newey-West HAC standard error with bandwidth equal to $h-1$, whe
 
 \subsection{What is verified}
 
-The package ships with 45 unit tests. The tests fall into four categories:
+The package ships with 45 unit tests. The tests fall into five categories:
 
 \begin{enumerate}[leftmargin=*]
     \item \textit{Loss-function correctness.} QLIKE returns 0 when forecast equals actual; MSE matches a hand-computed value; the Mincer-Zarnowitz $R^2$ returns 1 when forecast and actual are perfectly linearly related; all losses reject mismatched shapes and handle NaN.
