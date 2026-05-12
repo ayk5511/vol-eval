@@ -159,12 +159,18 @@ def model_confidence_set(
         var_d = np.where(var_d > 0, var_d, np.nan)
         t_stats = d_i / np.sqrt(var_d)
 
+        # Both statistics use centered bootstrap replicates (subtracting the
+        # per-model bootstrap mean) to mimic the null of equal expected loss.
+        # The observed t_stats are centered analogously (d_i = d_bar - avg_loss),
+        # so the bootstrap distribution and the observed statistic are on the
+        # same scale.
+        centered_boot_t = (boot_d_bar - boot_d_bar.mean(axis=0)) / np.sqrt(var_d)
         if statistic == "t_max":
             test_stat = float(np.nanmax(t_stats))
-            boot_stats = np.nanmax((boot_d_bar - boot_d_bar.mean(axis=0)) / np.sqrt(var_d), axis=1)
+            boot_stats = np.nanmax(centered_boot_t, axis=1)
         else:  # t_range
             test_stat = float(np.nanmax(t_stats) - np.nanmin(t_stats))
-            boot_stats = np.nanmax(boot_d_bar / np.sqrt(var_d), axis=1) - np.nanmin(boot_d_bar / np.sqrt(var_d), axis=1)
+            boot_stats = np.nanmax(centered_boot_t, axis=1) - np.nanmin(centered_boot_t, axis=1)
 
         p_value = float(np.mean(boot_stats >= test_stat))
 

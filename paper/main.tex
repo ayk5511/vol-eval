@@ -38,12 +38,12 @@
     columns=flexible
 }
 
-\title{vol-eval: A Python Package for Volatility Forecast Evaluation,\\
-with a Re-Analysis of 30 Published Comparison Papers\\
-(2018--2025)}
+\title{vol-eval: A Python Package for Volatility\\
+Forecast Evaluation, with a Re-Analysis of\\
+30 Published Comparison Papers (2018--2025)}
 
 \author{
-    Akram Khan\thanks{Independent Researcher. ORCID: \href{https://orcid.org/0009-0002-7521-8648}{0009-0002-7521-8648}. Replication code, data, and audit script: \href{https://github.com/ayk5511/vol-eval}{github.com/ayk5511/vol-eval}.}
+    Akram Khan\thanks{Independent Researcher. ORCID: \href{https://orcid.org/0009-0002-7521-8648}{0009-0002-7521-8648}. Email: \href{mailto:1819ak@gmail.com}{1819ak@gmail.com}. Replication code, data, and audit script: \href{https://github.com/ayk5511/vol-eval}{github.com/ayk5511/vol-eval}.}
 }
 
 \date{April 2026}
@@ -53,7 +53,7 @@ with a Re-Analysis of 30 Published Comparison Papers\\
 \maketitle
 
 \begin{abstract}
-This paper introduces \texttt{vol-eval}, an open-source Python package that ships the canonical battery of significance tests for volatility forecast evaluation. The battery covers QLIKE, MSE, MAE, Mincer-Zarnowitz $R^2$, Diebold-Mariano (1995) with Newey-West HAC standard errors, the Hansen-Lunde-Nason (2011) Model Confidence Set with stationary bootstrap, Hansen's (2005) Superior Predictive Ability test with three p-value variants, and White's (2000) Reality Check. The package follows a functional API with typed result objects, ships under MIT license, and is verified by 34 unit tests including cross-validation against the \texttt{arch} package's reference implementation.
+This paper introduces \texttt{vol-eval}, an open-source Python package that ships the canonical battery of significance tests for volatility forecast evaluation. The battery covers QLIKE, MSE, MAE, Mincer-Zarnowitz $R^2$, Diebold-Mariano (1995) with Newey-West HAC standard errors, the Hansen-Lunde-Nason (2011) Model Confidence Set with stationary bootstrap, Hansen's (2005) Superior Predictive Ability test with three p-value variants, White's (2000) Reality Check, and the Giacomini-White (2006) Conditional Predictive Ability test. The package follows a functional API with typed result objects, ships under MIT license, and is verified by 45 unit tests including cross-validation against the \texttt{arch} package's reference implementation.
 
 We apply \texttt{vol-eval} in two settings. The first is a self-contained seven-model horse race on S\&P 500 realized volatility, using the panel of \citet{KhanVol2026}. The second is a sample of 30 published volatility-forecasting comparison papers from 2018--2025, drawn from the \emph{Journal of Financial Econometrics}, three open-access MDPI venues, and arXiv q-fin.
 

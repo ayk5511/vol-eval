@@ -1,7 +1,8 @@
 # vol-eval
 
 Volatility forecast evaluation: standard loss functions plus Diebold-Mariano,
-Model Confidence Set, SPA, and Reality Check tests.
+Model Confidence Set, SPA, Reality Check, and Giacomini-White Conditional
+Predictive Ability tests.
 
 A small, opinionated Python package. Built for the version of financial
 machine learning that takes evaluation discipline seriously: every pairwise
@@ -94,6 +95,7 @@ print(spa.p_value_consistent)  # 0.42 -> cannot reject H0; garch is fine
 | `model_confidence_set(actual, forecasts, ...)` | Hansen, Lunde, Nason (2011) | Which subset of models is statistically equivalent to the best? |
 | `spa_test(actual, benchmark, competitors, ...)` | Hansen (2005) | Is the benchmark not inferior to any competitor? Returns lower / consistent / upper p-values. |
 | `reality_check(actual, benchmark, competitors, ...)` | White (2000) | Conservative variant of SPA. Equivalent to SPA's upper-bound p-value. |
+| `gw_test(actual, fa, fb, ...)` | Giacomini-White (2006) | Conditional Predictive Ability test, extends DM to the conditional null with a Wald-type chi-squared statistic. |
 
 All significance tests use a Newey-West HAC standard error with bandwidth
 `h - 1` (rule of thumb for an h-step-ahead forecast), and the bootstrap-based
@@ -116,14 +118,15 @@ tests use Politis-Romano stationary bootstrap.
 
 This package is the technical foundation for:
 
-> Khan, A. (2026). *Are Published Volatility Forecasting "Wins" Statistically
-> Significant? A vol-eval Re-Analysis of 30 Recent Papers (2018–2025).*
-> Working Paper, in production.
+> Khan, A. (2026). *vol-eval: A Python Package for Volatility Forecast
+> Evaluation, with a Re-Analysis of 30 Published Comparison Papers
+> (2018–2025).* SSRN working paper.
 
 The paper applies `vol-eval` to 30 published comparison papers from 2018-2025
-and reports the fraction of "wins" that survive Diebold-Mariano testing,
-fall outside the Model Confidence Set, or fail Hansen SPA. Spoiler from the
-pilot run: a substantial minority do not.
+and reports what fraction of paper-claimed "wins" survive significance
+testing. Headline finding: of the 14 papers reproducible from disclosed code
+and data, 12 (86%) of headline wins do not survive at least one of
+Diebold-Mariano, MCS at 90%, or SPA at 5%.
 
 ## Citation
 
@@ -135,7 +138,7 @@ If you use `vol-eval` in research, please cite:
   author = {Khan, Akram},
   year   = {2026},
   url    = {https://github.com/ayk5511/vol-eval},
-  version = {0.1.0}
+  version = {0.2.0}
 }
 ```
 

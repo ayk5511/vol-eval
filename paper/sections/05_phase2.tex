@@ -10,7 +10,7 @@ We organize the section around three layered findings: (i) reproducibility-discl
 
 The 30 papers were identified via a Crossref + OpenAlex + arXiv bibliographic search (\texttt{studies/04\_search\_candidates.py}) restricted to articles published 2018--2025 in a target set of finance and forecasting journals plus arXiv q-fin preprints. We applied two filtering passes (\texttt{studies/05\_narrow\_candidates.py}): a horse-race language filter (papers comparing $\geq 2$ model families and reporting out-of-sample loss evaluation) and a per-venue cap to preserve diversity.
 
-Initial inclusion criteria targeted six journals (\emph{Journal of Financial Econometrics}, \emph{Journal of Empirical Finance}, \emph{Quantitative Finance}, \emph{Journal of Forecasting}, \emph{International Journal of Forecasting}, \emph{Journal of Financial Data Science}) plus arXiv q-fin. After applying the horse-race filter and prioritising papers with openly-accessible PDFs at the analysis stage, the final sample comprises six papers from the \emph{Journal of Financial Econometrics}, thirteen from three open-access MDPI venues (\emph{Mathematics}, \emph{Risks}, \emph{Journal of Risk and Financial Management}), and eleven arXiv q-fin preprints (\Cref{tab:phase2_venues}). The originally-targeted Wiley and Elsevier journals are absent from this analysis-stage sample due to PDF access constraints during programmatic download. We document this access-driven sample-frame deviation as a limitation in \Cref{sec:discussion}, noting that the open-access MDPI venues we use are indexed in DOAJ and apply transparent peer review.
+Initial inclusion criteria targeted six journals (\emph{Journal of Financial Econometrics}, \emph{Journal of Empirical Finance}, \emph{Quantitative Finance}, \emph{Journal of Forecasting}, \emph{International Journal of Forecasting}, \emph{Journal of Financial Data Science}) plus arXiv q-fin. After applying the horse-race filter and prioritizing papers with openly-accessible PDFs at the analysis stage, the final sample comprises six papers from the \emph{Journal of Financial Econometrics}, thirteen from three open-access MDPI venues (\emph{Mathematics}, \emph{Risks}, \emph{Journal of Risk and Financial Management}), and eleven arXiv q-fin preprints (\Cref{tab:phase2_venues}). The originally-targeted Wiley and Elsevier journals are absent from this analysis-stage sample due to PDF access constraints during programmatic download. We document this access-driven sample-frame deviation as a limitation in \Cref{sec:discussion}, noting that the open-access MDPI venues we use are indexed in DOAJ and apply transparent peer review.
 
 \begin{table}[H]
 \centering
@@ -76,7 +76,7 @@ SPA / Reality Check & 0 & 0\% \\
 \end{tabular}
 \end{table}
 
-This is the strongest empirical case for the \texttt{vol-eval} package. The volatility-forecasting subfield publishes ``X beats Y'' claims at scale without significance testing. The package exists to remove the labour cost of doing the right thing: each test is a one-line API call.
+This is the strongest empirical case for the \texttt{vol-eval} package. The volatility-forecasting subfield publishes ``X beats Y'' claims at scale without significance testing. The package exists to remove the labor cost of doing the right thing: each test is a one-line API call.
 
 \subsection{Finding 3: Survival of headline wins under vol-eval}\label{sec:phase2_survival}
 
@@ -169,32 +169,32 @@ With these caveats in place, the modal outcome remains striking: in a 14-paper r
 
 \subsection{Appendix to Phase 2: per-paper detail}\label{sec:phase2_appendix_text}
 
-\Cref{tab:phase2_appendix} provides one row per reproduced paper with the key vol-eval outputs: paper-claimed winner, our best-by-QLIKE model in the reproduction, DM $p$-value of the comparison the paper makes, and 90\% MCS survivor count. Multi-asset reproductions (P09 across four Colombian ADRs, P12 across six cryptocurrencies, P15 across five cryptocurrencies, P27 across two FX pairs) report the worst-case dataset for the paper's claim; the per-asset detail is in the per-paper JSON output files.
+\Cref{tab:phase2_appendix} provides one row per reproduced paper with the key vol-eval outputs: paper-claimed winner, our best-by-QLIKE model in the reproduction, DM $p$-value of the comparison the paper makes, and 90\% MCS survivor count. Multi-asset reproductions (P09 across four Colombian ADRs, P12 across six cryptocurrencies, P15 across five cryptocurrencies, P27 across two FX pairs) report the asset that is most damning to the paper's claim, i.e., the smallest DM $p$-value across assets, equivalently the asset where the test most clearly rejects the paper's claim of a winner. The per-asset detail is in the per-paper JSON output files. The reported $p$-value is mechanically verified against the per-paper \texttt{voleval\_result.json} by the audit script in this paper's repository.
 
 \begin{table}[H]
 \centering
-\caption{Per-paper vol-eval outcomes for the 14 reproducible papers. ``DM~$p$'' is the Diebold-Mariano $p$-value for paper-claimed winner versus paper-claimed runner-up at $h=1$. ``MCS surv/tot'' is the number of models retained by the 90\% MCS over the total in the comparison. Asterisk (*) marks reproductions with substantial library/feature substitutions detailed in \Cref{sec:phase2_caveats}.}\label{tab:phase2_appendix}
+\caption{Per-paper vol-eval outcomes for the 14 reproducible papers. ``DM~$p$'' is the Diebold-Mariano $p$-value for paper-claimed winner versus paper-claimed runner-up at $h=1$. ``MCS surv/tot'' is the number of models retained by the 90\% MCS over the total in the comparison. Asterisk (*) marks reproductions with substantial library/feature substitutions detailed in \Cref{sec:phase2_caveats}. ``rev'' marks rows where the DM test rejects in the direction \emph{opposite} to the paper's claim.}\label{tab:phase2_appendix}
 \scriptsize
 \setlength{\tabcolsep}{4pt}
-\begin{tabular}{@{}p{1.4cm}p{0.9cm}p{2.4cm}p{2.4cm}cccp{1.0cm}@{}}
+\begin{tabular}{p{2.0cm}p{0.8cm}p{3.3cm}p{2.9cm}p{1.5cm}p{1.2cm}p{1.5cm}}
 \toprule
 Paper ID & Venue & Claimed winner & Our best (QLIKE) & DM $p$ & MCS surv/tot & Outcome \\
 \midrule
-P10 (Shen) & JRFM & RNN & RNN & 0.021 & 1/3 & \textbf{Survives} \\
-P15 (Mostafa) & JRFM & ANN & ANN (BTC) & 0.010 & 1/3 & Partial \\
+P10 (Shen)        & JRFM  & RNN                & RNN                  & 0.021         & 1/3 & \textbf{Survives} \\
+P15 (Mostafa)     & JRFM  & ANN                & ANN (BTC)            & 0.010         & 1/3 & Partial \\
 \midrule
-P09 (Rubio) & Math & Hybrid ARIMA-SVR & ARIMA & 0.355 & 3/3 & Fails \\
-P11* (Ersin) & Math & GARCH-MIDAS-LSTM & GARCH & 0.513 & 2/2 & Fails \\
-P12* (Kim) & Math & Bayesian SV & GARCH-$t$ & $<$0.001 & 2/4 & Fails \\
-P14 (Zahid) & Risks & Hybrid GARCH-LSTM & GRU & 0.024 & 4/5 & Fails \\
-P18* (Lei) & Math & TCN + attention & LSTM & 0.010~(rev) & 3/4 & Fails \\
-P20 (Lux) & arXiv & SVR-GARCH-KDE & GARCH-$t$ & 0.001~(rev) & 2/3 & Fails \\
-P21 (Aradi) & arXiv & Dilated CNN + TL & Dilated CNN + TL & 0.057 & 3/3 & Fails \\
-P24* (Kumar) & arXiv & Temporal GAT & GARCH & 0.119 & 2/2 & Fails \\
-P25 (Xu) & arXiv & GINN & LSTM & 0.231 & 3/3 & Fails \\
-P26 (Roszyk) & arXiv & LSTM-GARCH+VIX & LSTM-GARCH & 0.371 & 4/4 & Fails \\
-P27 (Tondapu) & arXiv & GARCH (rolling) & EWMA / Historical & 0.438 & 4/4 & Fails \\
-P28 (Wei) & arXiv & GARCH-GRU & GARCH & 0.112 & 6/6 & Fails \\
+P09 (Rubio)       & Math  & Hybrid ARIMA-SVR   & ARIMA                & 0.355         & 3/3 & Fails \\
+P11* (Ersin)      & Math  & GARCH-MIDAS-LSTM   & GARCH                & 0.513         & 2/2 & Fails \\
+P12* (Kim)        & Math  & Bayesian SV        & GARCH-$t$            & $<$0.001      & 2/4 & Fails \\
+P14 (Zahid)       & Risks & Hybrid GARCH-LSTM  & GRU                  & 0.024         & 4/5 & Fails \\
+P18* (Lei)        & Math  & TCN + attention    & LSTM                 & 0.010~(rev)   & 3/4 & Fails \\
+P20 (Lux)         & arXiv & SVR-GARCH-KDE      & GARCH-$t$            & 0.001~(rev)   & 2/3 & Fails \\
+P21 (Aradi)       & arXiv & Dilated CNN + TL   & Dilated CNN + TL     & 0.057         & 3/3 & Fails \\
+P24* (Kumar)      & arXiv & Temporal GAT       & GARCH                & 0.119         & 2/2 & Fails \\
+P25 (Xu)          & arXiv & GINN               & LSTM                 & 0.231         & 3/3 & Fails \\
+P26 (Roszyk)      & arXiv & LSTM-GARCH+VIX     & LSTM-GARCH           & 0.371         & 4/4 & Fails \\
+P27 (Tondapu)     & arXiv & GARCH (rolling)    & EWMA / Historical    & 0.438         & 4/4 & Fails \\
+P28 (Wei)         & arXiv & GARCH-GRU          & GARCH                & 0.112         & 6/6 & Fails \\
 \bottomrule
 \end{tabular}
 \end{table}

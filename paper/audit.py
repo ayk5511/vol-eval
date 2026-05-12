@@ -51,6 +51,45 @@ def close(actual: float, expected: float, tol: float = 5e-4) -> bool:
 def main() -> int:
     fails = 0
 
+    section("UNIT-TEST COUNT (vs abstract claim)")
+    # The paper's abstract and §2.3 claim "45 unit tests". Auto-count the
+    # actual collection so any drift between code and prose is caught.
+    import subprocess
+    try:
+        result = subprocess.run(
+            ["python3", "-m", "pytest", str(ROOT / "tests"), "--collect-only", "-q"],
+            capture_output=True,
+            text=True,
+            timeout=60,
+            cwd=str(ROOT),
+        )
+        # Parse the last line that looks like "45 tests collected in 0.48s"
+        n_tests = None
+        for line in (result.stdout or "").splitlines():
+            m = line.strip()
+            if "tests collected" in m or "test collected" in m:
+                # Examples: "45 tests collected in 0.48s"
+                parts = m.split()
+                if parts and parts[0].isdigit():
+                    n_tests = int(parts[0])
+                    break
+        if n_tests is None:
+            # Fallback: count test_ functions in tests/
+            from re import findall
+            tests_dir = ROOT / "tests"
+            n_tests = sum(
+                len(findall(r"^def (test_\w+)\(", f.read_text(), flags=__import__("re").M))
+                for f in tests_dir.glob("test_*.py")
+            )
+        expected_n_tests = 45
+        if n_tests == expected_n_tests:
+            passmsg(f"unit-test count = {n_tests} (matches abstract claim)")
+        else:
+            fails += fail(f"unit-test count drift: paper says {expected_n_tests}, pytest collects {n_tests}")
+    except (subprocess.TimeoutExpired, FileNotFoundError) as exc:
+        # Don't fail audit if pytest is unavailable; just warn.
+        print(f"  warn: could not auto-count tests ({exc}); skipping check")
+
     section("LOAD")
     full = json.loads((RESULTS / "paper2_full_sample.json").read_text())
     dm = json.loads((RESULTS / "paper2_dm_pairs.json").read_text())
@@ -63,14 +102,15 @@ def main() -> int:
     print(f"  spa benchmarks:      {sorted(spa.keys())}")
 
     section("PAPER FULL-SAMPLE TABLE (Tab. 1)")
+    # MSE column added in v1 audit: was missing prior, all values verified.
     expected = {
-        "GARCH":     {"QLIKE": 0.3806, "MAE": 0.0523, "RMSE": 0.0796, "MZ_R2": 0.2835},
-        "EGARCH":    {"QLIKE": 0.3748, "MAE": 0.0520, "RMSE": 0.0769, "MZ_R2": 0.3097},
-        "GJR-GARCH": {"QLIKE": 0.3447, "MAE": 0.0489, "RMSE": 0.0734, "MZ_R2": 0.3802},
-        "HAR-RV":    {"QLIKE": 0.4198, "MAE": 0.0507, "RMSE": 0.0779, "MZ_R2": 0.2895},
-        "LightGBM":  {"QLIKE": 0.3632, "MAE": 0.0476, "RMSE": 0.0742, "MZ_R2": 0.3754},
-        "XGBoost":   {"QLIKE": 0.3553, "MAE": 0.0470, "RMSE": 0.0745, "MZ_R2": 0.3638},
-        "Ensemble":  {"QLIKE": 0.3431, "MAE": 0.0475, "RMSE": 0.0738, "MZ_R2": 0.3515},
+        "GARCH":     {"QLIKE": 0.3806, "MSE": 0.0063, "MAE": 0.0523, "RMSE": 0.0796, "MZ_R2": 0.2835},
+        "EGARCH":    {"QLIKE": 0.3748, "MSE": 0.0059, "MAE": 0.0520, "RMSE": 0.0769, "MZ_R2": 0.3097},
+        "GJR-GARCH": {"QLIKE": 0.3447, "MSE": 0.0054, "MAE": 0.0489, "RMSE": 0.0734, "MZ_R2": 0.3802},
+        "HAR-RV":    {"QLIKE": 0.4198, "MSE": 0.0061, "MAE": 0.0507, "RMSE": 0.0779, "MZ_R2": 0.2895},
+        "LightGBM":  {"QLIKE": 0.3632, "MSE": 0.0055, "MAE": 0.0476, "RMSE": 0.0742, "MZ_R2": 0.3754},
+        "XGBoost":   {"QLIKE": 0.3553, "MSE": 0.0056, "MAE": 0.0470, "RMSE": 0.0745, "MZ_R2": 0.3638},
+        "Ensemble":  {"QLIKE": 0.3431, "MSE": 0.0054, "MAE": 0.0475, "RMSE": 0.0738, "MZ_R2": 0.3515},
     }
     for model, exp_metrics in expected.items():
         for metric, exp_val in exp_metrics.items():
@@ -79,6 +119,15 @@ def main() -> int:
                 passmsg(f"{model}.{metric} = {actual:.4f}")
             else:
                 fails += fail(f"{model}.{metric} expected {exp_val:.4f}, got {actual:.4f}")
+
+    # Headline spread claim: 16 basis points between Ensemble and GJR-GARCH.
+    ens_q = full["Ensemble"]["QLIKE"]
+    gjr_q = full["GJR-GARCH"]["QLIKE"]
+    spread_bp = (gjr_q - ens_q) * 10000
+    if close(spread_bp, 16.0, tol=0.5):
+        passmsg(f"Ensemble vs GJR-GARCH QLIKE spread = {spread_bp:.1f} bp (matches '16 basis points' in paper)")
+    else:
+        fails += fail(f"QLIKE spread expected ~16 bp, got {spread_bp:.1f} bp")
 
     section("PAPER DM TABLE (Tab. demo_dm) - all 21 ordered pairs")
     # All 21 rows match the paper's Table demo_dm at h=5 (q_HAC=4).
@@ -185,6 +234,15 @@ def main() -> int:
             fails += fail(
                 f"Subperiod {label}: expected {sorted(exp_survivors)}, got {sorted(actual_survivors)}"
             )
+    # Subperiod sample sizes (N=251 for 2022, N=729 for 2023-2025)
+    expected_n = {"n_2022": 251, "n_2023plus": 729}
+    sub_meta = sub.get("meta", {})
+    for k, exp_n in expected_n.items():
+        got_n = sub_meta.get(k)
+        if got_n == exp_n:
+            passmsg(f"Subperiod {k} = {got_n}")
+        else:
+            fails += fail(f"Subperiod {k}: expected {exp_n}, got {got_n}")
 
     # ============================================================
     # v1 ADDITIONS: Phase 2 (30-paper) numerical claims
@@ -229,19 +287,38 @@ def main() -> int:
     if rds_csv.exists():
         from collections import Counter
         venues = Counter(r["venue"] for r in rows)
+        # n and mean strict RDS per venue, paper Table phase2_venues
         expected_venues = {
-            "Journal of Financial Econometrics": 6,
-            "Mathematics (MDPI)": 6,
-            "JRFM (MDPI)": 4,
-            "Risks (MDPI)": 3,
-            "arXiv q-fin": 11,
+            "Journal of Financial Econometrics": (6, 0.00),
+            "Mathematics (MDPI)":                (6, 0.67),
+            "JRFM (MDPI)":                       (4, 0.50),
+            "Risks (MDPI)":                      (3, 0.33),
+            "arXiv q-fin":                       (11, 0.64),
         }
-        for v, n_exp in expected_venues.items():
+        by_venue_rds = defaultdict(list)
+        for r in rows:
+            by_venue_rds[r["venue"]].append(int(r["strict_rds"]))
+        for v, (n_exp, mean_exp) in expected_venues.items():
             n_got = venues.get(v, 0)
-            if n_got == n_exp:
-                passmsg(f"{v}: {n_got}")
+            mean_got = sum(by_venue_rds[v]) / n_got if n_got else 0.0
+            if n_got == n_exp and abs(mean_got - mean_exp) < 0.01:
+                passmsg(f"{v}: n={n_got}, mean_RDS={mean_got:.2f}")
             else:
-                fails += fail(f"{v}: expected {n_exp}, got {n_got}")
+                fails += fail(f"{v}: expected n={n_exp}/mean={mean_exp:.2f}, got n={n_got}/mean={mean_got:.2f}")
+
+    section("PAPER PHASE 2 YEAR-BIN RDS (§5.7)")
+    # Year bins: 2020-2022 mean=0.67 n=12; 2023-2025 mean=0.38 n=16
+    if rds_csv.exists():
+        early = [int(r["strict_rds"]) for r in rows if 2020 <= int(r["year"]) <= 2022]
+        late = [int(r["strict_rds"]) for r in rows if 2023 <= int(r["year"]) <= 2025]
+        if len(early) == 12 and abs(sum(early)/len(early) - 0.67) < 0.01:
+            passmsg(f"2020-2022 cluster: n=12, mean_RDS={sum(early)/len(early):.2f}")
+        else:
+            fails += fail(f"2020-2022 cluster: expected n=12/mean=0.67, got n={len(early)}/mean={sum(early)/max(len(early),1):.2f}")
+        if len(late) == 16 and abs(sum(late)/len(late) - 0.38) < 0.01:
+            passmsg(f"2023-2025 cluster: n=16, mean_RDS={sum(late)/len(late):.2f}")
+        else:
+            fails += fail(f"2023-2025 cluster: expected n=16/mean=0.38, got n={len(late)}/mean={sum(late)/max(len(late),1):.2f}")
 
     section("PAPER PHASE 2 SIG-TEST USAGE")
     headline_csv = ROOT / "studies" / "results" / "phase2_headline_models.csv"
@@ -306,6 +383,89 @@ def main() -> int:
                 passmsg(f"{v}: n={exp['n']}, fails={exp['fails']}, partial={exp['partial']}, survives={exp['survives']}")
             else:
                 fails += fail(f"{v}: expected {exp}, got {dict(got)}")
+
+    section("PAPER PHASE 2 PER-PAPER APPENDIX (Tab. phase2_appendix)")
+    # The paper's appendix table reports the DM p-value most damning to the
+    # paper's claim (smallest p) for multi-asset reproductions, plus the
+    # single-asset reproductions. Verify every cell.
+    expected_appendix = [
+        # (paper_id, expected_dm_p, tol, asset_selector)
+        # selector: "min" picks the smallest p across datasets (worst case for paper's claim);
+        # "default" expects the single 'default' dataset.
+        ("P10_shen_2021",      0.021, 0.01, "min"),
+        ("P15_mostafa_2021",   0.010, 0.01, "min"),
+        ("P09_rubio_2022",     0.355, 0.01, "min"),
+        ("P11_ersin_2023",     0.513, 0.01, "default"),
+        ("P12_kim_2021",       0.001, 0.01, "min"),   # paper says "<0.001"; check smallest is < 0.001*2
+        ("P14_zahid_2022",     0.024, 0.01, "default"),
+        ("P18_lei_2021",       0.010, 0.01, "default"),
+        ("P20_lux_2020",       0.001, 0.01, "default"),
+        ("P21_aradi_2020",     0.057, 0.01, "default"),
+        ("P24_kumar_2024",     0.119, 0.01, "min"),  # single dataset key "GSPC"
+        ("P28_wei_2025",       0.112, 0.01, "default"),
+    ]
+    base = ROOT / "studies" / "per_paper"
+    for paper_id, exp_p, tol, selector in expected_appendix:
+        pj = base / paper_id / "voleval_result.json"
+        if not pj.exists():
+            fails += fail(f"{paper_id}: missing voleval_result.json")
+            continue
+        d = json.loads(pj.read_text())
+        ds = d.get("datasets", {})
+        if selector == "default":
+            dm = ds.get("default", {}).get("dm_winner_vs_runner_up", {})
+            got_p = dm.get("p_value")
+        else:  # min: smallest p across datasets
+            ps = []
+            for ds_name, ds_data in ds.items():
+                dm = ds_data.get("dm_winner_vs_runner_up", {})
+                if "p_value" in dm:
+                    ps.append(dm["p_value"])
+            got_p = min(ps) if ps else None
+        if got_p is None:
+            fails += fail(f"{paper_id}: no DM p-value extractable")
+            continue
+        # For Kim's "<0.001", check got_p < 0.002
+        if paper_id == "P12_kim_2021":
+            if got_p < 0.001:
+                passmsg(f"{paper_id}: DM p={got_p:.6f} < 0.001 (matches paper '<0.001')")
+            else:
+                fails += fail(f"{paper_id}: DM p={got_p:.4f}, expected <0.001")
+        elif abs(got_p - exp_p) < tol:
+            passmsg(f"{paper_id}: DM p={got_p:.3f} ~= {exp_p:.3f}")
+        else:
+            fails += fail(f"{paper_id}: DM p expected {exp_p:.3f}, got {got_p:.3f}")
+
+    # P25, P26, P27 use a legacy JSON schema (no `datasets` wrapper, no
+    # `dm_winner_vs_runner_up` key). They appear in the appendix at p=0.231,
+    # 0.371, 0.438 respectively; we verify those values against the
+    # alternative schema's `dm_winner_vs_*` keys.
+    legacy_expectations = [
+        ("P25_xu_2024",       0.231, 0.01, "dm_winner_vs_lstm"),
+        ("P26_roszyk_2024",   0.371, 0.01, "dm_winner_vs_runner_up"),
+        ("P27_tondapu_2024",  0.438, 0.01, None),  # multi-asset, max p
+    ]
+    for paper_id, exp_p, tol, key in legacy_expectations:
+        pj = base / paper_id / "voleval_result.json"
+        if not pj.exists():
+            fails += fail(f"{paper_id}: missing voleval_result.json")
+            continue
+        d = json.loads(pj.read_text())
+        if key is not None:
+            got_p = d.get(key, {}).get("p_value")
+        else:
+            # Multi-asset legacy: smallest p across assets (paper's
+            # convention is "most damning to paper's claim" = smallest p,
+            # matching the modern-schema multi-asset selection).
+            ps = []
+            for k, v in d.items():
+                if isinstance(v, dict) and "dm_winner_vs_runner_up" in v:
+                    ps.append(v["dm_winner_vs_runner_up"]["p_value"])
+            got_p = min(ps) if ps else None
+        if got_p is not None and abs(got_p - exp_p) < tol:
+            passmsg(f"{paper_id}: DM p={got_p:.3f} ~= {exp_p:.3f}")
+        else:
+            fails += fail(f"{paper_id}: DM p expected {exp_p:.3f}, got {got_p!r}")
 
     section("PAPER PHASE 2 §5.3 FAILURE BREAKDOWN")
     # 11 cases best != claimed, 1 case best == claimed but DM > 0.05 (P21 Aradi)

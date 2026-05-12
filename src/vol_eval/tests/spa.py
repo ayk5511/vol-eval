@@ -123,14 +123,23 @@ def spa_test(
     statistic = float(max(0.0, np.nanmax(t)))
 
     # Three centering variants for the bootstrap distribution.
-    # Following Hansen (2005, eq. 9-11) and the arch package's reference:
-    #   Lower (l):       g_l = max(d_bar, 0)  - never recenter models that beat
-    #                    benchmark (positive d_bar, where benchmark is worse);
-    #                    recenter (zero out) models that lose to benchmark
-    #   Consistent (c):  g_c = d_bar where d_bar >= -A_n; 0 otherwise
-    #   Upper (u):       g_u = d_bar          - always recenter (Reality Check)
+    # Sign convention: d_k = L_benchmark - L_competitor_k, so d_bar_k > 0 means
+    # competitor k has lower loss (benchmark is worse on this competitor).
+    # Following Hansen (2005, Section 3) and the arch package's reference:
+    #   Lower (l):       g_l = max(d_bar, 0)  -- treat competitors that beat
+    #                    benchmark (d_bar > 0) as binding (full recentering);
+    #                    treat competitors that lose to benchmark (d_bar < 0)
+    #                    as non-binding (no recentering, g_l = 0).
+    #                    Most liberal: smallest bootstrap stats, smallest p.
+    #   Consistent (c):  g_c = d_bar where d_bar >= -A_n; 0 otherwise.
+    #                    Competitors not too far below threshold are binding.
+    #                    Recommended for inference.
+    #   Upper (u):       g_u = d_bar          -- always recenter (all
+    #                    competitors binding). Equivalent to Reality Check.
+    #                    Most conservative: largest bootstrap stats, largest p.
     # where A_n = sqrt(2 * log log n / n) * sqrt(omega_k).
-    # Hansen shows g_l <= g_c <= g_u for all k, so p_lower >= p_consistent >= p_upper.
+    # Hansen (2005, p.371) shows g_l <= g_c <= g_u for all k, which yields
+    # bootstrap distributions ordered such that p_lower <= p_consistent <= p_upper.
     A_n = np.sqrt(2.0 * np.log(np.log(max(n, 3))) / n) * np.sqrt(omega)
     g_lower = np.maximum(d_bar, 0.0)
     g_consistent = np.where(d_bar >= -A_n, d_bar, 0.0)
